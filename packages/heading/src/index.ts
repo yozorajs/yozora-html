@@ -16,7 +16,7 @@ export function renderHeading(
     return (
       `<h${depth} id="${id}" className="yozora-heading yozora-heading--toc">` +
       `<p className="yozora-heading__content">${children}</p>` +
-      `<a className="yozora-heading__anchor" href="#${id}">${children}</a>` +
+      `<a className="yozora-heading__anchor" href="#${id}">¶</a>` +
       `</h${depth}>`
     )
   }

@@ -96,6 +96,49 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   // => <h1 className="yozora-heading"><p className="yozora-heading__content"><span class="yozora-text">yozora is cool!</span></p></h1>
   ```
 
+* With identifier:
+
+  ```tsx
+  import React from 'react'
+  import type { Heading } from '@yozora/ast'
+  import { HeadingType } from '@yozora/ast'
+  import renderHeading from '@yozora/html-heading'
+
+  // The implementation of the following function has been omitted.
+  const renderChildren: (nodes: YastNode[]) => string = function () {}
+
+  const heading: Heading = {
+    type: HeadingType,
+    depth: 1,
+    children: [
+      {
+        type: EmphasisType,
+        children: [
+          {
+            type: TextType,
+            value: 'Hello',
+          } as Text,
+        ],
+      } as Emphasis,
+      {
+        type: TextType,
+        value: ', ',
+      } as Text,
+      {
+        type: StrongType,
+        children: [
+          {
+            type: TextType,
+            value: 'World',
+          } as Text,
+        ],
+      } as Strong,
+    ],
+  }
+  renderHeading(heading, renderChildren)
+  // => <h6 id="waw" className="yozora-heading yozora-heading--toc"><p className="yozora-heading__content"><em class="yozora-emphasis"><span class="yozora-text">Hello</span></em><span class="yozora-text">, </span><strong class="yozora-strong"><span class="yozora-text">World</span></strong></p><a className="yozora-heading__anchor" href="#waw">¶</a></h6>
+  ```
+
 ## Related
 
 * [@yozora/ast][]
