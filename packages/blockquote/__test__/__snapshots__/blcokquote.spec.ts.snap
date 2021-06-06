@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot basic 1`] = `"<blockquote class=\\"yozora-blockquote\\"><span class=\\"yozora-text\\">yozora is cool!</span></blockquote>"`;
+
+exports[`snapshot basic-2 1`] = `"<blockquote class=\\"yozora-blockquote\\"><em class=\\"yozora-emphasis\\"><span class=\\"yozora-text\\">Hello</span></em><span class=\\"yozora-text\\">, </span><strong class=\\"yozora-strong\\"><span class=\\"yozora-text\\">World</span></strong></blockquote>"`;
