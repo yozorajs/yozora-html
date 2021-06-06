@@ -47,6 +47,7 @@
     "@babel/eslint-parser": "^7.14.4",
     "@guanghechen/eslint-config": "^1.5.1",
     "@guanghechen/eslint-config-ts": "^1.5.1",
+    "@guanghechen/jest-config": "^1.5.1",
     "@types/fs-extra": "^9.0.11",
     "@types/jest": "26.0.23",
     "@types/node": "15.12.0",

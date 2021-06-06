@@ -374,6 +374,11 @@
   dependencies:
     eslint-plugin-import "^2.22.1"
 
+"@guanghechen/jest-config@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.npmjs.org/@guanghechen/jest-config/-/jest-config-1.5.1.tgz#51a6d55207c12d307ad21ab9eaccfc233ffbfb56"
+  integrity sha512-s9+f1imqNlFhDKgwRA/hewwiqQl7Jc/N40uUMHRmY9Y8GYl/HDKYkCBKK984Wx/Rt1PdnBYr0gsYlqX8WruF5g==
+
 "@iarna/cli@^1.2.0":
   version "1.2.0"
   resolved "https://registry.npmjs.org/@iarna/cli/-/cli-1.2.0.tgz#0f7af5e851afe895104583c4ca07377a8094d641"

@@ -3,8 +3,10 @@
     "clsx",
     "gitmoji",
     "guanghechen",
+    "mdast",
     "pinst",
     "postpublish",
+    "prebuild",
     "yozora"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
