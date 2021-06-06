@@ -20,11 +20,11 @@
       }
     },
     {
-      "files": ["**/*.ts", "jest.setup.ts"],
+      "files": ["**/*.ts"],
       "extends": ["@guanghechen", "@guanghechen/ts", "prettier"]
     },
     {
-      "files": ["**/__test__/*.spec.ts"],
+      "files": ["**/__test__/*.spec.ts", "./jest.setup.ts"],
       "extends": [
         "@guanghechen",
         "@guanghechen/ts",
