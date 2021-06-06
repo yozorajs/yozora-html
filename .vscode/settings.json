@@ -1,0 +1,14 @@
+{
+  "cSpell.words": [
+    "clsx",
+    "gitmoji",
+    "guanghechen",
+    "pinst",
+    "postpublish",
+    "yozora"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.associations": {
+    ".prettierrc": "yaml"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "name": "@yozora/html",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Render yozora markdown ast into html strings.",
+  "author": {
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yozorajs/yozora-html.git"
+  },
+  "homepage": "https://github.com/yozorajs/yozora-html/#readme",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 14.15.0"
+  },
+  "scripts": {
+    ":publish": "yarn test && lerna publish",
+    ":upgrade": "yarn upgrade-interactive --latest && run-s clean format build test",
+    ":workspace:link": "lerna exec 'yarn link' --concurrency 1",
+    ":workspace:unlink": "lerna exec 'yarn unlink' --concurrency 1",
+    "build": "lerna run build --concurrency 1",
+    "clean": "lerna clean --yes && yarn install",
+    "format": "run-s format:lint:fix format:prettier",
+    "format:lint:fix": "eslint . --fix",
+    "format:prettier": "prettier --write .",
+    "prepublishOnly": "pinst --disable",
+    "postinstall": "run-p postinstall:**",
+    "postinstall:main": "yarn update:lock",
+    "postinstall:dev": "is-ci || husky install",
+    "postpublish": "pinst --enable",
+    "rebuild": "run-s clean build",
+    "start": "lerna run start --parallel",
+    "test": "lerna run test --concurrency 4",
+    "test:coverage": "lerna run test --concurrency 1 -- --coverage",
+    "test:update": "lerna run test --parallel -- -u",
+    "update:changelog": "gitmoji-changelog update",
+    "update:lock": "yarn-deduplicate"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/eslint-parser": "^7.14.4",
+    "@guanghechen/eslint-config": "^1.5.1",
+    "@guanghechen/eslint-config-ts": "^1.5.1",
+    "@types/fs-extra": "^9.0.11",
+    "@types/jest": "26.0.23",
+    "@types/node": "15.12.0",
+    "@yozora/ast": "^1.0.0-alpha.22",
+    "@yozora/ast-util": "^1.0.0-alpha.22",
+    "clsx": "^1.1.1",
+    "cross-env": "7.0.3",
+    "eslint": "7.27.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-jest": "24.3.6",
+    "eslint-plugin-prettier": "3.4.0",
+    "fs-extra": "^10.0.0",
+    "gitmoji-changelog": "2.2.0",
+    "husky": "6.0.0",
+    "is-ci": "3.0.0",
+    "jest": "26.6.3",
+    "lerna": "4.0.0",
+    "lint-staged": "11.0.0",
+    "npm-run-all": "4.1.5",
+    "pinst": "2.1.6",
+    "postcss": "^8.3.0",
+    "prettier": "2.3.0",
+    "rimraf": "3.0.2",
+    "rollup": "2.50.6",
+    "ts-jest": "26.5.6",
+    "ts-node": "10.0.0",
+    "tsconfig-paths": "3.9.0",
+    "typescript": "4.3.2",
+    "yarn-deduplicate": "3.1.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,eslintrc}": [
+      "prettier --write"
+    ]
+  }
+}
