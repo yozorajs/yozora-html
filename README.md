@@ -33,18 +33,6 @@
         src="https://github.com/yozorajs/yozora-html/workflows/Build/badge.svg?branch=main"
       />
     </a>
-    <a href="https://github.com/facebook/react">
-      <img
-        alt="React version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/html-blockquote/peer/react"
-      />
-    </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/html-blockquote/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"

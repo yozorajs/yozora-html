@@ -3,16 +3,20 @@ import renderText from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    renderText({
-      type: TextType,
-      value: 'literal content.'
-    })
+    expect(
+      renderText({
+        type: TextType,
+        value: 'literal content.',
+      }),
+    ).toMatchSnapshot()
   })
 
   it('empty value', function () {
-    renderText({
-      type: TextType,
-      value: ''
-    })
+    expect(
+      renderText({
+        type: TextType,
+        value: '',
+      }),
+    ).toMatchSnapshot()
   })
 })
