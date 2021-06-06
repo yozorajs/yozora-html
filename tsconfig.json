@@ -8,6 +8,7 @@
       "@yozora/html-delete": ["./packages/delete/src"],
       "@yozora/html-emphasis": ["./packages/emphasis/src"],
       "@yozora/html-heading": ["./packages/heading/src"],
+      "@yozora/html-image": ["./packages/image/src"],
       "@yozora/html-inline-code": ["./packages/inline-code/src"],
       "@yozora/html-link": ["./packages/link/src"],
       "@yozora/html-paragraph": ["./packages/paragraph/src"],

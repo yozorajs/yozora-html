@@ -1,10 +1,10 @@
-import type { YastNode } from '@yozora/ast'
-import {
-  BlockquoteType,
-  BreakType,
-  DeleteType,
+import type { YastNode } from '@yozora/ast';
+import { BlockquoteType, BreakType, DeleteType ,
   EmphasisType,
+  HeadingType,
+  ImageType,
   InlineCodeType,
+  LinkType,
   ParagraphType,
   StrongType,
   TextType,
@@ -14,7 +14,10 @@ import renderBlockquote from '@yozora/html-blockquote'
 import renderBreak from '@yozora/html-break'
 import renderDelete from '@yozora/html-delete'
 import renderEmphasis from '@yozora/html-emphasis'
+import renderHeading from '@yozora/html-heading'
+import renderImage from '@yozora/html-image'
 import renderInlineCode from '@yozora/html-inline-code'
+import renderLink from '@yozora/html-inline-code'
 import renderParagraph from '@yozora/html-paragraph'
 import renderStrong from '@yozora/html-strong'
 import renderText from '@yozora/html-text'
@@ -30,7 +33,10 @@ const renderMap: Record<string, YastNodeRenderer<YastNode & any>> = {
   [BreakType]: renderBreak,
   [DeleteType]: renderDelete,
   [EmphasisType]: renderEmphasis,
+  [HeadingType]: renderHeading,
+  [ImageType]: renderImage,
   [InlineCodeType]: renderInlineCode,
+  [LinkType]: renderLink,
   [ParagraphType]: renderParagraph,
   [StrongType]: renderStrong,
   [TextType]: renderText,
