@@ -1,0 +1,46 @@
+{
+  "name": "@yozora/html-paragraph",
+  "version": "0.0.0",
+  "description": "render Yozora Markdown AST node `Paragraph` into HTML string",
+  "author": {
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guanghechen/yozora-html.git",
+    "directory": "packages/paragraph"
+  },
+  "homepage": "https://github.com/guanghechen/yozora-html/tree/main/packages/paragraph#readme",
+  "keywords": [
+    "mdast to html",
+    "yozora",
+    "paragraph"
+  ],
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.ts",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 14.15.0"
+  },
+  "files": [
+    "lib/",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map",
+    "package.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
+    "prebuild": "rimraf lib/",
+    "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
+    "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
+  },
+  "peerDependencies": {
+    "@yozora/ast": "^1.0.0-alpha.22"
+  }
+}
