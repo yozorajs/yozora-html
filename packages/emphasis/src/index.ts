@@ -10,7 +10,7 @@ export function renderEmphasis(
   emphasis: Emphasis,
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
-  const children = renderChildren(emphasis.children)
+  const children: string = renderChildren(emphasis.children)
   return `<em class="yozora-emphasis">${children}</em>`
 }
 

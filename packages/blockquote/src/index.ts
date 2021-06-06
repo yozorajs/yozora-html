@@ -10,7 +10,7 @@ export function renderBlockquote(
   blockquote: Blockquote,
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
-  const children = renderChildren(blockquote.children)
+  const children: string = renderChildren(blockquote.children)
   return `<blockquote class="yozora-blockquote">${children}</blockquote>`
 }
 

@@ -11,7 +11,7 @@ export function renderLink(
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
   const { url, title } = link
-  const children = renderChildren(link.children)
+  const children: string = renderChildren(link.children)
   return `<a class="yozora-link" href="${url}" title="${title}" target="_blank" rel="noopener,noreferrer">${children}</a>`
 }
 

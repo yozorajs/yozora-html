@@ -10,7 +10,7 @@ export function renderParagraph(
   paragraph: Paragraph,
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
-  const children = renderChildren(paragraph.children)
+  const children: string = renderChildren(paragraph.children)
   return `<p class="yozora-paragraph">${children}</p>`
 }
 

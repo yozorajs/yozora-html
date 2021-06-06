@@ -11,6 +11,7 @@
       "@yozora/html-image": ["./packages/image/src"],
       "@yozora/html-inline-code": ["./packages/inline-code/src"],
       "@yozora/html-link": ["./packages/link/src"],
+      "@yozora/html-list": ["./packages/list/src"],
       "@yozora/html-paragraph": ["./packages/paragraph/src"],
       "@yozora/html-strong": ["./packages/strong/src"],
       "@yozora/html-text": ["./packages/text/src"],

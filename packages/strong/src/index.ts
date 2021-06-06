@@ -10,7 +10,7 @@ export function renderStrong(
   strong: Strong,
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
-  const children = renderChildren(strong.children)
+  const children: string = renderChildren(strong.children)
   return `<strong class="yozora-strong">${children}</strong>`
 }
 

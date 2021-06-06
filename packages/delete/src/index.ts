@@ -10,7 +10,7 @@ export function renderDelete(
   node: Delete,
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
-  const children = renderChildren(node.children)
+  const children: string = renderChildren(node.children)
   return `<del class="yozora-delete">${children}</del>`
 }
 

@@ -11,7 +11,7 @@ export function renderHeading(
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
   const { identifier, depth } = heading
-  const children = renderChildren(heading.children)
+  const children: string = renderChildren(heading.children)
   if (identifier != null) {
     const id = encodeURIComponent(identifier)
     return (
