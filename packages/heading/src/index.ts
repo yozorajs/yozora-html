@@ -3,6 +3,7 @@ import type { Heading, YastNode } from '@yozora/ast'
 /**
  * Render Yozora Markdown AST node `Heading` into HTML string.
  * @param heading
+ * @param renderChildren
  * @returns
  */
 export function renderHeading(

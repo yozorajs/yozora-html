@@ -3,6 +3,7 @@ import type { Paragraph, YastNode } from '@yozora/ast'
 /**
  * Render Yozora Markdown AST node `Paragraph` into HTML string.
  * @param paragraph
+ * @param renderChildren
  * @returns
  */
 export function renderParagraph(

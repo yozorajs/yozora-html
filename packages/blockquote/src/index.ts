@@ -3,6 +3,7 @@ import type { Blockquote, YastNode } from '@yozora/ast'
 /**
  * Render Yozora Markdown AST node `Blockquote` into HTML string.
  * @param blockquote
+ * @param renderChildren
  * @returns
  */
 export function renderBlockquote(

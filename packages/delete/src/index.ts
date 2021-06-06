@@ -3,6 +3,7 @@ import type { Delete, YastNode } from '@yozora/ast'
 /**
  * Render Yozora Markdown AST node `Delete` into HTML string.
  * @param node
+ * @param renderChildren
  * @returns
  */
 export function renderDelete(

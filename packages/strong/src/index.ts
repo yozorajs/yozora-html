@@ -3,6 +3,7 @@ import type { Strong, YastNode } from '@yozora/ast'
 /**
  * Render Yozora Markdown AST node `Strong` into HTML string.
  * @param strong
+ * @param renderChildren
  * @returns
  */
 export function renderStrong(
