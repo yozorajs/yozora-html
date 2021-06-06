@@ -1,5 +1,14 @@
-import type { YastNode } from '@yozora/ast';
-import { EmphasisType , StrongType, TextType, ThematicBreakType } from '@yozora/ast'
+import type { YastNode } from '@yozora/ast'
+import {
+  BreakType,
+  DeleteType,
+  EmphasisType,
+  StrongType,
+  TextType,
+  ThematicBreakType,
+} from '@yozora/ast'
+import renderBreak from '@yozora/html-break'
+import renderDelete from '@yozora/html-delete'
 import renderEmphasis from '@yozora/html-emphasis'
 import renderStrong from '@yozora/html-strong'
 import renderText from '@yozora/html-text'
@@ -11,6 +20,8 @@ type YastNodeRenderer<T extends YastNode> = (
 ) => string
 
 const renderMap: Record<string, YastNodeRenderer<YastNode & any>> = {
+  [BreakType]: renderBreak,
+  [DeleteType]: renderDelete,
   [EmphasisType]: renderEmphasis,
   [StrongType]: renderStrong,
   [TextType]: renderText,
