@@ -1,12 +1,12 @@
 import type { YastNode } from '@yozora/ast';
-import { BlockquoteType , BreakType, DeleteType, EmphasisType ,
-  HeadingType,
+import { BlockquoteType , BreakType , DeleteType, EmphasisType, HeadingType ,
   ImageType,
   InlineCodeType,
   LinkType,
   ListType,
   ParagraphType,
   StrongType,
+  TableType,
   TextType,
   ThematicBreakType,
 } from '@yozora/ast';
@@ -21,6 +21,7 @@ import renderLink from '@yozora/html-inline-code'
 import renderList from '@yozora/html-list'
 import renderParagraph from '@yozora/html-paragraph'
 import renderStrong from '@yozora/html-strong'
+import renderTable from '@yozora/html-table'
 import renderText from '@yozora/html-text'
 import renderThematicBreak from '@yozora/html-thematic-break'
 
@@ -41,6 +42,7 @@ const renderMap: Record<string, YastNodeRenderer<YastNode & any>> = {
   [ListType]: renderList,
   [ParagraphType]: renderParagraph,
   [StrongType]: renderStrong,
+  [TableType]: renderTable,
   [TextType]: renderText,
   [ThematicBreakType]: renderThematicBreak,
 }

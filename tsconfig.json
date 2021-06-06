@@ -14,6 +14,7 @@
       "@yozora/html-list": ["./packages/list/src"],
       "@yozora/html-paragraph": ["./packages/paragraph/src"],
       "@yozora/html-strong": ["./packages/strong/src"],
+      "@yozora/html-table": ["./packages/table/src"],
       "@yozora/html-text": ["./packages/text/src"],
       "@yozora/html-thematic-break": ["./packages/thematic-break/src"]
     }
