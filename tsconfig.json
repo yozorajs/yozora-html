@@ -3,9 +3,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@yozora/html-blockquote": ["./packages/blockquote/src"],
       "@yozora/html-break": ["./packages/break/src"],
       "@yozora/html-delete": ["./packages/delete/src"],
       "@yozora/html-emphasis": ["./packages/emphasis/src"],
+      "@yozora/html-heading": ["./packages/heading/src"],
+      "@yozora/html-inline-code": ["./packages/inline-code/src"],
+      "@yozora/html-paragraph": ["./packages/paragraph/src"],
       "@yozora/html-strong": ["./packages/strong/src"],
       "@yozora/html-text": ["./packages/text/src"],
       "@yozora/html-thematic-break": ["./packages/thematic-break/src"]
