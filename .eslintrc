@@ -20,7 +20,7 @@
       }
     },
     {
-      "files": ["**/*.ts"],
+      "files": ["**/*.ts", "jest.setup.ts"],
       "extends": ["@guanghechen", "@guanghechen/ts", "prettier"]
     },
     {
@@ -32,6 +32,7 @@
         "prettier"
       ],
       "rules": {
+        "@typescript-eslint/consistent-type-assertions": 0,
         "import/no-extraneous-dependencies": 0
       }
     }
