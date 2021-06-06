@@ -87,16 +87,12 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
     children: [
       {
         type: TextType,
-        value: 'Hello',
-      } as Text,
-      {
-        type: TextType,
-        value: 'World',
+        value: 'yozora is cool!',
       } as Text,
     ],
   }
   renderEmphasis(emphasis, renderChildren)
-  // => <em class="yozora-emphasis"><span class="yozora-text">Hello</span><span class="yozora-text">World</span></emp>
+  // => <em class="yozora-emphasis"><span class="yozora-text">yozora is cool!</span></em>
   ```
 
 ## Related

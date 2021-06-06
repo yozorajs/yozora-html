@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot basic 1`] = `"<strong class=\\"yozora-strong\\"><span class=\\"yozora-text\\">Hello</span><span class=\\"yozora-text\\">World</span></strong>"`;
+exports[`snapshot basic-1 1`] = `"<strong class=\\"yozora-strong\\"><span class=\\"yozora-text\\">yozora is cool!</span></strong>"`;
+
+exports[`snapshot basic-2 1`] = `"<strong class=\\"yozora-strong\\"><em class=\\"yozora-emphasis\\"><span class=\\"yozora-text\\">Hello</span></em><span class=\\"yozora-text\\">, </span><strong class=\\"yozora-strong\\"><span class=\\"yozora-text\\">World</span></strong></strong>"`;
