@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@yozora/html-emphasis": ["./packages/emphasis/src"],
       "@yozora/html-strong": ["./packages/strong/src"],
       "@yozora/html-text": ["./packages/text/src"],
       "@yozora/html-thematic-break": ["./packages/thematic-break/src"]
