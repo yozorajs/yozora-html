@@ -41,6 +41,6 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
-    "@yozora/ast": "^1.0.0-alpha.22"
+    "sanitize-html": "^2.4.0"
   }
 }
