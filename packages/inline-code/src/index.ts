@@ -1,4 +1,5 @@
 import type { InlineCode } from '@yozora/ast'
+import sanitize from 'sanitize-html'
 
 /**
  * Render Yozora Markdown AST node `InlineCode` into HTML string.
@@ -6,7 +7,7 @@ import type { InlineCode } from '@yozora/ast'
  * @returns
  */
 export function renderInlineCode(inlineCode: InlineCode): string {
-  const { value } = inlineCode
+  const value: string = sanitize(inlineCode.value, { allowedTags: [] })
   return `<code class="yozora-inline-code">${value}</code>`
 }
 

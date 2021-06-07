@@ -17,8 +17,8 @@ export function renderList(
     .join('')
 
   if (ordered) {
-    const { start } = list
-    return `<ol class="yozora-list" start="${start}">${children}</ol>`
+    const { start = 1 } = list
+    return `<ol class="yozora-list" start="${Number(start)}">${children}</ol>`
   }
   return `<ul class="yozora-list">${children}</ul>`
 }

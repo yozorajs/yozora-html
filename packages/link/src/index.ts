@@ -1,4 +1,5 @@
 import type { Link, YastNode } from '@yozora/ast'
+import sanitize from 'sanitize-html'
 
 /**
  * Render Yozora Markdown AST node `Link` into HTML string.
@@ -10,7 +11,8 @@ export function renderLink(
   link: Link,
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
-  const { url, title } = link
+  const url: string = sanitize(link.url, { allowedTags: [] })
+  const title: string = sanitize(link.title || url, { allowedTags: [] })
   const children: string = renderChildren(link.children)
   return `<a class="yozora-link" href="${url}" title="${title}" target="_blank" rel="noopener,noreferrer">${children}</a>`
 }

@@ -11,7 +11,19 @@ export function renderTable(
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
   const { columns } = table
-  const aligns = columns.map(col => col.align ?? undefined)
+  const aligns = columns.map(col => {
+    if (col.align == null) return null
+    switch (col.align.toLowerCase()) {
+      case 'left':
+        return 'left'
+      case 'center':
+        return 'center'
+      case 'right':
+        return 'right'
+      default:
+        return null
+    }
+  })
   const [tHeadRow, ...tBodyRows] = table.children
 
   const thead: string =

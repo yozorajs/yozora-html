@@ -1,5 +1,6 @@
 import type { Code } from '@yozora/ast'
 import prism from 'prismjs'
+import sanitize from 'sanitize-html'
 
 /**
  * Render Yozora Markdown AST node `Code` into HTML string.
@@ -11,7 +12,7 @@ export function renderCode(code: Code): string {
   const highlightedCode: string =
     lang != null && prism.languages[lang] != null
       ? prism.highlight(value, prism.languages[lang], lang)
-      : value
+      : sanitize(value, { allowedTags: [] })
   return `<code class="yozora-code"><pre>${highlightedCode}</pre></code>`
 }
 

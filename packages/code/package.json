@@ -41,6 +41,7 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
-    "prismjs": "^1.23.0"
+    "prismjs": "^1.23.0",
+    "sanitize-html": "^2.4.0"
   }
 }

@@ -1,4 +1,5 @@
 import type { Heading, YastNode } from '@yozora/ast'
+import sanitize from 'sanitize-html'
 
 /**
  * Render Yozora Markdown AST node `Heading` into HTML string.
@@ -10,9 +11,10 @@ export function renderHeading(
   heading: Heading,
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
-  const { identifier, depth } = heading
+  const depth = Number(heading.depth)
   const children: string = renderChildren(heading.children)
-  if (identifier != null) {
+  if (heading.identifier != null) {
+    const identifier: string = sanitize(heading.identifier, { allowedTags: [] })
     const id = encodeURIComponent(identifier)
     return (
       `<h${depth} id="${id}" className="yozora-heading yozora-heading--toc">` +

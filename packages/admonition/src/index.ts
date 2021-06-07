@@ -1,4 +1,5 @@
 import type { Admonition, YastNode } from '@yozora/ast'
+import sanitize from 'sanitize-html'
 
 /**
  * Render Yozora Markdown AST node `Admonition` into HTML string.
@@ -10,8 +11,7 @@ export function renderAdmonition(
   admonition: Admonition,
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
-  const { keyword } = admonition
-
+  const keyword: string = sanitize(admonition.keyword, { allowedTags: [] })
   let modifier = keyword.trim().toLowerCase()
   switch (modifier) {
     case 'note':
