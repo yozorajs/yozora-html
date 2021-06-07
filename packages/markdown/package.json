@@ -1,0 +1,66 @@
+{
+  "name": "@yozora/html-markdown",
+  "version": "0.0.0",
+  "author": {
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guanghechen/yozora-html.git",
+    "directory": "packages/markdown"
+  },
+  "homepage": "https://github.com/guanghechen/yozora-html/tree/main/packages/markdown#readme",
+  "keywords": [
+    "mdast to html",
+    "yozora"
+  ],
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.ts",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 14.15.0"
+  },
+  "files": [
+    "lib/",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map",
+    "package.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
+    "prebuild": "rimraf lib/",
+    "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
+    "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
+  },
+  "peerDependencies": {
+    "@yozora/ast": "^1.0.0-alpha.22"
+  },
+  "dependencies": {
+    "@yozora/html-admonition": "^0.0.0",
+    "@yozora/html-blockquote": "^0.0.0",
+    "@yozora/html-break": "^0.0.0",
+    "@yozora/html-code": "^0.0.0",
+    "@yozora/html-delete": "^0.0.0",
+    "@yozora/html-emphasis": "^0.0.0",
+    "@yozora/html-heading": "^0.0.0",
+    "@yozora/html-image": "^0.0.0",
+    "@yozora/html-inline-code": "^0.0.0",
+    "@yozora/html-inline-math": "^0.0.0",
+    "@yozora/html-link": "^0.0.0",
+    "@yozora/html-list": "^0.0.0",
+    "@yozora/html-math": "^0.0.0",
+    "@yozora/html-paragraph": "^0.0.0",
+    "@yozora/html-strong": "^0.0.0",
+    "@yozora/html-table": "^0.0.0",
+    "@yozora/html-text": "^0.0.0",
+    "@yozora/html-thematic-break": "^0.0.0",
+    "prismjs": "^1.23.0",
+    "sanitize-html": "^2.4.0"
+  }
+}

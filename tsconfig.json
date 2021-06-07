@@ -15,6 +15,7 @@
       "@yozora/html-inline-math": ["./packages/inline-math/src"],
       "@yozora/html-link": ["./packages/link/src"],
       "@yozora/html-list": ["./packages/list/src"],
+      "@yozora/html-markdown": ["./packages/markdown/src"],
       "@yozora/html-math": ["./packages/math/src"],
       "@yozora/html-paragraph": ["./packages/paragraph/src"],
       "@yozora/html-strong": ["./packages/strong/src"],

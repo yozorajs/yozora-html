@@ -1,0 +1,473 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "A monorepo contains renderers for rendering "
+        },
+        {
+          "type": "linkReference",
+          "identifier": "yozora/ast",
+          "label": "yozora/ast",
+          "referenceType": "full",
+          "children": [
+            {
+              "type": "text",
+              "value": "yozora ast"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " into HTML strings.\nSee "
+        },
+        {
+          "type": "link",
+          "url": "https://yozora.guanghechen.com",
+          "children": [
+            {
+              "type": "text",
+              "value": "https://yozora.guanghechen.com"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " for details."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Use "
+        },
+        {
+          "type": "linkReference",
+          "identifier": "@yozora/html-markdown",
+          "label": "@yozora/html-markdown",
+          "referenceType": "collapsed",
+          "children": [
+            {
+              "type": "text",
+              "value": "@yozora/html-markdown"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " to render the "
+        },
+        {
+          "type": "linkReference",
+          "identifier": "yozora/ast__root",
+          "label": "yozora/ast__root",
+          "referenceType": "full",
+          "children": [
+            {
+              "type": "text",
+              "value": "Root"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " of Yozora ast."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "Overview"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 3,
+      "children": [
+        {
+          "type": "text",
+          "value": "Markdown components"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 3,
+      "children": [
+        {
+          "type": "text",
+          "value": "Other components"
+        }
+      ]
+    },
+    {
+      "type": "definition",
+      "identifier": "react-live",
+      "label": "react-live",
+      "url": "https://github.com/FormidableLabs/react-live"
+    },
+    {
+      "type": "html",
+      "value": "<!-- yozora component links -->\n"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-admonition",
+      "label": "@yozora/html-admonition",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/admonition#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-blockquote",
+      "label": "@yozora/html-blockquote",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/blockquote#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-break",
+      "label": "@yozora/html-break",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/break#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-code",
+      "label": "@yozora/html-code",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/code#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-code-editor",
+      "label": "@yozora/html-code-editor",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/code-editor#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-code-embed",
+      "label": "@yozora/html-code-embed",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/code-embed#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-code-highlighter",
+      "label": "@yozora/html-code-highlighter",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/code-highlighter#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-code-literal",
+      "label": "@yozora/html-code-literal",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/code-literal#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-code-live",
+      "label": "@yozora/html-code-live",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/code-live#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-code-renderer-jsx",
+      "label": "@yozora/html-code-renderer-jsx",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/code-renderer-jsx#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-delete",
+      "label": "@yozora/html-delete",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/delete#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-emphasis",
+      "label": "@yozora/html-emphasis",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/emphasis#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-footnote-reference",
+      "label": "@yozora/html-footnote-reference",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/footnote-reference#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-footnote-definitions",
+      "label": "@yozora/html-footnote-definitions",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/footnote-definitions#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-heading",
+      "label": "@yozora/html-heading",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/heading#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-image",
+      "label": "@yozora/html-image",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/image#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-inline-code",
+      "label": "@yozora/html-inline-code",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/inline-code#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-inline-math",
+      "label": "@yozora/html-inline-math",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/inline-math#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-link",
+      "label": "@yozora/html-link",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/link#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-list",
+      "label": "@yozora/html-list",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/list#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-list-item",
+      "label": "@yozora/html-list-item",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/list-item#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-math",
+      "label": "@yozora/html-math",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/math#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-paragraph",
+      "label": "@yozora/html-paragraph",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/paragraph#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-strong",
+      "label": "@yozora/html-strong",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/strong#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-table",
+      "label": "@yozora/html-table",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/table#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-text",
+      "label": "@yozora/html-text",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/text#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-thematic-break",
+      "label": "@yozora/html-thematic-break",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/thematic-break#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-markdown",
+      "label": "@yozora/html-markdown",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/markdown#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "@yozora/html-mathjax",
+      "label": "@yozora/html-mathjax",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/mathjax#readme"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/ast",
+      "label": "yozora/ast",
+      "url": "https://www.npmjs.com/package/@yozora/ast"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/ast__root",
+      "label": "yozora/ast__root",
+      "url": "https://www.npmjs.com/package/@yozora/ast#root"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/admonition",
+      "label": "yozora/admonition",
+      "url": "https://www.npmjs.com/package/@yozora/ast#admonition"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/blockquote",
+      "label": "yozora/blockquote",
+      "url": "https://www.npmjs.com/package/@yozora/ast#blockquote"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/break",
+      "label": "yozora/break",
+      "url": "https://www.npmjs.com/package/@yozora/ast#break"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/code",
+      "label": "yozora/code",
+      "url": "https://www.npmjs.com/package/@yozora/ast#code"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/delete",
+      "label": "yozora/delete",
+      "url": "https://www.npmjs.com/package/@yozora/ast#delete"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/emphasis",
+      "label": "yozora/emphasis",
+      "url": "https://www.npmjs.com/package/@yozora/ast#emphasis"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/footnote-definition",
+      "label": "yozora/footnote-definition",
+      "url": "https://www.npmjs.com/package/@yozora/ast#footnotedefinition"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/footnote-reference",
+      "label": "yozora/footnote-reference",
+      "url": "https://www.npmjs.com/package/@yozora/ast#footnotereference"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/heading",
+      "label": "yozora/heading",
+      "url": "https://www.npmjs.com/package/@yozora/ast#heading"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/html",
+      "label": "yozora/html",
+      "url": "https://www.npmjs.com/package/@yozora/ast#html"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/image",
+      "label": "yozora/image",
+      "url": "https://www.npmjs.com/package/@yozora/ast#image"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/image-reference",
+      "label": "yozora/image-reference",
+      "url": "https://www.npmjs.com/package/@yozora/ast#imagereference"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/inline-code",
+      "label": "yozora/inline-code",
+      "url": "https://www.npmjs.com/package/@yozora/ast#inlinecode"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/inline-math",
+      "label": "yozora/inline-math",
+      "url": "https://www.npmjs.com/package/@yozora/ast#inlinemath"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/link",
+      "label": "yozora/link",
+      "url": "https://www.npmjs.com/package/@yozora/ast#link"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/link-reference",
+      "label": "yozora/link-reference",
+      "url": "https://www.npmjs.com/package/@yozora/ast#linkreference"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/definition",
+      "label": "yozora/definition",
+      "url": "https://www.npmjs.com/package/@yozora/ast#definition"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/list",
+      "label": "yozora/list",
+      "url": "https://www.npmjs.com/package/@yozora/ast#list"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/list-item",
+      "label": "yozora/list-item",
+      "url": "https://www.npmjs.com/package/@yozora/ast#listitem"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/math",
+      "label": "yozora/math",
+      "url": "https://www.npmjs.com/package/@yozora/ast#math"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/paragraph",
+      "label": "yozora/paragraph",
+      "url": "https://www.npmjs.com/package/@yozora/ast#paragraph"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/setext-heading",
+      "label": "yozora/setext-heading",
+      "url": "https://www.npmjs.com/package/@yozora/ast#setextheading"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/table",
+      "label": "yozora/table",
+      "url": "https://www.npmjs.com/package/@yozora/ast#table"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/table-cell",
+      "label": "yozora/table-cell",
+      "url": "https://www.npmjs.com/package/@yozora/ast#tablecell"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/table-row",
+      "label": "yozora/table-row",
+      "url": "https://www.npmjs.com/package/@yozora/ast#tablerow"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/text",
+      "label": "yozora/text",
+      "url": "https://www.npmjs.com/package/@yozora/ast#text"
+    },
+    {
+      "type": "definition",
+      "identifier": "yozora/thematic-break",
+      "label": "yozora/thematic-break",
+      "url": "https://www.npmjs.com/package/@yozora/ast#thematicbreak"
+    }
+  ]
+}
