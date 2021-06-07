@@ -78,11 +78,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   import type { InlineCode } from '@yozora/ast'
   import renderInlineCode from '@yozora/html-inline-code'
 
-  const inlineCode = {
+  const inlineCode: InlineCode = {
     "type": "inlineCode",
     "value": "dijkstra"
   }
-  renderInlineCode(inlineCode as InlineCode)
+  renderInlineCode(inlineCode)
   // => <code class="yozora-inline-code">dijkstra</code>
   ```
 
