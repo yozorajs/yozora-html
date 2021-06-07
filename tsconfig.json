@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@yozora/html-admonition": ["./packages/admonition/src"],
       "@yozora/html-blockquote": ["./packages/blockquote/src"],
       "@yozora/html-break": ["./packages/break/src"],
       "@yozora/html-delete": ["./packages/delete/src"],
@@ -10,8 +11,10 @@
       "@yozora/html-heading": ["./packages/heading/src"],
       "@yozora/html-image": ["./packages/image/src"],
       "@yozora/html-inline-code": ["./packages/inline-code/src"],
+      "@yozora/html-inline-math": ["./packages/inline-math/src"],
       "@yozora/html-link": ["./packages/link/src"],
       "@yozora/html-list": ["./packages/list/src"],
+      "@yozora/html-math": ["./packages/math/src"],
       "@yozora/html-paragraph": ["./packages/paragraph/src"],
       "@yozora/html-strong": ["./packages/strong/src"],
       "@yozora/html-table": ["./packages/table/src"],

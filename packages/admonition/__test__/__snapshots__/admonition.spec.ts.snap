@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot basic 1`] = `"<div class=\\"yozora-admonition yozora-admonition--default\\"><div class=\\"yozora-admonition__heading\\"><h5><span class=\\"yozora-text\\">optional title</span></h5></div><div class=\\"yozora-admonition__body\\"><p class=\\"yozora-paragraph\\"><span class=\\"yozora-text\\">some content</span></p></div></div>"`;
