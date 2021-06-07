@@ -10,6 +10,7 @@
     "pinst",
     "postpublish",
     "prebuild",
+    "prismjs",
     "yozora"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",

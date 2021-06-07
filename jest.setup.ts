@@ -3,6 +3,7 @@ import {
   AdmonitionType,
   BlockquoteType,
   BreakType,
+  CodeType,
   DeleteType,
   EmphasisType,
   HeadingType,
@@ -21,6 +22,7 @@ import {
 import renderAdmonition from '@yozora/html-admonition'
 import renderBlockquote from '@yozora/html-blockquote'
 import renderBreak from '@yozora/html-break'
+import renderCode from '@yozora/html-code'
 import renderDelete from '@yozora/html-delete'
 import renderEmphasis from '@yozora/html-emphasis'
 import renderHeading from '@yozora/html-heading'
@@ -45,6 +47,7 @@ const renderMap: Record<string, YastNodeRenderer<YastNode & any>> = {
   [AdmonitionType]: renderAdmonition,
   [BlockquoteType]: renderBlockquote,
   [BreakType]: renderBreak,
+  [CodeType]: renderCode,
   [DeleteType]: renderDelete,
   [EmphasisType]: renderEmphasis,
   [HeadingType]: renderHeading,

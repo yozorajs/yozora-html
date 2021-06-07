@@ -74,8 +74,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 
 * Basic:
 
-  ```tsx
-  import React from 'react'
+  ```typescript
   import type { List } from '@yozora/ast'
   import renderList from '@yozora/html-list'
 
@@ -114,8 +113,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 
 * List with task items:
 
-  ```tsx
-  import React from 'react'
+  ```typescript
   import type { List } from '@yozora/ast'
   import renderList from '@yozora/html-list'
 
@@ -146,8 +144,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 
 * Ordered list:
 
-  ```tsx
-  import React from 'react'
+  ```typescript
   import type { List } from '@yozora/ast'
   import renderList from '@yozora/html-list'
 

@@ -74,8 +74,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 
 * Basic:
 
-  ```tsx
-  import React from 'react'
+  ```typescript
   import type { Table } from '@yozora/ast'
   import renderTable from '@yozora/html-table'
 

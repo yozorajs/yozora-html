@@ -73,8 +73,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 
 * Basic:
 
-  ```tsx
-  import React from 'react'
+  ```typescript
   import type { Heading } from '@yozora/ast'
   import renderHeading from '@yozora/html-heading'
 
@@ -97,8 +96,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 
 * With identifier:
 
-  ```tsx
-  import React from 'react'
+  ```typescript
   import type { Heading } from '@yozora/ast'
   import { HeadingType } from '@yozora/ast'
   import renderHeading from '@yozora/html-heading'

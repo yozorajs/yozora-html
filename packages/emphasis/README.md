@@ -73,8 +73,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 
 * Basic:
 
-  ```tsx
-  import React from 'react'
+  ```typescript
   import type { Emphasis } from '@yozora/ast'
   import renderEmphasis from '@yozora/html-emphasis'
 

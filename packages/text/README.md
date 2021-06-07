@@ -73,8 +73,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 
 * Basic:
 
-  ```tsx
-  import React from 'react'
+  ```typescript
   import type { Text } from '@yozora/ast'
   import renderText from '@yozora/html-text'
 

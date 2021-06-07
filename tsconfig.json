@@ -6,6 +6,7 @@
       "@yozora/html-admonition": ["./packages/admonition/src"],
       "@yozora/html-blockquote": ["./packages/blockquote/src"],
       "@yozora/html-break": ["./packages/break/src"],
+      "@yozora/html-code": ["./packages/code/src"],
       "@yozora/html-delete": ["./packages/delete/src"],
       "@yozora/html-emphasis": ["./packages/emphasis/src"],
       "@yozora/html-heading": ["./packages/heading/src"],
