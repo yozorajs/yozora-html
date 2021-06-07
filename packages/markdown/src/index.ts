@@ -1,6 +1,6 @@
 import type { Definition, FootnoteDefinition, Root } from '@yozora/ast'
 import type { YastNodeRendererMap } from './renderer'
-import { createNodesRenderer, defaultRenderMap } from './renderer'
+import { createNodesRenderer, defaultRendererMap } from './renderer'
 import './style/index.styl'
 
 export * from './renderer'
@@ -13,7 +13,7 @@ export function renderMarkdown(
   ast: Root,
   definitionMap: Record<string, Definition>,
   footnoteDefinitionMap: Record<string, FootnoteDefinition>,
-  renderMap: YastNodeRendererMap = defaultRenderMap,
+  renderMap: YastNodeRendererMap = defaultRendererMap,
 ): string {
   const renderChildren = createNodesRenderer(
     definitionMap,

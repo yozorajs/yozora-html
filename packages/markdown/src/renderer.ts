@@ -58,7 +58,7 @@ export type YastNodeRendererMap = Record<
   YastNodeRenderer<YastNode & any>
 >
 
-export const defaultRenderMap: YastNodeRendererMap = {
+export const defaultRendererMap: YastNodeRendererMap = {
   [AdmonitionType]: renderAdmonition,
   [BlockquoteType]: renderBlockquote,
   [BreakType]: renderBreak,
@@ -85,20 +85,20 @@ export const defaultRenderMap: YastNodeRendererMap = {
  *
  * @param definitionMap           Link / Image reference definitions.
  * @param footnoteDefinitionMap   Footnote reference definitions.
- * @param _renderMap
+ * @param _rendererMap
  * @returns
  */
 export function createNodesRenderer(
   definitionMap: Record<string, Definition>,
   footnoteDefinitionMap: Record<string, FootnoteDefinition>,
-  _renderMap: YastNodeRendererMap = defaultRenderMap,
+  _rendererMap: YastNodeRendererMap = defaultRendererMap,
 ): (nodes: YastNode[]) => string {
-  const renderMap = { ..._renderMap }
+  const rendererMap = { ..._rendererMap }
 
   // render LinkReference
-  if (renderMap[LinkType] != null && renderMap[LinkReferenceType] == null) {
-    const renderLink = renderMap[LinkType]
-    renderMap[LinkReferenceType] = function (
+  if (rendererMap[LinkType] != null && rendererMap[LinkReferenceType] == null) {
+    const renderLink = rendererMap[LinkType]
+    rendererMap[LinkReferenceType] = function (
       linkReference: LinkReference,
     ): string {
       const definition: Omit<Definition, 'type'> =
@@ -109,9 +109,12 @@ export function createNodesRenderer(
   }
 
   // render ImageReference
-  if (renderMap[ImageType] != null && renderMap[ImageReferenceType] == null) {
-    const renderImage = _renderMap[ImageType] ?? defaultRenderMap[ImageType]
-    renderMap[ImageReferenceType] = function (
+  if (
+    rendererMap[ImageType] != null &&
+    rendererMap[ImageReferenceType] == null
+  ) {
+    const renderImage = _rendererMap[ImageType] ?? defaultRendererMap[ImageType]
+    rendererMap[ImageReferenceType] = function (
       imageReference: ImageReference,
     ): string {
       const definition: Omit<Definition, 'type'> =
@@ -126,7 +129,7 @@ export function createNodesRenderer(
     if (nodes == null || nodes.length < 1) return ''
     return nodes
       .map(node => {
-        const render = renderMap[node.type]
+        const render = rendererMap[node.type]
         if (render == null) {
           console.warn(`Cannot find renderer for node ${node.type}`)
           return ''
