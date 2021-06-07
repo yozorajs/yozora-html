@@ -50,7 +50,7 @@
 <br/>
 
 This component is for rendering the Yozora Markdown AST node [`Table`][@yozora/ast__table],
-[`TableRow`][@yozora/ast__table-row], [`TableCell`][@yozora/ast__table-cell] 
+[`TableRow`][@yozora/ast__table-row] and [`TableCell`][@yozora/ast__table-cell] 
 produced by [@yozora/tokenizer-table][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.

@@ -1,7 +1,7 @@
 {
   "name": "@yozora/html-list",
   "version": "0.0.0",
-  "description": "render Yozora Markdown AST node `List` into HTML string",
+  "description": "render Yozora Markdown AST node `List` and `ListItem` into HTML string",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"

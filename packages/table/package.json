@@ -1,7 +1,7 @@
 {
   "name": "@yozora/html-table",
   "version": "0.0.0",
-  "description": "render Yozora Markdown AST node `Table` into HTML string",
+  "description": "render Yozora Markdown AST node `Table`, `TableRow` and `TableCell` into HTML string",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
