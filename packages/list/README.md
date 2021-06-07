@@ -83,40 +83,30 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   const renderChildren: (nodes: YastNode[]) => string = function () {}
 
   const list = {
-    type: 'list',
-    ordered: false,
-    marker: 45,
-    spread: true,
-    children: [
+    "type": "list",
+    "ordered": false,
+    "marker": 45,
+    "spread": true,
+    "children": [
       {
-        type: 'listItem',
-        children: [
+        "type": "listItem",
+        "children": [
           {
-            type: 'paragraph',
-            children: [
-              {
-                type: 'text',
-                value: 'a',
-              },
-            ],
-          },
-        ],
+            "type": "paragraph",
+            "children": [{ "type": "text", "value": "a" }]
+          }
+        ]
       },
       {
-        type: 'listItem',
-        children: [
+        "type": "listItem",
+        "children": [
           {
-            type: 'paragraph',
-            children: [
-              {
-                type: 'text',
-                value: 'b',
-              },
-            ],
-          },
-        ],
-      },
-    ],
+            "type": "paragraph",
+            "children": [{ "type": "text", "value": "b" }]
+          }
+        ]
+      }
+    ]
   }
   renderList(list as List, renderChildren)
   // => <ul class="yozora-list"><li class="yozora-list-item"><p class="yozora-paragraph"><span class="yozora-text">a</span></p></li><li class="yozora-list-item"><p class="yozora-paragraph"><span class="yozora-text">b</span></p></li></ul>
@@ -133,32 +123,22 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   const renderChildren: (nodes: YastNode[]) => string = function () {}
 
   const list = {
-    type: 'list',
-    ordered: false,
-    marker: 45,
-    spread: false,
-    children: [
+    "type": "list",
+    "ordered": false,
+    "marker": 45,
+    "spread": false,
+    "children": [
       {
-        type: 'listItem',
-        status: 'todo',
-        children: [
-          {
-            type: 'text',
-            value: 'foo',
-          },
-        ],
+        "type": "listItem",
+        "status": "todo",
+        "children": [{ "type": "text", "value": "foo" }]
       },
       {
-        type: 'listItem',
-        status: 'done',
-        children: [
-          {
-            type: 'text',
-            value: 'bar',
-          },
-        ],
-      },
-    ],
+        "type": "listItem",
+        "status": "done",
+        "children": [{ "type": "text", "value": "bar" }]
+      }
+    ]
   }
   renderList(list as List, renderChildren)
   // => <ul class="yozora-list"><li class="yozora-list-item"><input disabled="" type="checkbox" /> <span class="yozora-text">foo</span></li><li class="yozora-list-item"><input checked="" disabled="" type="checkbox" /> <span class="yozora-text">bar</span></li></ul>
@@ -175,40 +155,25 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   const renderChildren: (nodes: YastNode[]) => string = function () {}
 
   const list = {
-    type: 'list',
-    ordered: true,
-    start: 1,
-    marker: 46,
-    spread: false,
-    children: [
+    "type": "list",
+    "ordered": true,
+    "start": 1,
+    "marker": 46,
+    "spread": false,
+    "children": [
       {
-        type: 'listItem',
-        children: [
-          {
-            type: 'text',
-            value: 'a',
-          },
-        ],
+        "type": "listItem",
+        "children": [{ "type": "text", "value": "a" }]
       },
       {
-        type: 'listItem',
-        children: [
-          {
-            type: 'text',
-            value: 'b',
-          },
-        ],
+        "type": "listItem",
+        "children": [{ "type": "text", "value": "b" }]
       },
       {
-        type: 'listItem',
-        children: [
-          {
-            type: 'text',
-            value: 'c',
-          },
-        ],
-      },
-    ],
+        "type": "listItem",
+        "children": [{ "type": "text", "value": "c" }]
+      }
+    ]
   }
   renderList(list as List, renderChildren)
   // => <ol class="yozora-list" start="1"><li class="yozora-list-item"><span class="yozora-text">a</span></li><li class="yozora-list-item"><span class="yozora-text">b</span></li><li class="yozora-list-item"><span class="yozora-text">c</span></li></ol>

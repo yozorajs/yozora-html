@@ -76,22 +76,21 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { Delete } from '@yozora/ast'
-  import { DeleteType } from '@yozora/ast'
   import renderDelete from '@yozora/html-delete'
 
   // The implementation of the following function has been omitted.
   const renderChildren: (nodes: YastNode[]) => string = function () {}
 
-  const node: Delete = {
-    type: DeleteType,
-    children: [
+  const node = {
+    "type": "delete",
+    "children": [
       {
-        type: TextType,
-        value: 'yozora is cool!',
-      } as Text,
-    ],
-  }
-  renderDelete(node, renderChildren)
+        "type": "text",
+        "value": "yozora is cool!"
+      }
+    ]
+}
+  renderDelete(node as Delete, renderChildren)
   // => <del class="yozora-delete"><span class="yozora-text">yozora is cool!</span></del>
   ```
 

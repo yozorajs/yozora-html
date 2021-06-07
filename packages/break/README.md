@@ -76,10 +76,9 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { Break } from '@yozora/ast'
-  import { BreakType } from '@yozora/ast'
   import renderBreak from '@yozora/html-break'
 
-  const node: Break = { type: BreakType }
+  const node: Break = { "type": "break" }
   renderBreak(node)
   // => <br class="yozora-break" />
   ```

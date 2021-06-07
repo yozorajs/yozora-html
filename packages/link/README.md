@@ -76,24 +76,23 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { Link } from '@yozora/ast'
-  import { LinkType } from '@yozora/ast'
   import renderLink from '@yozora/html-link'
 
   // The implementation of the following function has been omitted.
   const renderChildren: (nodes: YastNode[]) => string = function () {}
 
-  const link: Link = { 
-    type: LinkType,
-    url: 'https://github.com/guanghechen/yozora',
-    title: 'yozora',
-    children: [
+  const link = {
+    "type": "link",
+    "url": "https://github.com/guanghechen/yozora",
+    "title": "yozora",
+    "children": [
       {
-        type: TextType,
-        value: 'yozora is cool!',
-      } as Text,
-    ],
+        "type": "text",
+        "value": "yozora is cool!"
+      }
+    ]
   }
-  renderLink(link, renderChildren)
+  renderLink(link as Link, renderChildren)
   // => <a class="yozora-link" href="https://github.com/guanghechen/yozora" title="yozora" target="_blank" rel="noopener,noreferrer"><span class="yozora-text">yozora is cool!</span></a>
   ```
 

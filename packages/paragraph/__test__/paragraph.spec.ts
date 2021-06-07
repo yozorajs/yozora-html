@@ -1,50 +1,49 @@
-import type { Emphasis, Paragraph, Strong, Text } from '@yozora/ast'
-import { EmphasisType, ParagraphType, StrongType, TextType } from '@yozora/ast'
+import type { Paragraph } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderParagraph from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    const node: Paragraph = {
-      type: ParagraphType,
+    const node = {
+      type: 'paragraph',
       children: [
         {
-          type: TextType,
+          type: 'text',
           value: 'yozora is cool!',
-        } as Text,
+        },
       ],
     }
-    expect(renderParagraph(node, renderChildren)).toMatchSnapshot()
+    expect(renderParagraph(node as Paragraph, renderChildren)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
-    const node: Paragraph = {
-      type: ParagraphType,
+    const node = {
+      type: 'paragraph',
       children: [
         {
-          type: EmphasisType,
+          type: 'emphasis',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'Hello',
-            } as Text,
+            },
           ],
-        } as Emphasis,
+        },
         {
-          type: TextType,
+          type: 'text',
           value: ', ',
-        } as Text,
+        },
         {
-          type: StrongType,
+          type: 'strong',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'World',
-            } as Text,
+            },
           ],
-        } as Strong,
+        },
       ],
     }
-    expect(renderParagraph(node, renderChildren)).toMatchSnapshot()
+    expect(renderParagraph(node as Paragraph, renderChildren)).toMatchSnapshot()
   })
 })

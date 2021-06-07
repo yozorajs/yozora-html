@@ -76,22 +76,21 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { Strong } from '@yozora/ast'
-  import { StrongType } from '@yozora/ast'
   import renderStrong from '@yozora/html-strong'
 
   // The implementation of the following function has been omitted.
   const renderChildren: (nodes: YastNode[]) => string = function () {}
 
-  const strong: Strong = {
-    type: StrongType,
-    children: [
+  const strong = {
+    "type": "strong",
+    "children": [
       {
-        type: TextType,
-        value: 'yozora is cool!',
-      } as Text,
-    ],
+        "type": "text",
+        "value": "yozora is cool!"
+      }
+    ]
   }
-  renderStrong(strong, renderChildren)
+  renderStrong(strong as Strong, renderChildren)
   // => <strong class="yozora-strong"><span class="yozora-text">yozora is cool!</span></strong>
   ```
 

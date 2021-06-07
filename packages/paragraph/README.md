@@ -76,22 +76,21 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { Paragraph } from '@yozora/ast'
-  import { ParagraphType } from '@yozora/ast'
   import renderParagraph from '@yozora/html-paragraph'
 
   // The implementation of the following function has been omitted.
   const renderChildren: (nodes: YastNode[]) => string = function () {}
 
-  const paragraph: Paragraph = {
-    type: ParagraphType,
-    children: [
+  const paragraph = {
+    "type": "paragraph",
+    "children": [
       {
-        type: TextType,
-        value: 'yozora is cool!',
-      } as Text,
-    ],
+        "type": "text",
+        "value": "yozora is cool!"
+      }
+    ]
   }
-  renderParagraph(paragraph, renderChildren)
+  renderParagraph(paragraph as Paragraph, renderChildren)
   // => <p class="yozora-paragraph"><span class="yozora-text">yozora is cool!</span></p>
   ```
 

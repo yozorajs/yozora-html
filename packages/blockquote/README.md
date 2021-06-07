@@ -76,22 +76,21 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { Blockquote } from '@yozora/ast'
-  import { BlockquoteType } from '@yozora/ast'
   import renderBlockquote from '@yozora/html-blockquote'
 
   // The implementation of the following function has been omitted.
   const renderChildren: (nodes: YastNode[]) => string = function () {}
 
-  const blockquote: Blockquote = {
-    type: BlockquoteType,
-    children: [
+  const blockquote = {
+    "type": "blockquote",
+    "children": [
       {
-        type: TextType,
-        value: 'yozora is cool!',
-      } as Text,
-    ],
+        "type": "text",
+        "value": "yozora is cool!"
+      }
+    ]
   }
-  renderBlockquote(blockquote, renderChildren)
+  renderBlockquote(blockquote as Blockquote, renderChildren)
   // => <blockquote class="yozora-blockquote"><span class="yozora-text">yozora is cool!</span></blockquote>
   ```
 

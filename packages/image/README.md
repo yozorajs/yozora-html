@@ -76,14 +76,13 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { Image } from '@yozora/ast'
-  import { ImageType } from '@yozora/ast'
   import renderImage from '@yozora/html-image'
 
   const image: Image = {
-    type: ImageType,
-    url: 'https://github.com/favicon.svg/',
-    alt: 'github favicon',
-    title: 'github favicon',
+    "type": "image",
+    "url": "https://github.com/favicon.svg/",
+    "alt": "github favicon",
+    "title": "github favicon"
   }
   renderImage(image)
   // => <img class="yozora-image" alt="github favicon src="https://github.com/favicon.svg/" title="github favicon"

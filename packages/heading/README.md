@@ -76,23 +76,22 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { Heading } from '@yozora/ast'
-  import { HeadingType } from '@yozora/ast'
   import renderHeading from '@yozora/html-heading'
 
   // The implementation of the following function has been omitted.
   const renderChildren: (nodes: YastNode[]) => string = function () {}
 
-  const heading: Heading = {
-    type: HeadingType,
-    depth: 1,
-    children: [
+  const heading = {
+    "type": "heading",
+    "depth": 1,
+    "children": [
       {
-        type: TextType,
-        value: 'yozora is cool!',
-      } as Text,
-    ],
+        "type": "text",
+        "value": "yozora is cool!"
+      }
+    ]
   }
-  renderHeading(heading, renderChildren)
+  renderHeading(heading as Heading, renderChildren)
   // => <h1 className="yozora-heading"><p className="yozora-heading__content"><span class="yozora-text">yozora is cool!</span></p></h1>
   ```
 

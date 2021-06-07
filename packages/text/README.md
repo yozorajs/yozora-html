@@ -76,10 +76,9 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { Text } from '@yozora/ast'
-  import { TextType } from '@yozora/ast'
   import renderText from '@yozora/html-text'
 
-  const text: Text = { type: TextType, value: 'literal content.' }
+  const text: Text = { "type": "text", "value": "literal content." }
   renderText(text)
   // => <span class="yozora-text">literal content.</span>
   ```

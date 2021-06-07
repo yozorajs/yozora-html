@@ -1,50 +1,49 @@
-import type { Delete, Emphasis, Strong, Text } from '@yozora/ast'
-import { DeleteType, EmphasisType, StrongType, TextType } from '@yozora/ast'
+import type { Delete } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderDelete from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    const node: Delete = {
-      type: DeleteType,
+    const node = {
+      type: 'delete',
       children: [
         {
-          type: TextType,
+          type: 'text',
           value: 'yozora is cool!',
-        } as Text,
+        },
       ],
     }
-    expect(renderDelete(node, renderChildren)).toMatchSnapshot()
+    expect(renderDelete(node as Delete, renderChildren)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
-    const node: Delete = {
-      type: DeleteType,
+    const node = {
+      type: 'delete',
       children: [
         {
-          type: EmphasisType,
+          type: 'emphasis',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'Hello',
-            } as Text,
+            },
           ],
-        } as Emphasis,
+        },
         {
-          type: TextType,
+          type: 'text',
           value: ', ',
-        } as Text,
+        },
         {
-          type: StrongType,
+          type: 'strong',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'World',
-            } as Text,
+            },
           ],
-        } as Strong,
+        },
       ],
     }
-    expect(renderDelete(node, renderChildren)).toMatchSnapshot()
+    expect(renderDelete(node as Delete, renderChildren)).toMatchSnapshot()
   })
 })

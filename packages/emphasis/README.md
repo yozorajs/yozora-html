@@ -76,22 +76,21 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { Emphasis } from '@yozora/ast'
-  import { EmphasisType } from '@yozora/ast'
   import renderEmphasis from '@yozora/html-emphasis'
 
   // The implementation of the following function has been omitted.
   const renderChildren: (nodes: YastNode[]) => string = function () {}
 
-  const emphasis: Emphasis = {
-    type: EmphasisType,
-    children: [
+  const emphasis = {
+    "type": "emphasis",
+    "children": [
       {
-        type: TextType,
-        value: 'yozora is cool!',
-      } as Text,
-    ],
+        "type": "text",
+        "value": "yozora is cool!"
+      }
+    ]
   }
-  renderEmphasis(emphasis, renderChildren)
+  renderEmphasis(emphasis as Emphasis, renderChildren)
   // => <em class="yozora-emphasis"><span class="yozora-text">yozora is cool!</span></em>
   ```
 

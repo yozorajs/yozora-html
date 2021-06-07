@@ -1,50 +1,49 @@
-import type { Emphasis, Strong, Text } from '@yozora/ast';
-import { EmphasisType , StrongType, TextType } from '@yozora/ast'
+import type { Strong } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderStrong from '../src'
 
 describe('snapshot', function () {
   it('basic-1', function () {
-    const node: Strong = {
-      type: StrongType,
+    const node = {
+      type: 'strong',
       children: [
         {
-          type: TextType,
+          type: 'text',
           value: 'yozora is cool!',
-        } as Text,
+        },
       ],
     }
-    expect(renderStrong(node, renderChildren)).toMatchSnapshot()
+    expect(renderStrong(node as Strong, renderChildren)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
-    const node: Strong = {
-      type: StrongType,
+    const node = {
+      type: 'strong',
       children: [
         {
-          type: EmphasisType,
+          type: 'emphasis',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'Hello',
-            } as Text,
+            },
           ],
-        } as Emphasis,
+        },
         {
-          type: TextType,
+          type: 'text',
           value: ', ',
-        } as Text,
+        },
         {
-          type: StrongType,
+          type: 'strong',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'World',
-            } as Text,
+            },
           ],
-        } as Strong,
+        },
       ],
     }
-    expect(renderStrong(node, renderChildren)).toMatchSnapshot()
+    expect(renderStrong(node as Strong, renderChildren)).toMatchSnapshot()
   })
 })

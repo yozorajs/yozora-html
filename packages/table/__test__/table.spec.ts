@@ -15,7 +15,7 @@ describe('snapshot', function () {
         },
         {
           align: null,
-        }
+        },
       ],
       children: [
         {

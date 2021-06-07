@@ -1,54 +1,53 @@
-import type { Emphasis, Link, Strong, Text } from '@yozora/ast';
-import { EmphasisType, LinkType , StrongType, TextType } from '@yozora/ast'
+import type { Link } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderLink from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    const node: Link = {
-      type: LinkType,
+    const node = {
+      type: 'link',
       url: 'https://github.com/guanghechen/yozora',
       title: 'yozora',
       children: [
         {
-          type: TextType,
+          type: 'text',
           value: 'yozora is cool!',
-        } as Text,
+        },
       ],
     }
-    expect(renderLink(node, renderChildren)).toMatchSnapshot()
+    expect(renderLink(node as Link, renderChildren)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
-    const node: Link = {
-      type: LinkType,
+    const node = {
+      type: 'link',
       url: 'https://github.com/yozorajs/yozora-html',
       title: 'yozora-html',
       children: [
         {
-          type: EmphasisType,
+          type: 'emphasis',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'Hello',
-            } as Text,
+            },
           ],
-        } as Emphasis,
+        },
         {
-          type: TextType,
+          type: 'text',
           value: ', ',
-        } as Text,
+        },
         {
-          type: StrongType,
+          type: 'strong',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'World',
-            } as Text,
+            },
           ],
-        } as Strong,
+        },
       ],
     }
-    expect(renderLink(node, renderChildren)).toMatchSnapshot()
+    expect(renderLink(node as Link, renderChildren)).toMatchSnapshot()
   })
 })

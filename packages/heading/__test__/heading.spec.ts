@@ -1,53 +1,52 @@
-import type { Emphasis, Heading, Strong, Text } from '@yozora/ast'
-import { EmphasisType, HeadingType, StrongType, TextType } from '@yozora/ast'
+import type { Heading } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderHeading from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    const node: Heading = {
-      type: HeadingType,
+    const node = {
+      type: 'heading',
       depth: 1,
       children: [
         {
-          type: TextType,
+          type: 'text',
           value: 'yozora is cool!',
-        } as Text,
+        },
       ],
     }
-    expect(renderHeading(node, renderChildren)).toMatchSnapshot()
+    expect(renderHeading(node as Heading, renderChildren)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
-    const node: Heading = {
-      type: HeadingType,
+    const node = {
+      type: 'heading',
       depth: 6,
       identifier: 'waw',
       children: [
         {
-          type: EmphasisType,
+          type: 'emphasis',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'Hello',
-            } as Text,
+            },
           ],
-        } as Emphasis,
+        },
         {
-          type: TextType,
+          type: 'text',
           value: ', ',
-        } as Text,
+        },
         {
-          type: StrongType,
+          type: 'strong',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'World',
-            } as Text,
+            },
           ],
-        } as Strong,
+        },
       ],
     }
-    expect(renderHeading(node, renderChildren)).toMatchSnapshot()
+    expect(renderHeading(node as Heading, renderChildren)).toMatchSnapshot()
   })
 })

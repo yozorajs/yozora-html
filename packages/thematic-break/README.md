@@ -76,10 +76,9 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   ```tsx
   import React from 'react'
   import type { ThematicBreak } from '@yozora/ast'
-  import { ThematicBreakType } from '@yozora/ast'
   import renderThematicBreak from '@yozora/html-thematic-break'
 
-  const thematicBreak: ThematicBreak = { type: ThematicBreakType }
+  const thematicBreak: ThematicBreak = { "type": "thematicBreak" }
   renderThematicBreak(thematicBreak)
   // => <hr class="yozora-thematic-break" />
   ```

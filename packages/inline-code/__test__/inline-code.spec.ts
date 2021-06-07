@@ -1,13 +1,12 @@
-import { InlineCodeType } from '@yozora/ast'
+import type { InlineCode } from '@yozora/ast'
 import renderInlineCode from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    expect(
-      renderInlineCode({
-        type: InlineCodeType,
-        value: 'dijkstra'
-      }),
-    ).toMatchSnapshot()
+    const node: InlineCode = {
+      type: 'inlineCode',
+      value: 'dijkstra',
+    }
+    expect(renderInlineCode(node)).toMatchSnapshot()
   })
 })

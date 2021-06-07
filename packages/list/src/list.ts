@@ -12,9 +12,9 @@ export function renderList(
   renderChildren: (nodes: YastNode[]) => string,
 ): string {
   const { ordered } = list
-  const children: string = list.children.map(item =>
-    renderListItem(item, renderChildren),
-  ).join('')
+  const children: string = list.children
+    .map(item => renderListItem(item, renderChildren))
+    .join('')
 
   if (ordered) {
     const { start } = list

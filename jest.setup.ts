@@ -1,5 +1,10 @@
-import type { YastNode } from '@yozora/ast';
-import { BlockquoteType , BreakType , DeleteType, EmphasisType, HeadingType ,
+import type { YastNode } from '@yozora/ast'
+import {
+  BlockquoteType,
+  BreakType,
+  DeleteType,
+  EmphasisType,
+  HeadingType,
   ImageType,
   InlineCodeType,
   LinkType,
@@ -9,7 +14,7 @@ import { BlockquoteType , BreakType , DeleteType, EmphasisType, HeadingType ,
   TableType,
   TextType,
   ThematicBreakType,
-} from '@yozora/ast';
+} from '@yozora/ast'
 import renderBlockquote from '@yozora/html-blockquote'
 import renderBreak from '@yozora/html-break'
 import renderDelete from '@yozora/html-delete'

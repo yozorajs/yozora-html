@@ -1,50 +1,53 @@
-import type { Blockquote, Emphasis, Strong, Text } from '@yozora/ast'
-import { BlockquoteType, EmphasisType, StrongType, TextType } from '@yozora/ast'
+import type { Blockquote } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderBlockquote from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    const node: Blockquote = {
-      type: BlockquoteType,
+    const node = {
+      type: 'blockquote',
       children: [
         {
-          type: TextType,
+          type: 'text',
           value: 'yozora is cool!',
-        } as Text,
+        },
       ],
     }
-    expect(renderBlockquote(node, renderChildren)).toMatchSnapshot()
+    expect(
+      renderBlockquote(node as Blockquote, renderChildren),
+    ).toMatchSnapshot()
   })
 
   it('basic-2', function () {
-    const node: Blockquote = {
-      type: BlockquoteType,
+    const node = {
+      type: 'blockquote',
       children: [
         {
-          type: EmphasisType,
+          type: 'emphasis',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'Hello',
-            } as Text,
+            },
           ],
-        } as Emphasis,
+        },
         {
-          type: TextType,
+          type: 'text',
           value: ', ',
-        } as Text,
+        },
         {
-          type: StrongType,
+          type: 'strong',
           children: [
             {
-              type: TextType,
+              type: 'text',
               value: 'World',
-            } as Text,
+            },
           ],
-        } as Strong,
+        },
       ],
     }
-    expect(renderBlockquote(node, renderChildren)).toMatchSnapshot()
+    expect(
+      renderBlockquote(node as Blockquote, renderChildren),
+    ).toMatchSnapshot()
   })
 })
