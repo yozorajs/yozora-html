@@ -1,6 +1,6 @@
 {
   "name": "@yozora/html-inline-code",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "render Yozora Markdown AST node `InlineCode` into HTML string",
   "author": {
     "name": "guanghechen",
