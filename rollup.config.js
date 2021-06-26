@@ -14,19 +14,8 @@ export async function rollupConfig() {
   const configs = createRollupConfigs({
     manifest,
     pluginOptions: {
-      commonjsOptions: {
-        sourceMap: false,
-      },
       typescriptOptions: {
         tsconfig: 'tsconfig.src.json',
-        tsconfigOverride: {
-          compilerOptions: {
-            declaration: false,
-            declarationMap: false,
-            declarationDir: null,
-            removeComments: true,
-          },
-        },
       },
       postcssOptions: {
         extract: 'index.css',
@@ -45,26 +34,6 @@ export async function rollupConfig() {
       },
     },
   })
-
-  configs.unshift(
-    ...createRollupConfigs({
-      manifest,
-      pluginOptions: {
-        commonjsOptions: {
-          sourceMap: false,
-        },
-        typescriptOptions: {
-          tsconfig: 'tsconfig.src.json',
-          tsconfigOverride: {
-            compilerOptions: {
-              removeComments: false,
-              emitDeclarationOnly: true,
-            },
-          },
-        },
-      },
-    }),
-  )
   return configs
 }
 
