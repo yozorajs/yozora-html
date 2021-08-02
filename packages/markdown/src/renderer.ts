@@ -12,6 +12,7 @@ import {
   CodeType,
   DefinitionType,
   DeleteType,
+  EcmaImportType,
   EmphasisType,
   FootnoteDefinitionType,
   HeadingType,
@@ -79,6 +80,7 @@ export const defaultRendererMap: YastNodeRendererMap = {
   [TableType]: renderTable,
   [TextType]: renderText,
   [ThematicBreakType]: renderThematicBreak,
+  [EcmaImportType]: () => '',
 }
 
 /**
