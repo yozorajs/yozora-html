@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="1.0.0-alpha.2"></a>
+## 1.0.0-alpha.2 (2021-08-02)
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[cea72bb](https://github.com/yozorajs/yozora-html/commit/cea72bbeb603d2172b493a0319811cf3d990dc42)]
+- ⬆️ chore: upgrade dev dependencies [[07ec57d](https://github.com/yozorajs/yozora-html/commit/07ec57d7fec0e127fe9e616c5151e36d02878978)]
+
+### Miscellaneous
+
+-  feat: fix missing rederer (ecmaImport) warning [[7e63b50](https://github.com/yozorajs/yozora-html/commit/7e63b50cc2dc0c650dadfeb77fa04b2c493b7232)]
+- 📝 docs: add CHANGELOG [[886b00b](https://github.com/yozorajs/yozora-html/commit/886b00b47e8628b0ef332984838f5eb2fa4f80df)]
+
+
 <a name="1.0.0-alpha.1"></a>
 ## 1.0.0-alpha.1 (2021-06-07)
 
