@@ -1,5 +1,17 @@
 # Changelog
 
+<a name="1.0.0-alpha.3"></a>
+## 1.0.0-alpha.3 (2021-08-23)
+
+### Changed
+
+- ⬆️ chore: ugprade devDependencies [[271bc2d](https://github.com/yozorajs/yozora-html/commit/271bc2d2017048661488414038f36f9ea4c2b932)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[f3f4f2e](https://github.com/yozorajs/yozora-html/commit/f3f4f2e4e8f47246c3652c434a5645c6a1f06f0f)]
+
+
 <a name="1.0.0-alpha.2"></a>
 ## 1.0.0-alpha.2 (2021-08-02)
 
