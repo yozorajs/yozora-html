@@ -19,11 +19,11 @@ const loadYozoraAst = (filepath: string): Root =>
 
 describe('snapshot', function () {
   it('basic', function () {
-    const ast = loadYozoraAst('basic')
-    const definitionMap = calcDefinitionMap(ast)
-    const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
+    const ast0 = loadYozoraAst('basic')
+    const { root: ast1, definitionMap } = calcDefinitionMap(ast0)
+    const { root, footnoteDefinitionMap } = calcFootnoteDefinitionMap(ast1)
     expect(
-      renderMarkdown(ast, definitionMap, footnoteDefinitionMap, renderMap),
+      renderMarkdown(root, definitionMap, footnoteDefinitionMap, renderMap),
     ).toMatchSnapshot()
   })
 })
