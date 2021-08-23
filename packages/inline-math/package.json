@@ -1,6 +1,6 @@
 {
   "name": "@yozora/html-inline-math",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "render Yozora Markdown AST node `InlineMath` into HTML string",
   "author": {
     "name": "guanghechen",
