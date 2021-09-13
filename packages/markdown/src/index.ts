@@ -1,7 +1,7 @@
 import type { Definition, FootnoteDefinition, Root } from '@yozora/ast'
 import type { YastNodeRendererMap } from './renderer'
 import { createNodesRenderer, defaultRendererMap } from './renderer'
-import './style/index.styl'
+import './style.css'
 
 export * from './renderer'
 
