@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot basic 1`] = `"<img class=\\"yozora-image\\" alt=\\"github favicon src=\\"https://github.com/favicon.svg/\\" title=\\"github favicon\\""`;
+exports[`snapshot basic 1`] = `"<figure class=\\"yozora-image\\"><img alt=\\"github favicon\\" src=\\"https://github.com/favicon.svg/\\" title=\\"github favicon\\" /><figcaption>github favicon</figcaption></figure>"`;

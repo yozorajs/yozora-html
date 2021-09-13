@@ -10,7 +10,14 @@ export function renderImage(image: Image): string {
   const url: string = sanitize(image.url, { allowedTags: [] })
   const alt: string = sanitize(image.alt, { allowedTags: [] })
   const title: string = sanitize(image.title || alt, { allowedTags: [] })
-  return `<img class="yozora-image" alt="${alt} src="${url}" title="${title}"`
+  let result: string =
+    `<figure class="yozora-image">` +
+    `<img alt="${alt}" src="${url}" title="${title}" />`
+  if (title.length > 0) {
+    result += `<figcaption>${title}</figcaption>`
+  }
+  result += '</figure>'
+  return result
 }
 
 export default renderImage
