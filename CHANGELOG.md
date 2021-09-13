@@ -1,5 +1,20 @@
 # Changelog
 
+<a name="1.0.0-alpha.4"></a>
+## 1.0.0-alpha.4 (2021-09-13)
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[cbe1311](https://github.com/yozorajs/yozora-html/commit/cbe1311c4dd8df22756f1412d8ee4459d2d8ee19)]
+
+### Miscellaneous
+
+-  feat(markdown): use styles bundle from yozora-react [[fbb7080](https://github.com/yozorajs/yozora-html/commit/fbb708060ec3bcd4ea49c607e7ad52f23b4fd1bb)]
+-  feat(image): keep consistent with yozora-react [[86dae9f](https://github.com/yozorajs/yozora-html/commit/86dae9f8d80f473649090d9944f19fde9c3ba583)]
+-  feat(admonition): keep consistent with yozora-react [[5b60ca4](https://github.com/yozorajs/yozora-html/commit/5b60ca46147062a0722d19d60c393171764a0544)]
+- 📝 docs: update CHANGELOG [[bb9eb60](https://github.com/yozorajs/yozora-html/commit/bb9eb609d3e555bc924196b81d364e7a70afc85c)]
+
+
 <a name="1.0.0-alpha.3"></a>
 ## 1.0.0-alpha.3 (2021-08-23)
 
