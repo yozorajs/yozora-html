@@ -61,6 +61,6 @@
     "@yozora/html-text": "^1.0.0-alpha.3",
     "@yozora/html-thematic-break": "^1.0.0-alpha.3",
     "prismjs": "^1.24.1",
-    "sanitize-html": "^2.4.0"
+    "sanitize-html": "^2.5.0"
   }
 }
