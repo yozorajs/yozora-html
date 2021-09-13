@@ -1,6 +1,6 @@
 {
   "name": "@yozora/html-paragraph",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "render Yozora Markdown AST node `Paragraph` into HTML string",
   "author": {
     "name": "guanghechen",
