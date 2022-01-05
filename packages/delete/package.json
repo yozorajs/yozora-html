@@ -1,6 +1,6 @@
 {
   "name": "@yozora/html-delete",
-  "version": "1.0.0-alpha.4",
+  "version": "2.0.0-alpha.0",
   "description": "render Yozora Markdown AST node `IDelete` into HTML string",
   "author": {
     "name": "guanghechen",
