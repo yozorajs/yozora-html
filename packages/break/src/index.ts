@@ -1,11 +1,11 @@
-import type { Break } from '@yozora/ast'
+import type { IBreak } from '@yozora/ast'
 
 /**
- * Render Yozora Markdown AST node `Break` into HTML string.
+ * Render Yozora Markdown AST node `IBreak` into HTML string.
  * @param node
  * @returns
  */
-export function renderBreak(node: Break): string {
+export function renderBreak(node: IBreak): string {
   return `<br class="yozora-break" />`
 }
 

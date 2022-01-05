@@ -1,4 +1,4 @@
-import type { Emphasis } from '@yozora/ast'
+import type { IEmphasis } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderEmphasis from '../src'
 
@@ -13,7 +13,7 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderEmphasis(node as Emphasis, renderChildren)).toMatchSnapshot()
+    expect(renderEmphasis(node as IEmphasis, renderChildren)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
@@ -44,6 +44,6 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderEmphasis(node as Emphasis, renderChildren)).toMatchSnapshot()
+    expect(renderEmphasis(node as IEmphasis, renderChildren)).toMatchSnapshot()
   })
 })

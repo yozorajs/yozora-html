@@ -1,9 +1,9 @@
-import type { ThematicBreak } from '@yozora/ast'
+import type { IThematicBreak } from '@yozora/ast'
 import renderThematicBreak from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    const thematicBreak: ThematicBreak = { type: 'thematicBreak' }
+    const thematicBreak: IThematicBreak = { type: 'thematicBreak' }
     expect(renderThematicBreak(thematicBreak)).toMatchSnapshot()
   })
 })

@@ -1,9 +1,9 @@
-import type { Code } from '@yozora/ast'
+import type { ICode } from '@yozora/ast'
 import renderCode from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    const code: Code = {
+    const code: ICode = {
       type: 'code',
       lang: '',
       meta: '',
@@ -13,7 +13,7 @@ describe('snapshot', function () {
   })
 
   it('javascript', function () {
-    const code: Code = {
+    const code: ICode = {
       type: 'code',
       lang: 'javascript',
       meta: '',

@@ -1,4 +1,4 @@
-import type { Delete } from '@yozora/ast'
+import type { IDelete } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderDelete from '../src'
 
@@ -13,7 +13,7 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderDelete(node as Delete, renderChildren)).toMatchSnapshot()
+    expect(renderDelete(node as IDelete, renderChildren)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
@@ -44,6 +44,6 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderDelete(node as Delete, renderChildren)).toMatchSnapshot()
+    expect(renderDelete(node as IDelete, renderChildren)).toMatchSnapshot()
   })
 })

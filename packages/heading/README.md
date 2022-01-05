@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Heading`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IHeading`][@yozora/ast] 
 produced by [@yozora/tokenizer-heading][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,11 +74,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Heading } from '@yozora/ast'
+  import type { IHeading, IYastNode } from '@yozora/ast'
   import renderHeading from '@yozora/html-heading'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const heading = {
     "type": "heading",
@@ -90,21 +90,21 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderHeading(heading as Heading, renderChildren)
+  renderHeading(heading as IHeading, renderChildren)
   // => <h1 className="yozora-heading"><p className="yozora-heading__content"><span class="yozora-text">yozora is cool!</span></p></h1>
   ```
 
 * With identifier:
 
   ```typescript
-  import type { Heading } from '@yozora/ast'
+  import type { IEmphasis, IHeading, IStrong, IText, IYastNode } from '@yozora/ast'
   import { HeadingType } from '@yozora/ast'
   import renderHeading from '@yozora/html-heading'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
-  const heading: Heading = {
+  const heading: IHeading = {
     type: HeadingType,
     depth: 1,
     children: [
@@ -114,22 +114,22 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
           {
             type: TextType,
             value: 'Hello',
-          } as Text,
+          } as IText,
         ],
-      } as Emphasis,
+      } as IEmphasis,
       {
         type: TextType,
         value: ', ',
-      } as Text,
+      } as IText,
       {
         type: StrongType,
         children: [
           {
             type: TextType,
             value: 'World',
-          } as Text,
+          } as IText,
         ],
-      } as Strong,
+      } as IStrong,
     ],
   }
   renderHeading(heading, renderChildren)

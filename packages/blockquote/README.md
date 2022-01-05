@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Blockquote`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IBlockquote`][@yozora/ast] 
 produced by [@yozora/tokenizer-blockquote][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,11 +74,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Blockquote } from '@yozora/ast'
+  import type { IBlockquote, IYastNode } from '@yozora/ast'
   import renderBlockquote from '@yozora/html-blockquote'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const blockquote = {
     "type": "blockquote",
@@ -89,7 +89,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderBlockquote(blockquote as Blockquote, renderChildren)
+  renderBlockquote(blockquote as IBlockquote, renderChildren)
   // => <blockquote class="yozora-blockquote"><span class="yozora-text">yozora is cool!</span></blockquote>
   ```
 

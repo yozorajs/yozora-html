@@ -1,4 +1,4 @@
-import type { Table } from '@yozora/ast'
+import type { ITable } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderTable from '../src'
 
@@ -84,6 +84,6 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderTable(node as Table, renderChildren)).toMatchSnapshot()
+    expect(renderTable(node as ITable, renderChildren)).toMatchSnapshot()
   })
 })

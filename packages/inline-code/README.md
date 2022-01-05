@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`InlineCode`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IInlineCode`][@yozora/ast] 
 produced by [@yozora/tokenizer-inline-code][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,10 +74,10 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { InlineCode } from '@yozora/ast'
+  import type { IInlineCode } from '@yozora/ast'
   import renderInlineCode from '@yozora/html-inline-code'
 
-  const inlineCode: InlineCode = {
+  const inlineCode: IInlineCode = {
     "type": "inlineCode",
     "value": "dijkstra"
   }

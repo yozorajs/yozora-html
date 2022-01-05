@@ -1,7 +1,7 @@
 {
   "name": "@yozora/html-code",
   "version": "1.0.0-alpha.4",
-  "description": "render Yozora Markdown AST node `Code` into HTML string",
+  "description": "render Yozora Markdown AST node `ICode` into HTML string",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -41,7 +41,8 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
+    "@yozora/ast": "^2.0.0-alpha.0",
     "prismjs": "^1.23.0",
-    "sanitize-html": "^2.4.0"
+    "sanitize-html": "^2.6.1"
   }
 }

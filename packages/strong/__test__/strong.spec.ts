@@ -1,4 +1,4 @@
-import type { Strong } from '@yozora/ast'
+import type { IStrong } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderStrong from '../src'
 
@@ -13,7 +13,7 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderStrong(node as Strong, renderChildren)).toMatchSnapshot()
+    expect(renderStrong(node as IStrong, renderChildren)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
@@ -44,6 +44,6 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderStrong(node as Strong, renderChildren)).toMatchSnapshot()
+    expect(renderStrong(node as IStrong, renderChildren)).toMatchSnapshot()
   })
 })

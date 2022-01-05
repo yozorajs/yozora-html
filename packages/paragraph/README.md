@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Paragraph`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IParagraph`][@yozora/ast] 
 produced by [@yozora/tokenizer-paragraph][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,11 +74,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Paragraph } from '@yozora/ast'
+  import type { IParagraph, IYastNode } from '@yozora/ast'
   import renderParagraph from '@yozora/html-paragraph'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const paragraph = {
     "type": "paragraph",
@@ -89,7 +89,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderParagraph(paragraph as Paragraph, renderChildren)
+  renderParagraph(paragraph as IParagraph, renderChildren)
   // => <p class="yozora-paragraph"><span class="yozora-text">yozora is cool!</span></p>
   ```
 

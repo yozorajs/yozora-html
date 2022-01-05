@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Code`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`ICode`][@yozora/ast] 
 produced by [@yozora/tokenizer-code][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,10 +74,10 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Code } from '@yozora/ast'
+  import type { ICode } from '@yozora/ast'
   import renderCode from '@yozora/html-code'
 
-  const code: Code = {
+  const code: ICode = {
     "type": "code",
     "lang": "",
     "meta": "",
@@ -92,10 +92,10 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Highlighted:
 
   ```typescript
-  import type { Code } from '@yozora/ast'
+  import type { ICode } from '@yozora/ast'
   import renderCode from '@yozora/html-code'
 
-  const code: Code = {
+  const code: ICode = {
     "type": "code",
     "lang": "javascript",
     "meta": "",

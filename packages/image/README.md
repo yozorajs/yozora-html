@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Image`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IImage`][@yozora/ast] 
 produced by [@yozora/tokenizer-image][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,10 +74,10 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Image } from '@yozora/ast'
+  import type { IImage } from '@yozora/ast'
   import renderImage from '@yozora/html-image'
 
-  const image: Image = {
+  const image: IImage = {
     "type": "image",
     "url": "https://github.com/favicon.svg/",
     "alt": "github favicon",

@@ -1,7 +1,7 @@
 {
   "name": "@yozora/html-blockquote",
   "version": "1.0.0-alpha.4",
-  "description": "render Yozora Markdown AST node `Blockquote` into HTML string",
+  "description": "render Yozora Markdown AST node `IBlockquote` into HTML string",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -39,5 +39,8 @@
     "prebuild": "rimraf lib/ && tsc -p tsconfig.src.json --emitDeclarationOnly",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
+  },
+  "peerDependencies": {
+    "@yozora/ast": "^2.0.0-alpha.0"
   }
 }

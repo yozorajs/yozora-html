@@ -1,7 +1,7 @@
-import type { YastNode } from '@yozora/ast'
+import type { IYastNode } from '@yozora/ast'
 import { createNodesRenderer } from '@yozora/html-markdown'
 
 export { createNodesRenderer }
 
-export const renderChildren: (nodes: YastNode[]) => string =
+export const renderChildren: (nodes: IYastNode[]) => string =
   createNodesRenderer({}, {})

@@ -1,9 +1,9 @@
 import type {
-  Definition,
-  FootnoteDefinition,
-  ImageReference,
-  LinkReference,
-  YastNode,
+  IDefinition,
+  IFootnoteDefinition,
+  IImageReference,
+  ILinkReference,
+  IYastNode,
 } from '@yozora/ast'
 import {
   AdmonitionType,
@@ -49,14 +49,14 @@ import renderTable from '@yozora/html-table'
 import renderText from '@yozora/html-text'
 import renderThematicBreak from '@yozora/html-thematic-break'
 
-export type YastNodeRenderer<T extends YastNode> = (
+export type YastNodeRenderer<T extends IYastNode> = (
   node: T,
-  renderChildren: (nodes: YastNode[]) => string,
+  renderChildren: (nodes: IYastNode[]) => string,
 ) => string
 
 export type YastNodeRendererMap = Record<
   string,
-  YastNodeRenderer<YastNode & any>
+  YastNodeRenderer<IYastNode & any>
 >
 
 export const defaultRendererMap: YastNodeRendererMap = {
@@ -91,35 +91,35 @@ export const defaultRendererMap: YastNodeRendererMap = {
  * @returns
  */
 export function createNodesRenderer(
-  definitionMap: Record<string, Definition>,
-  footnoteDefinitionMap: Record<string, FootnoteDefinition>,
+  definitionMap: Record<string, IDefinition>,
+  footnoteDefinitionMap: Record<string, IFootnoteDefinition>,
   _rendererMap: YastNodeRendererMap = defaultRendererMap,
-): (nodes: YastNode[]) => string {
+): (nodes: IYastNode[]) => string {
   const rendererMap = { ..._rendererMap }
 
-  // render LinkReference
+  // render linkReference
   if (rendererMap[LinkType] != null && rendererMap[LinkReferenceType] == null) {
     const renderLink = rendererMap[LinkType]
     rendererMap[LinkReferenceType] = function (
-      linkReference: LinkReference,
+      linkReference: ILinkReference,
     ): string {
-      const definition: Omit<Definition, 'type'> =
+      const definition: Omit<IDefinition, 'type'> =
         definitionMap[linkReference.identifier] ?? ({} as any)
       const { url = '', title } = definition
       return renderLink({ type: LinkType, url, title }, renderChildren)
     }
   }
 
-  // render ImageReference
+  // render imageReference
   if (
     rendererMap[ImageType] != null &&
     rendererMap[ImageReferenceType] == null
   ) {
     const renderImage = _rendererMap[ImageType] ?? defaultRendererMap[ImageType]
     rendererMap[ImageReferenceType] = function (
-      imageReference: ImageReference,
+      imageReference: IImageReference,
     ): string {
-      const definition: Omit<Definition, 'type'> =
+      const definition: Omit<IDefinition, 'type'> =
         definitionMap[imageReference.identifier] ?? ({} as any)
       const { alt } = imageReference
       const { url, title } = definition
@@ -127,7 +127,7 @@ export function createNodesRenderer(
     }
   }
 
-  function renderChildren(nodes: YastNode[]): string {
+  function renderChildren(nodes: IYastNode[]): string {
     if (nodes == null || nodes.length < 1) return ''
     return nodes
       .map(node => {

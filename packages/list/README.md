@@ -49,8 +49,8 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`List`][@yozora/ast__list] 
-produced by [@yozora/tokenizer-list][] and [`ListItem`][@yozora/ast__list-item]
+This component is for rendering the Yozora Markdown AST node [`IList`][@yozora/ast__list] 
+produced by [@yozora/tokenizer-list][] and [`IListItem`][@yozora/ast__list-item]
 produced by [@yozora/tokenizer-list-item][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -75,11 +75,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { List } from '@yozora/ast'
+  import type { IList, IYastNode } from '@yozora/ast'
   import renderList from '@yozora/html-list'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const list = {
     "type": "list",
@@ -107,18 +107,18 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderList(list as List, renderChildren)
+  renderList(list as IList, renderChildren)
   // => <ul class="yozora-list"><li class="yozora-list-item"><p class="yozora-paragraph"><span class="yozora-text">a</span></p></li><li class="yozora-list-item"><p class="yozora-paragraph"><span class="yozora-text">b</span></p></li></ul>
   ```
 
 * List with task items:
 
   ```typescript
-  import type { List } from '@yozora/ast'
+  import type { IList, IYastNode } from '@yozora/ast'
   import renderList from '@yozora/html-list'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const list = {
     "type": "list",
@@ -138,18 +138,18 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderList(list as List, renderChildren)
+  renderList(list as IList, renderChildren)
   // => <ul class="yozora-list"><li class="yozora-list-item"><input disabled="" type="checkbox" /> <span class="yozora-text">foo</span></li><li class="yozora-list-item"><input checked="" disabled="" type="checkbox" /> <span class="yozora-text">bar</span></li></ul>
   ```
 
 * Ordered list:
 
   ```typescript
-  import type { List } from '@yozora/ast'
+  import type { IList, IYastNode } from '@yozora/ast'
   import renderList from '@yozora/html-list'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const list = {
     "type": "list",
@@ -172,7 +172,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderList(list as List, renderChildren)
+  renderList(list as IList, renderChildren)
   // => <ol class="yozora-list" start="1"><li class="yozora-list-item"><span class="yozora-text">a</span></li><li class="yozora-list-item"><span class="yozora-text">b</span></li><li class="yozora-list-item"><span class="yozora-text">c</span></li></ol>
   ```
 

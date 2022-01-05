@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Emphasis`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IEmphasis`][@yozora/ast] 
 produced by [@yozora/tokenizer-emphasis][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,11 +74,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Emphasis } from '@yozora/ast'
+  import type { IEmphasis, IYastNode } from '@yozora/ast'
   import renderEmphasis from '@yozora/html-emphasis'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const emphasis = {
     "type": "emphasis",
@@ -89,7 +89,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderEmphasis(emphasis as Emphasis, renderChildren)
+  renderEmphasis(emphasis as IEmphasis, renderChildren)
   // => <em class="yozora-emphasis"><span class="yozora-text">yozora is cool!</span></em>
   ```
 

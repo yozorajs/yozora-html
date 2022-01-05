@@ -1,4 +1,4 @@
-import type { Admonition, YastNode } from '@yozora/ast'
+import type { IAdmonition, IYastNode } from '@yozora/ast'
 import sanitize from 'sanitize-html'
 import {
   YozoraAdmonitionCautionIcon,
@@ -9,14 +9,14 @@ import {
 } from './icons'
 
 /**
- * Render Yozora Markdown AST node `Admonition` into HTML string.
+ * Render Yozora Markdown AST node `IAdmonition` into HTML string.
  * @param admonition
  * @param renderChildren
  * @returns
  */
 export function renderAdmonition(
-  admonition: Admonition,
-  renderChildren: (nodes: YastNode[]) => string,
+  admonition: IAdmonition,
+  renderChildren: (nodes: IYastNode[]) => string,
 ): string {
   const keyword: string = sanitize(admonition.keyword, { allowedTags: [] })
   let modifier: string = keyword.trim().toLowerCase()

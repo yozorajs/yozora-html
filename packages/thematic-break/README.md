@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`ThematicBreak`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IThematicBreak`][@yozora/ast] 
 produced by [@yozora/tokenizer-thematic-break][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,10 +74,10 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { ThematicBreak } from '@yozora/ast'
+  import type { IThematicBreak } from '@yozora/ast'
   import renderThematicBreak from '@yozora/html-thematic-break'
 
-  const thematicBreak: ThematicBreak = { "type": "thematicBreak" }
+  const thematicBreak: IThematicBreak = { "type": "thematicBreak" }
   renderThematicBreak(thematicBreak)
   // => <hr class="yozora-thematic-break" />
   ```

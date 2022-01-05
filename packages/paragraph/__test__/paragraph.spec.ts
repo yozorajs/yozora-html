@@ -1,4 +1,4 @@
-import type { Paragraph } from '@yozora/ast'
+import type { IParagraph } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderParagraph from '../src'
 
@@ -13,7 +13,9 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderParagraph(node as Paragraph, renderChildren)).toMatchSnapshot()
+    expect(
+      renderParagraph(node as IParagraph, renderChildren),
+    ).toMatchSnapshot()
   })
 
   it('basic-2', function () {
@@ -44,6 +46,8 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderParagraph(node as Paragraph, renderChildren)).toMatchSnapshot()
+    expect(
+      renderParagraph(node as IParagraph, renderChildren),
+    ).toMatchSnapshot()
   })
 })

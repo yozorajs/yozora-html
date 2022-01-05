@@ -1,13 +1,13 @@
-import type { Code } from '@yozora/ast'
+import type { ICode } from '@yozora/ast'
 import prism from 'prismjs'
 import sanitize from 'sanitize-html'
 
 /**
- * Render Yozora Markdown AST node `Code` into HTML string.
+ * Render Yozora Markdown AST node `ICode` into HTML string.
  * @param code
  * @returns
  */
-export function renderCode(code: Code): string {
+export function renderCode(code: ICode): string {
   const { lang, value } = code
   const highlightedCode: string =
     lang != null && prism.languages[lang] != null

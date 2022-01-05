@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Link`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`ILink`][@yozora/ast] 
 produced by [@yozora/tokenizer-link][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,11 +74,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Link } from '@yozora/ast'
+  import type { ILink, IYastNode } from '@yozora/ast'
   import renderLink from '@yozora/html-link'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const link = {
     "type": "link",
@@ -91,7 +91,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderLink(link as Link, renderChildren)
+  renderLink(link as ILink, renderChildren)
   // => <a class="yozora-link" href="https://github.com/guanghechen/yozora" title="yozora" target="_blank" rel="noopener,noreferrer"><span class="yozora-text">yozora is cool!</span></a>
   ```
 

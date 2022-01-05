@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Math`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IMath`][@yozora/ast] 
 produced by [@yozora/tokenizer-math][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,10 +74,10 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Math } from '@yozora/ast'
+  import type { IMath } from '@yozora/ast'
   import renderMath from '@yozora/html-math'
 
-  const math: Math = { "type": "math", "value": "$$x^2 + y^2 = z^2$$" }
+  const math: IMath = { "type": "math", "value": "$$x^2 + y^2 = z^2$$" }
   renderMath(math)
   // => <div class="yozora-math">$$x^2 + y^2 = z^2$$</div>
   ```

@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Break`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IBreak`][@yozora/ast] 
 produced by [@yozora/tokenizer-break][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,10 +74,10 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Break } from '@yozora/ast'
+  import type { IBreak } from '@yozora/ast'
   import renderBreak from '@yozora/html-break'
 
-  const node: Break = { "type": "break" }
+  const node: IBreak = { "type": "break" }
   renderBreak(node)
   // => <br class="yozora-break" />
   ```

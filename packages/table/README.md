@@ -49,8 +49,8 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Table`][@yozora/ast__table],
-[`TableRow`][@yozora/ast__table-row] and [`TableCell`][@yozora/ast__table-cell] 
+This component is for rendering the Yozora Markdown AST node [`ITable`][@yozora/ast__table],
+[`ITableRow`][@yozora/ast__table-row] and [`ITableCell`][@yozora/ast__table-cell] 
 produced by [@yozora/tokenizer-table][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -75,11 +75,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Table } from '@yozora/ast'
+  import type { ITable, IYastNode } from '@yozora/ast'
   import renderTable from '@yozora/html-table'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const table = {
     "type": "table",
@@ -125,7 +125,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderTable(table as Table, renderChildren)
+  renderTable(table as ITable, renderChildren)
   // => <table class="yozora-table-item"><thead class="yozora-table__thead"><tr class="yozora-table-row"><th class="yozora-table-cell" align="center"><span class="yozora-text">abc</span></th><th class="yozora-table-cell" align="right"><span class="yozora-text">defghi</span></th><th class="yozora-table-cell"><span class="yozora-text">xyz</span></th></tr></thead><tbody class="yozora-table__tbody"><tr class="yozora-table-row"><td class="yozora-table-cell" align="center"><span class="yozora-text">bar</span></td><td class="yozora-table-cell" align="right"><span class="yozora-text">baz</span></td><td class="yozora-table-cell"><span class="yozora-text">defghi</span></td></tr></tbody></table> 
   ```
 

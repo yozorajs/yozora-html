@@ -1,9 +1,9 @@
-import type { InlineCode } from '@yozora/ast'
+import type { IInlineCode } from '@yozora/ast'
 import renderInlineCode from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    const node: InlineCode = {
+    const node: IInlineCode = {
       type: 'inlineCode',
       value: 'dijkstra',
     }

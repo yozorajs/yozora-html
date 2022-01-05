@@ -1,4 +1,4 @@
-import type { Root } from '@yozora/ast'
+import type { IRoot } from '@yozora/ast'
 import { HtmlType } from '@yozora/ast'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
 import fs from 'fs-extra'
@@ -14,7 +14,7 @@ const renderMap: YastNodeRendererMap = {
 const resolveFixture = (...p: string[]): string =>
   path.join(__dirname, 'fixtures', ...p)
 
-const loadYozoraAst = (filepath: string): Root =>
+const loadYozoraAst = (filepath: string): IRoot =>
   fs.readJSONSync(resolveFixture(filepath.replace(/(\.json)?$/, '.json')))
 
 describe('snapshot', function () {

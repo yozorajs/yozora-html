@@ -1,15 +1,15 @@
-import type { Link, YastNode } from '@yozora/ast'
+import type { ILink, IYastNode } from '@yozora/ast'
 import sanitize from 'sanitize-html'
 
 /**
- * Render Yozora Markdown AST node `Link` into HTML string.
+ * Render Yozora Markdown AST node `ILink` into HTML string.
  * @param link
  * @param renderChildren
  * @returns
  */
 export function renderLink(
-  link: Link,
-  renderChildren: (nodes: YastNode[]) => string,
+  link: ILink,
+  renderChildren: (nodes: IYastNode[]) => string,
 ): string {
   const url: string = sanitize(link.url, { allowedTags: [] })
   const title: string = sanitize(link.title || url, { allowedTags: [] })

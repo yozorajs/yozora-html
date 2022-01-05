@@ -1,4 +1,4 @@
-import type { List } from '@yozora/ast'
+import type { IList } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderList from '../src'
 
@@ -40,7 +40,7 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderList(node as List, renderChildren)).toMatchSnapshot()
+    expect(renderList(node as IList, renderChildren)).toMatchSnapshot()
   })
 
   it('todo', function () {
@@ -72,7 +72,7 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderList(node as List, renderChildren)).toMatchSnapshot()
+    expect(renderList(node as IList, renderChildren)).toMatchSnapshot()
   })
 
   it('ordered', function () {
@@ -112,6 +112,6 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderList(node as List, renderChildren)).toMatchSnapshot()
+    expect(renderList(node as IList, renderChildren)).toMatchSnapshot()
   })
 })

@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Text`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IText`][@yozora/ast] 
 produced by [@yozora/tokenizer-text][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,10 +74,10 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Text } from '@yozora/ast'
+  import type { IText } from '@yozora/ast'
   import renderText from '@yozora/html-text'
 
-  const text: Text = { "type": "text", "value": "literal content." }
+  const text: IText = { "type": "text", "value": "literal content." }
   renderText(text)
   // => <span class="yozora-text">literal content.</span>
   ```

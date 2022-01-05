@@ -1,4 +1,4 @@
-import type { Heading } from '@yozora/ast'
+import type { IHeading } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderHeading from '../src'
 
@@ -14,7 +14,7 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderHeading(node as Heading, renderChildren)).toMatchSnapshot()
+    expect(renderHeading(node as IHeading, renderChildren)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
@@ -47,6 +47,6 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderHeading(node as Heading, renderChildren)).toMatchSnapshot()
+    expect(renderHeading(node as IHeading, renderChildren)).toMatchSnapshot()
   })
 })

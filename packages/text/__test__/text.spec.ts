@@ -1,9 +1,9 @@
-import type { Text } from '@yozora/ast'
+import type { IText } from '@yozora/ast'
 import renderText from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    const text: Text = {
+    const text: IText = {
       type: 'text',
       value: 'literal content.',
     }
@@ -11,7 +11,7 @@ describe('snapshot', function () {
   })
 
   it('empty value', function () {
-    const text: Text = {
+    const text: IText = {
       type: 'text',
       value: '',
     }

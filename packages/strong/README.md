@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Strong`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IStrong`][@yozora/ast] 
 produced by [@yozora/tokenizer-strong][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,11 +74,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Strong } from '@yozora/ast'
+  import type { IStrong, IYastNode } from '@yozora/ast'
   import renderStrong from '@yozora/html-strong'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const strong = {
     "type": "strong",
@@ -89,7 +89,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderStrong(strong as Strong, renderChildren)
+  renderStrong(strong as IStrong, renderChildren)
   // => <strong class="yozora-strong"><span class="yozora-text">yozora is cool!</span></strong>
   ```
 

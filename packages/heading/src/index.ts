@@ -1,20 +1,20 @@
-import type { Heading, YastNode } from '@yozora/ast'
+import type { IHeading, IYastNode } from '@yozora/ast'
 import sanitize from 'sanitize-html'
 
 /**
- * Render Yozora Markdown AST node `Heading` into HTML string.
- * @param heading
+ * Render Yozora Markdown AST node `IHeading` into HTML string.
+ * @param node
  * @param renderChildren
  * @returns
  */
 export function renderHeading(
-  heading: Heading,
-  renderChildren: (nodes: YastNode[]) => string,
+  node: IHeading,
+  renderChildren: (nodes: IYastNode[]) => string,
 ): string {
-  const depth = Number(heading.depth)
-  const children: string = renderChildren(heading.children)
-  if (heading.identifier != null) {
-    const identifier: string = sanitize(heading.identifier, { allowedTags: [] })
+  const depth = Number(node.depth)
+  const children: string = renderChildren(node.children)
+  if (node.identifier != null) {
+    const identifier: string = sanitize(node.identifier, { allowedTags: [] })
     const id = encodeURIComponent(identifier)
     return (
       `<h${depth} id="${id}" className="yozora-heading yozora-heading--toc">` +

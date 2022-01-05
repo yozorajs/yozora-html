@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Delete`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IDelete`][@yozora/ast] 
 produced by [@yozora/tokenizer-delete][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,11 +74,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Delete } from '@yozora/ast'
+  import type { IDelete, IYastNode } from '@yozora/ast'
   import renderDelete from '@yozora/html-delete'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const node = {
     "type": "delete",

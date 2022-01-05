@@ -1,9 +1,9 @@
-import type { Math } from '@yozora/ast'
+import type { IMath } from '@yozora/ast'
 import renderMath from '../src'
 
 describe('snapshot', function () {
   it('basic', function () {
-    const math: Math = {
+    const math: IMath = {
       type: 'math',
       value: '$$x^2 + y^2 = z^2$$',
     }

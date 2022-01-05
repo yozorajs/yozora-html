@@ -1,15 +1,15 @@
-import type { List, YastNode } from '@yozora/ast'
+import type { IList, IYastNode } from '@yozora/ast'
 import { renderListItem } from './list-item'
 
 /**
- * Render Yozora Markdown AST node `List` into HTML string.
+ * Render Yozora Markdown AST node `IList` into HTML string.
  * @param list
  * @param renderChildren
  * @returns
  */
 export function renderList(
-  list: List,
-  renderChildren: (nodes: YastNode[]) => string,
+  list: IList,
+  renderChildren: (nodes: IYastNode[]) => string,
 ): string {
   const { ordered } = list
   const children: string = list.children

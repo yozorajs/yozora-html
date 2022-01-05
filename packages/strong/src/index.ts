@@ -1,14 +1,14 @@
-import type { Strong, YastNode } from '@yozora/ast'
+import type { IStrong, IYastNode } from '@yozora/ast'
 
 /**
- * Render Yozora Markdown AST node `Strong` into HTML string.
+ * Render Yozora Markdown AST node `IStrong` into HTML string.
  * @param strong
  * @param renderChildren
  * @returns
  */
 export function renderStrong(
-  strong: Strong,
-  renderChildren: (nodes: YastNode[]) => string,
+  strong: IStrong,
+  renderChildren: (nodes: IYastNode[]) => string,
 ): string {
   const children: string = renderChildren(strong.children)
   return `<strong class="yozora-strong">${children}</strong>`

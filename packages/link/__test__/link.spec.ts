@@ -1,4 +1,4 @@
-import type { Link } from '@yozora/ast'
+import type { ILink } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderLink from '../src'
 
@@ -15,7 +15,7 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderLink(node as Link, renderChildren)).toMatchSnapshot()
+    expect(renderLink(node as ILink, renderChildren)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
@@ -48,6 +48,6 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderLink(node as Link, renderChildren)).toMatchSnapshot()
+    expect(renderLink(node as ILink, renderChildren)).toMatchSnapshot()
   })
 })

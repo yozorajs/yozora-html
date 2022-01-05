@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Root`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IRoot`][@yozora/ast] 
 produced by [@yozora/parser][] into HTML string.
 
 ## Install
@@ -72,7 +72,7 @@ produced by [@yozora/parser][] into HTML string.
 * Basic:
 
   ```typescript
-  import type { Root } from '@yozora/ast'
+  import type { IRoot } from '@yozora/ast'
   import renderMarkdown from '@yozora/html-markdown'
   import '@yozora/html-markdown/lib/esm/index.css'  // load preset styles.
 
@@ -90,7 +90,7 @@ produced by [@yozora/parser][] into HTML string.
       }
     ]
   }
-  renderMarkdown(markdown as markdown, {}, {}, renderChildren)
+  renderMarkdown(markdown as IRoot, {}, {}, renderChildren)
   // => <markdown class="yozora-markdown"><span class="yozora-text">yozora is cool!</span></markdown>
   ```
 

@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`InlineMath`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IInlineMath`][@yozora/ast] 
 produced by [@yozora/tokenizer-inline-math][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,10 +74,10 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { InlineMath } from '@yozora/ast'
+  import type { IInlineMath } from '@yozora/ast'
   import renderInlineMath from '@yozora/html-inline-math'
 
-  const inlineMath: InlineMath = {
+  const inlineMath: IInlineMath = {
     "type": "inlineMath",
     "value": "$x^2 + y^2 = z^2$"
   }

@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Admonition`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`IAdmonition`][@yozora/ast] 
 produced by [@yozora/tokenizer-admonition][] into HTML string.
 
 This component has been built into [@yozora/html-markdown][], you can use it directly.
@@ -74,11 +74,11 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { Admonition } from '@yozora/ast'
+  import type { IAdmonition, IYastNode } from '@yozora/ast'
   import renderAdmonition from '@yozora/html-admonition'
 
   // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: YastNode[]) => string = function () {}
+  const renderChildren: (nodes: IYastNode[]) => string = function () {}
 
   const admonition = {
     "type": "admonition",
@@ -101,7 +101,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderAdmonition(admonition as Admonition, renderChildren)
+  renderAdmonition(admonition as IAdmonition, renderChildren)
   // => <div class="yozora-admonition yozora-admonition--default"><div class="yozora-admonition__heading"><h5><span class="yozora-text">optional title</span></h5></div><div class="yozora-admonition__body"><p class="yozora-paragraph"><span class="yozora-text">some content</span></p></div></div>
   ```
 

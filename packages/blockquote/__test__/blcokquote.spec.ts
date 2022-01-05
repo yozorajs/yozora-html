@@ -1,4 +1,4 @@
-import type { Blockquote } from '@yozora/ast'
+import type { IBlockquote } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderBlockquote from '../src'
 
@@ -14,7 +14,7 @@ describe('snapshot', function () {
       ],
     }
     expect(
-      renderBlockquote(node as Blockquote, renderChildren),
+      renderBlockquote(node as IBlockquote, renderChildren),
     ).toMatchSnapshot()
   })
 
@@ -47,7 +47,7 @@ describe('snapshot', function () {
       ],
     }
     expect(
-      renderBlockquote(node as Blockquote, renderChildren),
+      renderBlockquote(node as IBlockquote, renderChildren),
     ).toMatchSnapshot()
   })
 })
