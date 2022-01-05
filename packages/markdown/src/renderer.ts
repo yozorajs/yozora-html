@@ -15,6 +15,7 @@ import {
   EcmaImportType,
   EmphasisType,
   FootnoteDefinitionType,
+  FootnoteReferenceType,
   HeadingType,
   ImageReferenceType,
   ImageType,
@@ -36,6 +37,7 @@ import renderBreak from '@yozora/html-break'
 import renderCode from '@yozora/html-code'
 import renderDelete from '@yozora/html-delete'
 import renderEmphasis from '@yozora/html-emphasis'
+import renderFootnoteReference from '@yozora/html-footnote-reference'
 import renderHeading from '@yozora/html-heading'
 import renderImage from '@yozora/html-image'
 import renderInlineCode from '@yozora/html-inline-code'
@@ -67,6 +69,7 @@ export const defaultRendererMap: YastNodeRendererMap = {
   [DefinitionType]: () => '',
   [DeleteType]: renderDelete,
   [EmphasisType]: renderEmphasis,
+  [FootnoteReferenceType]: renderFootnoteReference,
   [FootnoteDefinitionType]: () => '',
   [HeadingType]: renderHeading,
   [ImageType]: renderImage,

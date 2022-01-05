@@ -48,6 +48,7 @@
     "@yozora/html-code": "^1.0.0-alpha.4",
     "@yozora/html-delete": "^1.0.0-alpha.4",
     "@yozora/html-emphasis": "^1.0.0-alpha.4",
+    "@yozora/html-footnote-reference": "^1.0.0-alpha.4",
     "@yozora/html-heading": "^1.0.0-alpha.4",
     "@yozora/html-image": "^1.0.0-alpha.4",
     "@yozora/html-inline-code": "^1.0.0-alpha.4",
