@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot basic 1`] = `"<li id=bravo class=\\"yozora-footnote-definition__item\\"><p class=\\"yozora-footnote-definition__item-title yozora-paragraph\\"><a href=#reference-bravo>&uarr;</a><span>Bravo</span></p><div class=\\"yozora-footnote-definition__item-content\\"><span class=\\"yozora-text\\">bravo and charlie.</span></div></li>"`;
+exports[`snapshot basic 1`] = `"<li id=bravo class=\\"yozora-footnote-definition\\"><p class=\\"yozora-footnote-definition__title yozora-paragraph\\"><a href=#reference-bravo>&uarr;</a><span>Bravo</span></p><div class=\\"yozora-footnote-definition__content\\"><span class=\\"yozora-text\\">bravo and charlie.</span></div></li>"`;
 
-exports[`snapshot basic-2 1`] = `"<li id=bravo%22 class=\\"yozora-footnote-definition__item\\"><p class=\\"yozora-footnote-definition__item-title yozora-paragraph\\"><a href=#reference-bravo%22>&uarr;</a><span>bravo\\"</span></p><div class=\\"yozora-footnote-definition__item-content\\"><span class=\\"yozora-text\\">bravo and charlie.</span></div></li>"`;
+exports[`snapshot basic-2 1`] = `"<li id=bravo%22 class=\\"yozora-footnote-definition\\"><p class=\\"yozora-footnote-definition__title yozora-paragraph\\"><a href=#reference-bravo%22>&uarr;</a><span>bravo\\"</span></p><div class=\\"yozora-footnote-definition__content\\"><span class=\\"yozora-text\\">bravo and charlie.</span></div></li>"`;
 
-exports[`snapshot basic-2 2`] = `"<li id=bravo%22 class=\\"yozora-footnote-definition__item\\"><p class=\\"yozora-footnote-definition__item-title yozora-paragraph\\"><a href=#reference-bravo%22>&uarr;</a><span>bravo\\"</span></p><div class=\\"yozora-footnote-definition__item-content\\"></div></li>"`;
+exports[`snapshot basic-2 2`] = `"<li id=bravo%22 class=\\"yozora-footnote-definition\\"><p class=\\"yozora-footnote-definition__title yozora-paragraph\\"><a href=#reference-bravo%22>&uarr;</a><span>bravo\\"</span></p><div class=\\"yozora-footnote-definition__content\\"></div></li>"`;

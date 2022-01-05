@@ -1,5 +1,5 @@
 import type { IFootnoteDefinition, IYastNode } from '@yozora/ast'
-import { renderFootnoteDefinition } from '../../footnote-definition/src'
+import { renderFootnoteDefinition } from '@yozora/html-footnote-definition'
 
 /**
  * Render Yozora Markdown AST node `IFootnoteReference` into HTML string.
