@@ -10,6 +10,9 @@
       "@yozora/html-delete": ["./packages/delete/src"],
       "@yozora/html-emphasis": ["./packages/emphasis/src"],
       "@yozora/html-footnote-reference": ["./packages/footnote-reference/src"],
+      "@yozora/html-footnote-definition": [
+        "./packages/footnote-footnote-definition/src"
+      ],
       "@yozora/html-heading": ["./packages/heading/src"],
       "@yozora/html-image": ["./packages/image/src"],
       "@yozora/html-inline-code": ["./packages/inline-code/src"],

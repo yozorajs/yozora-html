@@ -201,9 +201,9 @@
     },
     {
       "type": "definition",
-      "identifier": "@yozora/html-footnote-definitions",
-      "label": "@yozora/html-footnote-definitions",
-      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/footnote-definitions#readme"
+      "identifier": "@yozora/html-footnote-definition",
+      "label": "@yozora/html-footnote-definition",
+      "url": "https://github.com/yozorajs/yozora-html/tree/main/packages/footnote-definition#readme"
     },
     {
       "type": "definition",

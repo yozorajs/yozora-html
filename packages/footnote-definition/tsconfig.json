@@ -1,0 +1,4 @@
+{
+  "extends": "../../tsconfig",
+  "include": ["src", "__test__", "../markdown/src/renderFootnoteDefinitions.ts"]
+}

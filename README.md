@@ -77,7 +77,7 @@ Use [@yozora/html-markdown][] to render the [Root][yozora/ast__root] of Yozora a
 [@yozora/html-delete]: https://github.com/yozorajs/yozora-html/tree/main/packages/delete#readme
 [@yozora/html-emphasis]: https://github.com/yozorajs/yozora-html/tree/main/packages/emphasis#readme
 [@yozora/html-footnote-reference]: https://github.com/yozorajs/yozora-html/tree/main/packages/footnote-reference#readme
-[@yozora/html-footnote-definitions]: https://github.com/yozorajs/yozora-html/tree/main/packages/footnote-definitions#readme
+[@yozora/html-footnote-definition]: https://github.com/yozorajs/yozora-html/tree/main/packages/footnote-definition#readme
 [@yozora/html-heading]: https://github.com/yozorajs/yozora-html/tree/main/packages/heading#readme
 [@yozora/html-image]: https://github.com/yozorajs/yozora-html/tree/main/packages/image#readme
 [@yozora/html-inline-code]: https://github.com/yozorajs/yozora-html/tree/main/packages/inline-code#readme
