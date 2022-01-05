@@ -1,5 +1,25 @@
 # Changelog
 
+<a name="2.0.0-alpha.0"></a>
+## 2.0.0-alpha.0 (2022-01-05)
+
+### Added
+
+- ✅ fix: fix test errors [[d2edbce](https://github.com/yozorajs/yozora-html/commit/d2edbce5702f315f38851bc5c5bde83e6050cdc3)]
+- ✨ feat: add new sub-package @yozora/html-footnote-definition [[00d1926](https://github.com/yozorajs/yozora-html/commit/00d1926f0e016006aa203ba97842e47d69fa60ef)]
+- ✨ feat: add new sub package @yozora/html-footnote-reference [[0892ded](https://github.com/yozorajs/yozora-html/commit/0892ded1c828b821d859f2a6acb968649376bb57)]
+
+### Changed
+
+- 🎨 mod: render footnote-definitions [[9c1c157](https://github.com/yozorajs/yozora-html/commit/9c1c15775c005bd5573bd70a38e0a6c444131df0)]
+- 👽 fix: fix type errors [[f0dbe94](https://github.com/yozorajs/yozora-html/commit/f0dbe94a9102196bc54a8b4ea49bda074bd9a724)]
+- ⬆️ chore: upgrade dependencies [[c04aa51](https://github.com/yozorajs/yozora-html/commit/c04aa5161059fc227c735d92128707050bfe6321)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[08b338b](https://github.com/yozorajs/yozora-html/commit/08b338baccb1623fbf1de659508e4cf1d2594890)]
+
+
 <a name="1.0.0-alpha.4"></a>
 ## 1.0.0-alpha.4 (2021-09-13)
 
