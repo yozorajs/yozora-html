@@ -468,6 +468,22 @@
       "identifier": "yozora/thematic-break",
       "label": "yozora/thematic-break",
       "url": "https://www.npmjs.com/package/@yozora/ast#thematicbreak"
-    }
-  ]
-}
+    },
+    {
+      "type": "footnoteDefinition",
+      "identifier": "foo-2",
+      "label": "foo-2",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "This is a footnote definition."
+            }
+          ]
+        }
+      ]
+      }
+    ]
+  }

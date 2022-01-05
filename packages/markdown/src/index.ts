@@ -1,6 +1,7 @@
 import type { IDefinition, IFootnoteDefinition, IRoot } from '@yozora/ast'
 import type { YastNodeRendererMap } from './renderer'
 import { createNodesRenderer, defaultRendererMap } from './renderer'
+import renderFootnoteDefinitions from './renderFootnoteDefinitions'
 import './style.css'
 
 export * from './renderer'
@@ -21,8 +22,17 @@ export function renderMarkdown(
     renderMap,
   )
 
+  const footnotes: string = renderFootnoteDefinitions(
+    Object.values(footnoteDefinitionMap),
+    renderChildren,
+  )
   const children: string = renderChildren(ast.children)
-  return `<div class="yozora-markdown">${children}</div>`
+  return (
+    `<div class="yozora-markdown">` +
+    `<section>${children}</section>` +
+    `<footer>${footnotes}</footer>` +
+    `</div>`
+  )
 }
 
 export default renderMarkdown
