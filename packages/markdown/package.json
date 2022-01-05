@@ -60,7 +60,7 @@
     "@yozora/html-table": "^1.0.0-alpha.4",
     "@yozora/html-text": "^1.0.0-alpha.4",
     "@yozora/html-thematic-break": "^1.0.0-alpha.4",
-    "prismjs": "^1.24.1",
-    "sanitize-html": "^2.5.0"
+    "prismjs": "^1.25.0",
+    "sanitize-html": "^2.6.1"
   }
 }
