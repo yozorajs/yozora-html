@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="2.0.0-alpha.1"></a>
+## 2.0.0-alpha.1 (2022-01-13)
+
+### Changed
+
+- 👽 fix: fix type errors due to the upgrade of @yozora/ast [[5a7f4e4](https://github.com/yozorajs/yozora-html/commit/5a7f4e47a433384324ef84ed429ab54a4917e120)]
+- ⬆️ chore: upgrade dependencies [[61ec568](https://github.com/yozorajs/yozora-html/commit/61ec56863b0ab0c8504e08cc279468f40391222b)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[7c09d60](https://github.com/yozorajs/yozora-html/commit/7c09d608ac3f8abccce2368e782ff81a2edf9da7)]
+
+
 <a name="2.0.0-alpha.0"></a>
 ## 2.0.0-alpha.0 (2022-01-05)
 
