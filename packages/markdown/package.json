@@ -39,7 +39,7 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
-    "@yozora/ast": "^2.0.0-alpha.0"
+    "@yozora/ast": "^2.0.0-alpha.3"
   },
   "dependencies": {
     "@yozora/html-admonition": "^2.0.0-alpha.0",
@@ -62,7 +62,7 @@
     "@yozora/html-table": "^2.0.0-alpha.0",
     "@yozora/html-text": "^2.0.0-alpha.0",
     "@yozora/html-thematic-break": "^2.0.0-alpha.0",
-    "prismjs": "^1.25.0",
+    "prismjs": "^1.26.0",
     "sanitize-html": "^2.6.1"
   }
 }
