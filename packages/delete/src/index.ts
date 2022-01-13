@@ -1,4 +1,4 @@
-import type { IDelete, IYastNode } from '@yozora/ast'
+import type { Delete as IDelete, Node as INode } from '@yozora/ast'
 
 /**
  * Render Yozora Markdown AST node `IDelete` into HTML string.
@@ -8,7 +8,7 @@ import type { IDelete, IYastNode } from '@yozora/ast'
  */
 export function renderDelete(
   node: IDelete,
-  renderChildren: (nodes: IYastNode[]) => string,
+  renderChildren: (nodes: INode[]) => string,
 ): string {
   const children: string = renderChildren(node.children)
   return `<del class="yozora-delete">${children}</del>`

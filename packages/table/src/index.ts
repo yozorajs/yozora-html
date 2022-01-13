@@ -1,4 +1,9 @@
-import type { ITable, ITableCell, ITableRow, IYastNode } from '@yozora/ast'
+import type {
+  Node as INode,
+  Table as ITable,
+  TableCell as ITableCell,
+  TableRow as ITableRow,
+} from '@yozora/ast'
 
 /**
  * Render Yozora Markdown AST node `ITable` into HTML string.
@@ -8,7 +13,7 @@ import type { ITable, ITableCell, ITableRow, IYastNode } from '@yozora/ast'
  */
 export function renderTable(
   table: ITable,
-  renderChildren: (nodes: IYastNode[]) => string,
+  renderChildren: (nodes: INode[]) => string,
 ): string {
   const { columns } = table
   const aligns = columns.map(col => {

@@ -1,4 +1,4 @@
-import type { IBreak } from '@yozora/ast'
+import type { Break as IBreak } from '@yozora/ast'
 import renderBreak from '../src'
 
 describe('snapshot', function () {

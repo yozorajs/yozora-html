@@ -1,4 +1,4 @@
-import type { IInlineCode } from '@yozora/ast'
+import type { InlineCode as IInlineCode } from '@yozora/ast'
 import renderInlineCode from '../src'
 
 describe('snapshot', function () {

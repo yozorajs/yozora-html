@@ -1,4 +1,7 @@
-import type { IFootnoteDefinition, IYastNode } from '@yozora/ast'
+import type {
+  FootnoteDefinition as IFootnoteDefinition,
+  Node as INode,
+} from '@yozora/ast'
 import sanitize from 'sanitize-html'
 
 /**
@@ -9,7 +12,7 @@ import sanitize from 'sanitize-html'
  */
 export function renderFootnoteDefinition(
   node: IFootnoteDefinition,
-  renderChildren: (nodes: IYastNode[]) => string,
+  renderChildren: (nodes: INode[]) => string,
 ): string {
   const identifier: string = sanitize(node.identifier, { allowedTags: [] })
   const id: string = encodeURIComponent(identifier)

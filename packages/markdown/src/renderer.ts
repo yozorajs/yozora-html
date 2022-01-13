@@ -1,9 +1,9 @@
 import type {
-  IDefinition,
-  IFootnoteDefinition,
-  IImageReference,
-  ILinkReference,
-  IYastNode,
+  Definition as IDefinition,
+  FootnoteDefinition as IFootnoteDefinition,
+  ImageReference as IImageReference,
+  LinkReference as ILinkReference,
+  Node as INode,
 } from '@yozora/ast'
 import {
   AdmonitionType,
@@ -51,15 +51,12 @@ import renderTable from '@yozora/html-table'
 import renderText from '@yozora/html-text'
 import renderThematicBreak from '@yozora/html-thematic-break'
 
-export type YastNodeRenderer<T extends IYastNode> = (
+export type YastNodeRenderer<T extends INode> = (
   node: T,
-  renderChildren: (nodes: IYastNode[]) => string,
+  renderChildren: (nodes: INode[]) => string,
 ) => string
 
-export type YastNodeRendererMap = Record<
-  string,
-  YastNodeRenderer<IYastNode & any>
->
+export type YastNodeRendererMap = Record<string, YastNodeRenderer<INode & any>>
 
 export const defaultRendererMap: YastNodeRendererMap = {
   [AdmonitionType]: renderAdmonition,
@@ -97,7 +94,7 @@ export function createNodesRenderer(
   definitionMap: Record<string, IDefinition>,
   footnoteDefinitionMap: Record<string, IFootnoteDefinition>,
   _rendererMap: YastNodeRendererMap = defaultRendererMap,
-): (nodes: IYastNode[]) => string {
+): (nodes: INode[]) => string {
   const rendererMap = { ..._rendererMap }
 
   // render linkReference
@@ -130,7 +127,7 @@ export function createNodesRenderer(
     }
   }
 
-  function renderChildren(nodes: IYastNode[]): string {
+  function renderChildren(nodes: INode[]): string {
     if (nodes == null || nodes.length < 1) return ''
     return nodes
       .map(node => {

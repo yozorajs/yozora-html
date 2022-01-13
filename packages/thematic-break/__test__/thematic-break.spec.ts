@@ -1,4 +1,4 @@
-import type { IThematicBreak } from '@yozora/ast'
+import type { ThematicBreak as IThematicBreak } from '@yozora/ast'
 import renderThematicBreak from '../src'
 
 describe('snapshot', function () {

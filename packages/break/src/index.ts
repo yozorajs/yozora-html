@@ -1,4 +1,4 @@
-import type { IBreak } from '@yozora/ast'
+import type { Break as IBreak } from '@yozora/ast'
 
 /**
  * Render Yozora Markdown AST node `IBreak` into HTML string.

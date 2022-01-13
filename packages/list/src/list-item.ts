@@ -1,4 +1,4 @@
-import type { IListItem, IYastNode } from '@yozora/ast'
+import type { ListItem as IListItem, Node as INode } from '@yozora/ast'
 
 /**
  * Render Yozora Markdown AST node `IListItem` into HTML string.
@@ -8,7 +8,7 @@ import type { IListItem, IYastNode } from '@yozora/ast'
  */
 export function renderListItem(
   listItem: IListItem,
-  renderChildren: (nodes: IYastNode[]) => string,
+  renderChildren: (nodes: INode[]) => string,
 ): string {
   const { status } = listItem
   const children: string = renderChildren(listItem.children)

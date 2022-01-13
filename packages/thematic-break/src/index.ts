@@ -1,4 +1,4 @@
-import type { IThematicBreak } from '@yozora/ast'
+import type { ThematicBreak as IThematicBreak } from '@yozora/ast'
 
 /**
  * Render Yozora Markdown AST node `IThematicBreak` into HTML string.

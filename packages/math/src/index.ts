@@ -1,4 +1,4 @@
-import type { IMath } from '@yozora/ast'
+import type { Math as IMath } from '@yozora/ast'
 import sanitize from 'sanitize-html'
 
 /**

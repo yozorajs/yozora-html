@@ -1,4 +1,4 @@
-import type { IStrong } from '@yozora/ast'
+import type { Strong as IStrong } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderStrong from '../src'
 

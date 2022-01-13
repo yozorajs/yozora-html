@@ -1,4 +1,4 @@
-import type { IBlockquote } from '@yozora/ast'
+import type { Blockquote as IBlockquote } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderBlockquote from '../src'
 

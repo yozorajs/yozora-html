@@ -1,4 +1,7 @@
-import type { IFootnoteDefinition, IText } from '@yozora/ast'
+import type {
+  FootnoteDefinition as IFootnoteDefinition,
+  Text as IText,
+} from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderFootnoteDefinition from '../src'
 

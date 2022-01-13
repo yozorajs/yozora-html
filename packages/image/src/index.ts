@@ -1,4 +1,4 @@
-import type { IImage } from '@yozora/ast'
+import type { Image as IImage } from '@yozora/ast'
 import sanitize from 'sanitize-html'
 
 /**

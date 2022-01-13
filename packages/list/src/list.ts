@@ -1,4 +1,4 @@
-import type { IList, IYastNode } from '@yozora/ast'
+import type { List as IList, Node as INode } from '@yozora/ast'
 import { renderListItem } from './list-item'
 
 /**
@@ -9,7 +9,7 @@ import { renderListItem } from './list-item'
  */
 export function renderList(
   list: IList,
-  renderChildren: (nodes: IYastNode[]) => string,
+  renderChildren: (nodes: INode[]) => string,
 ): string {
   const { ordered } = list
   const children: string = list.children

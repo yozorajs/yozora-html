@@ -1,4 +1,4 @@
-import type { ICode } from '@yozora/ast'
+import type { Code as ICode } from '@yozora/ast'
 import prism from 'prismjs'
 import sanitize from 'sanitize-html'
 

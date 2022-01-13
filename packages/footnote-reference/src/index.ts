@@ -1,4 +1,4 @@
-import type { IFootnoteReference } from '@yozora/ast'
+import type { FootnoteReference as IFootnoteReference } from '@yozora/ast'
 import sanitize from 'sanitize-html'
 
 /**

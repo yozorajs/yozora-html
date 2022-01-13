@@ -1,4 +1,7 @@
-import type { IFootnoteDefinition, IYastNode } from '@yozora/ast'
+import type {
+  FootnoteDefinition as IFootnoteDefinition,
+  Node as INode,
+} from '@yozora/ast'
 import { renderFootnoteDefinition } from '@yozora/html-footnote-definition'
 
 /**
@@ -8,7 +11,7 @@ import { renderFootnoteDefinition } from '@yozora/html-footnote-definition'
  */
 export function renderFootnoteDefinitions(
   nodes: IFootnoteDefinition[],
-  renderChildren: (nodes: IYastNode[]) => string,
+  renderChildren: (nodes: INode[]) => string,
 ): string {
   const title = 'footnote-definition'
   const children: string = nodes

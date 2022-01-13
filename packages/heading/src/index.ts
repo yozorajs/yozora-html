@@ -1,4 +1,4 @@
-import type { IHeading, IYastNode } from '@yozora/ast'
+import type { Heading as IHeading, Node as INode } from '@yozora/ast'
 import sanitize from 'sanitize-html'
 
 /**
@@ -9,7 +9,7 @@ import sanitize from 'sanitize-html'
  */
 export function renderHeading(
   node: IHeading,
-  renderChildren: (nodes: IYastNode[]) => string,
+  renderChildren: (nodes: INode[]) => string,
 ): string {
   const depth = Number(node.depth)
   const children: string = renderChildren(node.children)

@@ -1,4 +1,4 @@
-import type { IInlineMath } from '@yozora/ast'
+import type { InlineMath as IInlineMath } from '@yozora/ast'
 import renderInlineMath from '../src'
 
 describe('snapshot', function () {

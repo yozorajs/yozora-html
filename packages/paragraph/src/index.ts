@@ -1,4 +1,4 @@
-import type { IParagraph, IYastNode } from '@yozora/ast'
+import type { Node as INode, Paragraph as IParagraph } from '@yozora/ast'
 
 /**
  * Render Yozora Markdown AST node `IParagraph` into HTML string.
@@ -8,7 +8,7 @@ import type { IParagraph, IYastNode } from '@yozora/ast'
  */
 export function renderParagraph(
   paragraph: IParagraph,
-  renderChildren: (nodes: IYastNode[]) => string,
+  renderChildren: (nodes: INode[]) => string,
 ): string {
   const children: string = renderChildren(paragraph.children)
   return `<p class="yozora-paragraph">${children}</p>`

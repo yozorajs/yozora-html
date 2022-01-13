@@ -1,4 +1,4 @@
-import type { IMath } from '@yozora/ast'
+import type { Math as IMath } from '@yozora/ast'
 import renderMath from '../src'
 
 describe('snapshot', function () {

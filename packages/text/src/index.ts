@@ -1,4 +1,4 @@
-import type { IText } from '@yozora/ast'
+import type { Text as IText } from '@yozora/ast'
 import sanitize from 'sanitize-html'
 
 /**

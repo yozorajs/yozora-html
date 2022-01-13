@@ -1,4 +1,4 @@
-import type { IList } from '@yozora/ast'
+import type { List as IList } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderList from '../src'
 

@@ -1,4 +1,4 @@
-import type { IAdmonition } from '@yozora/ast'
+import type { Admonition as IAdmonition } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderAdmonition from '../src'
 

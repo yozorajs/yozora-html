@@ -1,4 +1,4 @@
-import type { ICode } from '@yozora/ast'
+import type { Code as ICode } from '@yozora/ast'
 import renderCode from '../src'
 
 describe('snapshot', function () {

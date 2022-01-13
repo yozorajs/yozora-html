@@ -1,4 +1,4 @@
-import type { IDelete } from '@yozora/ast'
+import type { Delete as IDelete } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderDelete from '../src'
 

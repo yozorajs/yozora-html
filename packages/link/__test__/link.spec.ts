@@ -1,4 +1,4 @@
-import type { ILink } from '@yozora/ast'
+import type { Link as ILink } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderLink from '../src'
 

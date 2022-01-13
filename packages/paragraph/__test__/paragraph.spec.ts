@@ -1,4 +1,4 @@
-import type { IParagraph } from '@yozora/ast'
+import type { Paragraph as IParagraph } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderParagraph from '../src'
 

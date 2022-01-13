@@ -1,4 +1,4 @@
-import type { IHeading } from '@yozora/ast'
+import type { Heading as IHeading } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderHeading from '../src'
 

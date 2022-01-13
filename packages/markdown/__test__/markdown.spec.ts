@@ -1,4 +1,4 @@
-import type { IRoot } from '@yozora/ast'
+import type { Root as IRoot } from '@yozora/ast'
 import { HtmlType } from '@yozora/ast'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
 import fs from 'fs-extra'

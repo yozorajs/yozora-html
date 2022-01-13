@@ -1,4 +1,4 @@
-import type { IEmphasis } from '@yozora/ast'
+import type { Emphasis as IEmphasis } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderEmphasis from '../src'
 

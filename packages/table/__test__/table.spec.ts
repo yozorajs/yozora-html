@@ -1,4 +1,4 @@
-import type { ITable } from '@yozora/ast'
+import type { Table as ITable } from '@yozora/ast'
 import { renderChildren } from '../../../jest.setup'
 import renderTable from '../src'
 

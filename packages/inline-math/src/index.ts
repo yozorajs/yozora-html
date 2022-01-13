@@ -1,4 +1,4 @@
-import type { IInlineMath } from '@yozora/ast'
+import type { InlineMath as IInlineMath } from '@yozora/ast'
 import sanitize from 'sanitize-html'
 
 /**
