@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="2.0.0-alpha.2"></a>
+## 2.0.0-alpha.2 (2022-01-15)
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[7f1fc06](https://github.com/yozorajs/yozora-html/commit/7f1fc061fd5426cc7c7ef9f4c6fa46d288033a66)]
+
+### Miscellaneous
+
+-  improve: update styles [[3dc7fab](https://github.com/yozorajs/yozora-html/commit/3dc7faba52ed69ba31f9e7f6101e5c101eca3adf)]
+- 📝 docs: update CHANGELOG [[01219ec](https://github.com/yozorajs/yozora-html/commit/01219eccf98882fadbe6259db36e22214ee3c1bb)]
+
+
 <a name="2.0.0-alpha.1"></a>
 ## 2.0.0-alpha.1 (2022-01-13)
 
