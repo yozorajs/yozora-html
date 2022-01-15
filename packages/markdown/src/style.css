@@ -744,21 +744,6 @@
   margin: 0 6px 0 2px;
 }
 .yozora-footnote-definition {
-  margin-top: 2rem;
-  font-size: 0.8rem;
-}
-.yozora-footnote-definition > .yozora-footnote-definition__title {
-  padding: 0;
-  border-bottom: 1px solid var(--yozora__color-border-secondary, rgba(194,202,214,0.92));
-  margin: 0 0 1rem;
-  font-style: italic;
-}
-.yozora-footnote-definition > .yozora-footnote-definition__main {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.yozora-footnote-definition .yozora-footnote-definition__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -772,7 +757,7 @@
   padding: 0;
   margin: 0;
 }
-.yozora-footnote-definition .yozora-footnote-definition__item .yozora-footnote-definition__item-title {
+.yozora-footnote-definition .yozora-footnote-definition__title {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
@@ -780,13 +765,13 @@
   margin: 0;
   padding: 0;
 }
-.yozora-footnote-definition .yozora-footnote-definition__item .yozora-footnote-definition__item-title > span::before {
+.yozora-footnote-definition .yozora-footnote-definition__title > span::before {
   content: '\00a0[';
 }
-.yozora-footnote-definition .yozora-footnote-definition__item .yozora-footnote-definition__item-title > span::after {
+.yozora-footnote-definition .yozora-footnote-definition__title > span::after {
   content: ']: \00a0';
 }
-.yozora-footnote-definition .yozora-footnote-definition__item .yozora-footnote-definition__item-content {
+.yozora-footnote-definition .yozora-footnote-definition__content {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -1184,6 +1169,21 @@ h6.yozora-heading {
           justify-content: center;
   padding: 2rem 0;
   background: rgba(230,230,230,0.2);
+}
+.yozora-markdown .yozora-footnote-definitions {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+}
+.yozora-markdown .yozora-footnote-definitions > .yozora-footnote-definitions__title {
+  padding: 0;
+  border-bottom: 1px solid var(--yozora__color-border-secondary, rgba(194,202,214,0.92));
+  margin: 0 0 1rem;
+  font-style: italic;
+}
+.yozora-markdown .yozora-footnote-definitions > .yozora-footnote-definitions__main {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 .yozora-markdown .yozora-footnote-reference > a {
   display: inline-block;

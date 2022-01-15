@@ -13,14 +13,14 @@ export function renderFootnoteDefinitions(
   nodes: IFootnoteDefinition[],
   renderChildren: (nodes: INode[]) => string,
 ): string {
-  const title = 'footnote-definition'
+  const title = 'footnote-definitions'
   const children: string = nodes
     .map(node => renderFootnoteDefinition(node, renderChildren))
     .join('')
   return (
-    `<div class="yozora-footnote-definition">` +
-    `<div class="yozora-footnote-definition__title">${title}</div>` +
-    `<ul class="yozora-footnote-definition__main">${children}</ul>` +
+    `<div class="yozora-footnote-definitions">` +
+    `<div class="yozora-footnote-definitions__title">${title}</div>` +
+    `<ul class="yozora-footnote-definitions__main">${children}</ul>` +
     `</div>`
   )
 }
