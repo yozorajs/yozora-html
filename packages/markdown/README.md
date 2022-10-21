@@ -74,7 +74,7 @@ produced by [@yozora/parser][] into HTML string.
   ```typescript
   import type { IRoot } from '@yozora/ast'
   import renderMarkdown from '@yozora/html-markdown'
-  import '@yozora/html-markdown/lib/esm/index.css'  // load preset styles.
+  import '@yozora/html-markdown/lib/index.css'  // load preset styles.
 
   const root = {
     "type": "root",
