@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot basic 1`] = `"<p class=\\"yozora-paragraph\\"><span class=\\"yozora-text\\">yozora is cool!</span></p>"`;
+exports[`snapshot basic 1`] = `"<p class="yozora-paragraph"><span class="yozora-text">yozora is cool!</span></p>"`;
 
-exports[`snapshot basic-2 1`] = `"<p class=\\"yozora-paragraph\\"><em class=\\"yozora-emphasis\\"><span class=\\"yozora-text\\">Hello</span></em><span class=\\"yozora-text\\">, </span><strong class=\\"yozora-strong\\"><span class=\\"yozora-text\\">World</span></strong></p>"`;
+exports[`snapshot basic-2 1`] = `"<p class="yozora-paragraph"><em class="yozora-emphasis"><span class="yozora-text">Hello</span></em><span class="yozora-text">, </span><strong class="yozora-strong"><span class="yozora-text">World</span></strong></p>"`;

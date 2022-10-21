@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot basic 1`] = `"<span class=\\"yozora-text\\">literal content.</span>"`;
+exports[`snapshot basic 1`] = `"<span class="yozora-text">literal content.</span>"`;
 
-exports[`snapshot empty value 1`] = `"<span class=\\"yozora-text\\"></span>"`;
+exports[`snapshot empty value 1`] = `"<span class="yozora-text"></span>"`;

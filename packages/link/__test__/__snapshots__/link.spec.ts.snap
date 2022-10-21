@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot basic 1`] = `"<a class=\\"yozora-link\\" href=\\"https://github.com/guanghechen/yozora\\" title=\\"yozora\\" target=\\"_blank\\" rel=\\"noopener,noreferrer\\"><span class=\\"yozora-text\\">yozora is cool!</span></a>"`;
+exports[`snapshot basic 1`] = `"<a class="yozora-link" href="https://github.com/guanghechen/yozora" title="yozora" target="_blank" rel="noopener,noreferrer"><span class="yozora-text">yozora is cool!</span></a>"`;
 
-exports[`snapshot basic-2 1`] = `"<a class=\\"yozora-link\\" href=\\"https://github.com/yozorajs/yozora-html\\" title=\\"yozora-html\\" target=\\"_blank\\" rel=\\"noopener,noreferrer\\"><em class=\\"yozora-emphasis\\"><span class=\\"yozora-text\\">Hello</span></em><span class=\\"yozora-text\\">, </span><strong class=\\"yozora-strong\\"><span class=\\"yozora-text\\">World</span></strong></a>"`;
+exports[`snapshot basic-2 1`] = `"<a class="yozora-link" href="https://github.com/yozorajs/yozora-html" title="yozora-html" target="_blank" rel="noopener,noreferrer"><em class="yozora-emphasis"><span class="yozora-text">Hello</span></em><span class="yozora-text">, </span><strong class="yozora-strong"><span class="yozora-text">World</span></strong></a>"`;
