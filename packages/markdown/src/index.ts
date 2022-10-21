@@ -6,7 +6,6 @@ import type {
 import type { YastNodeRendererMap } from './renderer'
 import { createNodesRenderer, defaultRendererMap } from './renderer'
 import renderFootnoteDefinitions from './renderFootnoteDefinitions'
-import './style.css'
 
 export * from './renderer'
 

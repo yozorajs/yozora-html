@@ -34,7 +34,8 @@
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
-    "prebuild": "rimraf lib/ && tsc -p tsconfig.src.json --emitDeclarationOnly",
+    "postbuild": "cp src/style.css lib/style.css",
+    "prebuild": "rimraf lib/",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
@@ -62,7 +63,7 @@
     "@yozora/html-table": "^2.0.0-alpha.2",
     "@yozora/html-text": "^2.0.0-alpha.2",
     "@yozora/html-thematic-break": "^2.0.0-alpha.2",
-    "prismjs": "^1.26.0",
-    "sanitize-html": "^2.6.1"
+    "prismjs": "^1.29.0",
+    "sanitize-html": "^2.7.2"
   }
 }

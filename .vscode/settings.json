@@ -1,6 +1,5 @@
 {
   "cSpell.words": [
-    "Yast",
     "blockquote",
     "clsx",
     "gitmoji",
@@ -8,10 +7,12 @@
     "mathjax",
     "mdast",
     "pinst",
+    "postbuild",
     "postpublish",
     "prebuild",
     "prismjs",
     "styl",
+    "Yast",
     "yozora"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",

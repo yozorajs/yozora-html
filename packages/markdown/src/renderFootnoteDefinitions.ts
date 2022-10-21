@@ -6,7 +6,8 @@ import { renderFootnoteDefinition } from '@yozora/html-footnote-definition'
 
 /**
  * Render Yozora Markdown AST node `IFootnoteReference` into HTML string.
- * @param props
+ * @param nodes
+ * @param renderChildren
  * @returns
  */
 export function renderFootnoteDefinitions(
