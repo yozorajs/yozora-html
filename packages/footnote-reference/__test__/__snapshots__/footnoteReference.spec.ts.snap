@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`snapshot basic 1`] = `"<sup id="reference-bravo" class="yozora-footnote-reference"><a href="#bravo" title="bravo">[bravo]</a></sup>"`;
-
-exports[`snapshot basic-2 1`] = `"<sup id="reference-bravo%22" class="yozora-footnote-reference"><a href="#bravo%22" title="bravo"">[bravo"]</a></sup>"`;

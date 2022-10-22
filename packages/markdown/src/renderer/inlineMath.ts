@@ -1,5 +1,5 @@
 import type { InlineMath } from '@yozora/ast'
-import type { INodeRenderer } from '../../../core-html-renderer/src/types'
+import type { INodeRenderer } from '@yozora/core-html-renderer'
 
 /**
  * Render Yozora Markdown AST node `InlineMath` into HTML string.

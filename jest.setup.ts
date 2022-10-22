@@ -1,6 +1,6 @@
 import type { Node as INode } from '@yozora/ast'
-import { createNodesRenderer } from '@yozora/html-markdown'
+import { createNodesRendererContext } from '@yozora/html-markdown'
 
-export { createNodesRenderer }
+export { createNodesRendererContext as createNodesRenderer }
 
-export const renderChildren: (nodes: INode[]) => string = createNodesRenderer({}, {})
+export const renderChildren: (nodes: INode[]) => string = createNodesRendererContext({}, {})

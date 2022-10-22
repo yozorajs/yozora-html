@@ -1,5 +1,5 @@
 import type { Math } from '@yozora/ast'
-import type { INodeRenderer } from '../types'
+import type { INodeRenderer } from '@yozora/core-html-renderer'
 
 /**
  * Render Yozora Markdown AST node `Math` into HTML string.
