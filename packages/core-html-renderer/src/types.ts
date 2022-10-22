@@ -14,6 +14,8 @@ import type {
   FootnoteDefinition,
   Heading,
   HeadingType,
+  Html,
+  HtmlType,
   Image,
   ImageReference,
   ImageReferenceType,
@@ -77,6 +79,7 @@ export interface INodeRendererMap {
   [DeleteType]: INodeRenderer<Delete>
   [EmphasisType]: INodeRenderer<Emphasis>
   [HeadingType]: INodeRenderer<Heading>
+  [HtmlType]: INodeRenderer<Html>
   [ImageType]: INodeRenderer<Image>
   [ImageReferenceType]: INodeRenderer<ImageReference>
   [InlineCodeType]: INodeRenderer<InlineCode>

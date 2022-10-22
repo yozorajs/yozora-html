@@ -1,7 +1,7 @@
 import type { Definition, FootnoteDefinition, Root } from '@yozora/ast'
 import type { INodeRendererMap } from './rendererMap'
 import { createNodesRendererContext, defaultRendererMap } from './rendererMap'
-import renderFootnoteDefinitions from './renderFootnoteDefinitions'
+import { renderFootnoteDefinitions } from './renderFootnoteDefinitions'
 
 export function renderMarkdown(
   ast: Root,
@@ -10,10 +10,7 @@ export function renderMarkdown(
   rendererMap: INodeRendererMap = defaultRendererMap,
 ): string {
   const context = createNodesRendererContext(definitionMap, footnoteDefinitionMap, rendererMap)
-  const footnotes: string = renderFootnoteDefinitions(
-    Object.values(footnoteDefinitionMap),
-    context.renderChildren,
-  )
+  const footnotes: string = renderFootnoteDefinitions(Object.values(footnoteDefinitionMap), context)
   const children: string = context.renderChildren(ast.children)
 
   /* prettier-ignore */

@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-html/tree/main/packages/admonition#readme">@yozora/html-admonition</a>
+    <a href="https://github.com/guanghechen/yozora-html/tree/main/packages/html-admonition#readme">@yozora/html-admonition</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/html-admonition">

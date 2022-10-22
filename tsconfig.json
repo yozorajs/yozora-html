@@ -4,10 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@yozora/core-html-renderer": ["./packages/core-html-renderer/src"],
-      "@yozora/html-admonition": ["./packages/admonition/src"],
-      "@yozora/html-footnote-reference": ["./packages/footnote-reference/src"],
-      "@yozora/html-footnote-definition": ["./packages/footnote-footnote-definition/src"],
-      "@yozora/html-markdown": ["./packages/markdown/src"]
+      "@yozora/html-admonition": ["./packages/html-admonition/src"],
+      "@yozora/html-markdown": ["./packages/html-markdown/src"]
     }
   }
 }

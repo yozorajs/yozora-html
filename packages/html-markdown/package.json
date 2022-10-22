@@ -1,7 +1,6 @@
 {
-  "name": "@yozora/html-admonition",
+  "name": "@yozora/html-markdown",
   "version": "2.0.0-alpha.2",
-  "description": "render Yozora Markdown AST node `IAdmonition` into HTML string",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -9,13 +8,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/guanghechen/yozora-html.git",
-    "directory": "packages/admonition"
+    "directory": "packages/html-markdown"
   },
-  "homepage": "https://github.com/guanghechen/yozora-html/tree/main/packages/admonition#readme",
+  "homepage": "https://github.com/guanghechen/yozora-html/tree/main/packages/html-markdown#readme",
   "keywords": [
     "mdast to html",
-    "yozora",
-    "admonition"
+    "yozora"
   ],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -36,12 +34,16 @@
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
+    "postbuild": "cp src/style.css lib/style.css",
     "prebuild": "rimraf lib/",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
-    "@yozora/ast": "^2.0.0",
-    "sanitize-html": "^2.6.1"
+    "@yozora/ast": "^2.0.0"
+  },
+  "dependencies": {
+    "@yozora/core-html-renderer": "^2.0.0-alpha.2",
+    "@yozora/html-admonition": "^2.0.0-alpha.2"
   }
 }

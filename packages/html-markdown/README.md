@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-html/tree/main/packages/markdown#readme">@yozora/html-markdown</a>
+    <a href="https://github.com/guanghechen/yozora-html/tree/main/packages/html-markdown#readme">@yozora/html-markdown</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/html-markdown">
@@ -49,7 +49,7 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`IRoot`][@yozora/ast] 
+This component is for rendering the Yozora Markdown AST node [`Root`][@yozora/ast] 
 produced by [@yozora/parser][] into HTML string.
 
 ## Install
@@ -103,7 +103,7 @@ produced by [@yozora/parser][] into HTML string.
 * [markdown | Mdast][mdast]
 
 
-[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#markdown
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#root
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-markdown]: https://www.npmjs.com/package/@yozora/tokenizer-markdown
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown

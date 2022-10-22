@@ -3,10 +3,10 @@ import { HtmlType } from '@yozora/ast'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
 import fs from 'fs-extra'
 import path from 'path'
-import type { YastNodeRendererMap } from '../src'
-import renderMarkdown, { defaultRendererMap } from '../src'
+import type { INodeRendererMap } from '../src'
+import { defaultRendererMap, renderMarkdown } from '../src'
 
-const renderMap: YastNodeRendererMap = {
+const rendererMap: INodeRendererMap = {
   ...defaultRendererMap,
   [HtmlType]: () => '',
 }
@@ -21,6 +21,8 @@ describe('snapshot', function () {
     const ast0 = loadYozoraAst('basic')
     const { root: ast1, definitionMap } = calcDefinitionMap(ast0)
     const { root, footnoteDefinitionMap } = calcFootnoteDefinitionMap(ast1)
-    expect(renderMarkdown(root, definitionMap, footnoteDefinitionMap, renderMap)).toMatchSnapshot()
+    expect(
+      renderMarkdown(root, definitionMap, footnoteDefinitionMap, rendererMap),
+    ).toMatchSnapshot()
   })
 })

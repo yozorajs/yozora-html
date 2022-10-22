@@ -8,5 +8,5 @@ import { renderAdmonition as baseRenderAdmonition } from '@yozora/html-admonitio
  * @see https://www.npmjs.com/package/@yozora/tokenizer-admonition
  */
 export const renderAdmonition: INodeRenderer<Admonition> = (node, context) => {
-  return baseRenderAdmonition(node, context.renderChildren)
+  return baseRenderAdmonition(node, context)
 }

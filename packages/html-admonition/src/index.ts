@@ -1,5 +1,4 @@
 import type { Admonition as IAdmonition, Node as INode } from '@yozora/ast'
-import sanitize from 'sanitize-html'
 import {
   YozoraAdmonitionCautionIcon,
   YozoraAdmonitionDangerIcon,
@@ -16,9 +15,12 @@ import {
  */
 export function renderAdmonition(
   admonition: IAdmonition,
-  renderChildren: (nodes: INode[]) => string,
+  context: {
+    sanitize(html: string): string
+    renderChildren(nodes: INode[]): string
+  },
 ): string {
-  const keyword: string = sanitize(admonition.keyword, { allowedTags: [] })
+  const keyword: string = context.sanitize(admonition.keyword)
   let modifier: string = keyword.trim().toLowerCase()
   let defaultTitle = ''
   let icon = ''
@@ -60,8 +62,8 @@ export function renderAdmonition(
   }
 
   const title: string =
-    admonition.title.length > 0 ? renderChildren(admonition.title) : defaultTitle
-  const children: string = renderChildren(admonition.children)
+    admonition.title.length > 0 ? context.renderChildren(admonition.title) : defaultTitle
+  const children: string = context.renderChildren(admonition.children)
 
   return (
     `<div class="yozora-admonition yozora-admonition--${modifier}">` +
