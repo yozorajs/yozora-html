@@ -1,5 +1,5 @@
 import type { Admonition as IAdmonition } from '@yozora/ast'
-import { renderChildren } from '../../../jest.setup'
+import { context } from 'jest.setup'
 import renderAdmonition from '../src'
 
 describe('snapshot', function () {
@@ -25,6 +25,6 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(renderAdmonition(node as IAdmonition, renderChildren)).toMatchSnapshot()
+    expect(renderAdmonition(node as IAdmonition, context)).toMatchSnapshot()
   })
 })

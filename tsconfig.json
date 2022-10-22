@@ -5,7 +5,8 @@
     "paths": {
       "@yozora/core-html-renderer": ["./packages/core-html-renderer/src"],
       "@yozora/html-admonition": ["./packages/html-admonition/src"],
-      "@yozora/html-markdown": ["./packages/html-markdown/src"]
+      "@yozora/html-markdown": ["./packages/html-markdown/src"],
+      "jest.setup": ["jest.setup.ts"]
     }
   }
 }

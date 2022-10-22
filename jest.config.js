@@ -1,18 +1,26 @@
 const { tsMonorepoConfig } = require('@guanghechen/jest-config')
 const path = require('path')
 
+const baseConfig = tsMonorepoConfig(__dirname)
+
 module.exports = {
-  ...tsMonorepoConfig(__dirname),
-  coveragePathIgnorePatterns: [],
+  ...baseConfig,
+  testEnvironment: 'jsdom',
   moduleNameMapper: {
-    '\\.(css|less|scss|sass|styl)$': path.resolve(__dirname, 'script/mocks/style.js'),
+    ...baseConfig.moduleNameMapper,
+    '\\.styl$': path.join(__dirname, 'jest.identity-obj-proxy.js'),
   },
+  collectCoverageFrom: [
+    '<rootDir>/index.js',
+    '<rootDir>/src/**/*.{js,jsx,ts,tsx}',
+    '<rootDir>/src/*.{js,jsx,ts,tsx}',
+  ],
   coverageThreshold: {
     global: {
       branches: 50,
-      functions: 80,
-      lines: 60,
-      statements: 60,
+      functions: 60,
+      lines: 90,
+      statements: 90,
     },
   },
 }
