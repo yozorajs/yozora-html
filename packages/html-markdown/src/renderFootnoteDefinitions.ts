@@ -1,5 +1,5 @@
 import type { FootnoteDefinition } from '@yozora/ast'
-import type { INodeRendererContext } from 'packages/core-html-renderer/lib/types'
+import type { INodeRendererContext } from '@yozora/core-html-renderer'
 import { renderFootnoteDefinition } from './renderer/footnoteDefinition'
 
 /**

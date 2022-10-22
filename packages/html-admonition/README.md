@@ -74,11 +74,14 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 * Basic:
 
   ```typescript
-  import type { IAdmonition, IYastNode } from '@yozora/ast'
+  import type { Admonition, Node } from '@yozora/ast'
+  import { createNodeRendererContext } from '@yozora/core-html-renderer'
   import renderAdmonition from '@yozora/html-admonition'
 
-  // The implementation of the following function has been omitted.
-  const renderChildren: (nodes: IYastNode[]) => string = function () {}
+  const context = createNodeRendererContext(
+    {}, // definitionMap
+    {}, // footnoteDefinitionMap
+  )
 
   const admonition = {
     "type": "admonition",
@@ -101,7 +104,7 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
       }
     ]
   }
-  renderAdmonition(admonition as IAdmonition, renderChildren)
+  renderAdmonition(admonition as Admonition, context)
   // => <div class="yozora-admonition yozora-admonition--default"><div class="yozora-admonition__heading"><h5><span class="yozora-text">optional title</span></h5></div><div class="yozora-admonition__body"><p class="yozora-paragraph"><span class="yozora-text">some content</span></p></div></div>
   ```
 

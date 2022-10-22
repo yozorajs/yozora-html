@@ -1,4 +1,4 @@
-import type { Admonition as IAdmonition, Node as INode } from '@yozora/ast'
+import type { Admonition, Node } from '@yozora/ast'
 import {
   YozoraAdmonitionCautionIcon,
   YozoraAdmonitionDangerIcon,
@@ -7,17 +7,12 @@ import {
   YozoraAdmonitionTipIcon,
 } from './icons'
 
-/**
- * Render Yozora Markdown AST node `IAdmonition` into HTML string.
- * @param admonition
- * @param renderChildren
- * @returns
- */
+// Render Yozora Markdown AST node `Admonition` into HTML string.
 export function renderAdmonition(
-  admonition: IAdmonition,
+  admonition: Admonition,
   context: {
     sanitize(html: string): string
-    renderChildren(nodes: INode[]): string
+    renderChildren(nodes: Node[]): string
   },
 ): string {
   const keyword: string = context.sanitize(admonition.keyword)

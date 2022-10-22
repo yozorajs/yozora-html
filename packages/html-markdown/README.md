@@ -72,8 +72,8 @@ produced by [@yozora/parser][] into HTML string.
 * Basic:
 
   ```typescript
-  import type { IRoot } from '@yozora/ast'
-  import renderMarkdown from '@yozora/html-markdown'
+  import type { Root } from '@yozora/ast'
+  import { renderMarkdown, defaultRendererMap } from '@yozora/html-markdown'
   import '@yozora/html-markdown/lib/index.css'  // load preset styles.
 
   const root = {
@@ -90,14 +90,18 @@ produced by [@yozora/parser][] into HTML string.
       }
     ]
   }
-  renderMarkdown(markdown as IRoot, {}, {}, renderChildren)
+  renderMarkdown(
+    markdown as Root,
+    {}, // definitionMap
+    {}, // footnoteDefinitionMap
+    defaultRendererMap 
+  )
   // => <markdown class="yozora-markdown"><span class="yozora-text">yozora is cool!</span></markdown>
   ```
 
 ## Related
 
 * [@yozora/ast][]
-* [@yozora/react-markdown][]
 * [@yozora/react-markdown][]
 * [@yozora/tokenizer-markdown][]
 * [markdown | Mdast][mdast]
@@ -106,5 +110,4 @@ produced by [@yozora/parser][] into HTML string.
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#root
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-markdown]: https://www.npmjs.com/package/@yozora/tokenizer-markdown
-[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [mdast]: https://github.com/syntax-tree/mdast#markdown

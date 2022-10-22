@@ -55,6 +55,8 @@ Use [@yozora/html-markdown][] to render the [Root][yozora/ast__root] of Yozora a
 
 ## Overview
 
+
+
 ### Markdown components
 
 
@@ -64,35 +66,9 @@ Use [@yozora/html-markdown][] to render the [Root][yozora/ast__root] of Yozora a
 [react-live]: https://github.com/FormidableLabs/react-live
 
 <!-- yozora component links -->
-[@yozora/html-admonition]: https://github.com/yozorajs/yozora-html/tree/main/packages/admonition#readme
-[@yozora/html-blockquote]: https://github.com/yozorajs/yozora-html/tree/main/packages/blockquote#readme
-[@yozora/html-break]: https://github.com/yozorajs/yozora-html/tree/main/packages/break#readme
-[@yozora/html-code]: https://github.com/yozorajs/yozora-html/tree/main/packages/code#readme
-[@yozora/html-code-editor]: https://github.com/yozorajs/yozora-html/tree/main/packages/code-editor#readme
-[@yozora/html-code-embed]: https://github.com/yozorajs/yozora-html/tree/main/packages/code-embed#readme
-[@yozora/html-code-highlighter]: https://github.com/yozorajs/yozora-html/tree/main/packages/code-highlighter#readme
-[@yozora/html-code-literal]: https://github.com/yozorajs/yozora-html/tree/main/packages/code-literal#readme
-[@yozora/html-code-live]: https://github.com/yozorajs/yozora-html/tree/main/packages/code-live#readme
-[@yozora/html-code-renderer-jsx]: https://github.com/yozorajs/yozora-html/tree/main/packages/code-renderer-jsx#readme
-[@yozora/html-delete]: https://github.com/yozorajs/yozora-html/tree/main/packages/delete#readme
-[@yozora/html-emphasis]: https://github.com/yozorajs/yozora-html/tree/main/packages/emphasis#readme
-[@yozora/html-footnote-reference]: https://github.com/yozorajs/yozora-html/tree/main/packages/footnote-reference#readme
-[@yozora/html-footnote-definition]: https://github.com/yozorajs/yozora-html/tree/main/packages/footnote-definition#readme
-[@yozora/html-heading]: https://github.com/yozorajs/yozora-html/tree/main/packages/heading#readme
-[@yozora/html-image]: https://github.com/yozorajs/yozora-html/tree/main/packages/image#readme
-[@yozora/html-inline-code]: https://github.com/yozorajs/yozora-html/tree/main/packages/inline-code#readme
-[@yozora/html-inline-math]: https://github.com/yozorajs/yozora-html/tree/main/packages/inline-math#readme
-[@yozora/html-link]: https://github.com/yozorajs/yozora-html/tree/main/packages/link#readme
-[@yozora/html-list]: https://github.com/yozorajs/yozora-html/tree/main/packages/list#readme
-[@yozora/html-list-item]: https://github.com/yozorajs/yozora-html/tree/main/packages/list-item#readme
-[@yozora/html-math]: https://github.com/yozorajs/yozora-html/tree/main/packages/math#readme
-[@yozora/html-paragraph]: https://github.com/yozorajs/yozora-html/tree/main/packages/paragraph#readme
-[@yozora/html-strong]: https://github.com/yozorajs/yozora-html/tree/main/packages/strong#readme
-[@yozora/html-table]: https://github.com/yozorajs/yozora-html/tree/main/packages/table#readme
-[@yozora/html-text]: https://github.com/yozorajs/yozora-html/tree/main/packages/text#readme
-[@yozora/html-thematic-break]: https://github.com/yozorajs/yozora-html/tree/main/packages/thematic-break#readme
-[@yozora/html-markdown]: https://github.com/yozorajs/yozora-html/tree/main/packages/markdown#readme
-[@yozora/html-mathjax]: https://github.com/yozorajs/yozora-html/tree/main/packages/mathjax#readme
+[@yozora/core-html-renderer]: https://github.com/yozorajs/yozora-html/tree/main/packages/core-html-renderer#readme
+[@yozora/html-admonition]: https://github.com/yozorajs/yozora-html/tree/main/packages/html-admonition#readme
+[@yozora/html-markdown]: https://github.com/yozorajs/yozora-html/tree/main/packages/html-markdown#readme
 
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [yozora/ast__root]: https://www.npmjs.com/package/@yozora/ast#root
