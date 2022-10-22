@@ -19,11 +19,7 @@ export function renderMarkdown(
   footnoteDefinitionMap: Record<string, IFootnoteDefinition>,
   renderMap: YastNodeRendererMap = defaultRendererMap,
 ): string {
-  const renderChildren = createNodesRenderer(
-    definitionMap,
-    footnoteDefinitionMap,
-    renderMap,
-  )
+  const renderChildren = createNodesRenderer(definitionMap, footnoteDefinitionMap, renderMap)
 
   const footnotes: string = renderFootnoteDefinitions(
     Object.values(footnoteDefinitionMap),

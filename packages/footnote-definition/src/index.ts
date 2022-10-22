@@ -1,7 +1,4 @@
-import type {
-  FootnoteDefinition as IFootnoteDefinition,
-  Node as INode,
-} from '@yozora/ast'
+import type { FootnoteDefinition as IFootnoteDefinition, Node as INode } from '@yozora/ast'
 import sanitize from 'sanitize-html'
 
 /**

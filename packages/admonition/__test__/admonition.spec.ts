@@ -25,8 +25,6 @@ describe('snapshot', function () {
         },
       ],
     }
-    expect(
-      renderAdmonition(node as IAdmonition, renderChildren),
-    ).toMatchSnapshot()
+    expect(renderAdmonition(node as IAdmonition, renderChildren)).toMatchSnapshot()
   })
 })

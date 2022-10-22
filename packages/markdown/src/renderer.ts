@@ -100,9 +100,7 @@ export function createNodesRenderer(
   // render linkReference
   if (rendererMap[LinkType] != null && rendererMap[LinkReferenceType] == null) {
     const renderLink = rendererMap[LinkType]
-    rendererMap[LinkReferenceType] = function (
-      linkReference: ILinkReference,
-    ): string {
+    rendererMap[LinkReferenceType] = function (linkReference: ILinkReference): string {
       const definition: Omit<IDefinition, 'type'> =
         definitionMap[linkReference.identifier] ?? ({} as any)
       const { url = '', title } = definition
@@ -111,14 +109,9 @@ export function createNodesRenderer(
   }
 
   // render imageReference
-  if (
-    rendererMap[ImageType] != null &&
-    rendererMap[ImageReferenceType] == null
-  ) {
+  if (rendererMap[ImageType] != null && rendererMap[ImageReferenceType] == null) {
     const renderImage = _rendererMap[ImageType] ?? defaultRendererMap[ImageType]
-    rendererMap[ImageReferenceType] = function (
-      imageReference: IImageReference,
-    ): string {
+    rendererMap[ImageReferenceType] = function (imageReference: IImageReference): string {
       const definition: Omit<IDefinition, 'type'> =
         definitionMap[imageReference.identifier] ?? ({} as any)
       const { alt } = imageReference

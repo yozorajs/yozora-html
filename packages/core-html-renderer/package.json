@@ -1,6 +1,7 @@
 {
-  "name": "@yozora/html-markdown",
+  "name": "@yozora/core-html-renderer",
   "version": "2.0.0-alpha.2",
+  "description": "Yozora renderer in html",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -8,9 +9,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/guanghechen/yozora-html.git",
-    "directory": "packages/markdown"
+    "directory": "packages/core-html-renderer"
   },
-  "homepage": "https://github.com/guanghechen/yozora-html/tree/main/packages/markdown#readme",
+  "homepage": "https://github.com/guanghechen/yozora-html/tree/main/packages/core-html-renderer#readme",
   "keywords": [
     "mdast to html",
     "yozora"
@@ -34,7 +35,6 @@
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
-    "postbuild": "cp src/style.css lib/style.css",
     "prebuild": "rimraf lib/",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
@@ -43,9 +43,11 @@
     "@yozora/ast": "^2.0.0"
   },
   "dependencies": {
-    "@yozora/core-html-renderer": "^2.0.0-alpha.2",
-    "@yozora/html-admonition": "^2.0.0-alpha.2",
-    "@yozora/html-footnote-definition": "^2.0.0-alpha.2",
-    "@yozora/html-footnote-reference": "^2.0.0-alpha.2"
+    "prismjs": "^1.29.0",
+    "sanitize-html": "^2.7.2"
+  },
+  "devDependencies": {
+    "@types/prismjs": "^1.26.0",
+    "@types/sanitize-html": "^2.6.2"
   }
 }

@@ -8,9 +8,7 @@ describe('snapshot', function () {
       identifier: 'bravo',
       label: 'bravo',
     }
-    expect(
-      renderFootnoteReference(node as IFootnoteReference),
-    ).toMatchSnapshot()
+    expect(renderFootnoteReference(node as IFootnoteReference)).toMatchSnapshot()
   })
 
   it('basic-2', function () {
@@ -19,8 +17,6 @@ describe('snapshot', function () {
       identifier: 'bravo"',
       label: 'bravo<a>"<b:"></sup>',
     }
-    expect(
-      renderFootnoteReference(node as IFootnoteReference),
-    ).toMatchSnapshot()
+    expect(renderFootnoteReference(node as IFootnoteReference)).toMatchSnapshot()
   })
 })

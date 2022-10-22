@@ -3,29 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@yozora/core-html-renderer": ["./packages/core-html-renderer/src"],
       "@yozora/html-admonition": ["./packages/admonition/src"],
-      "@yozora/html-blockquote": ["./packages/blockquote/src"],
-      "@yozora/html-break": ["./packages/break/src"],
-      "@yozora/html-code": ["./packages/code/src"],
-      "@yozora/html-delete": ["./packages/delete/src"],
-      "@yozora/html-emphasis": ["./packages/emphasis/src"],
       "@yozora/html-footnote-reference": ["./packages/footnote-reference/src"],
-      "@yozora/html-footnote-definition": [
-        "./packages/footnote-footnote-definition/src"
-      ],
-      "@yozora/html-heading": ["./packages/heading/src"],
-      "@yozora/html-image": ["./packages/image/src"],
-      "@yozora/html-inline-code": ["./packages/inline-code/src"],
-      "@yozora/html-inline-math": ["./packages/inline-math/src"],
-      "@yozora/html-link": ["./packages/link/src"],
-      "@yozora/html-list": ["./packages/list/src"],
-      "@yozora/html-markdown": ["./packages/markdown/src"],
-      "@yozora/html-math": ["./packages/math/src"],
-      "@yozora/html-paragraph": ["./packages/paragraph/src"],
-      "@yozora/html-strong": ["./packages/strong/src"],
-      "@yozora/html-table": ["./packages/table/src"],
-      "@yozora/html-text": ["./packages/text/src"],
-      "@yozora/html-thematic-break": ["./packages/thematic-break/src"]
+      "@yozora/html-footnote-definition": ["./packages/footnote-footnote-definition/src"],
+      "@yozora/html-markdown": ["./packages/markdown/src"]
     }
   }
 }

@@ -11,8 +11,7 @@ const renderMap: YastNodeRendererMap = {
   [HtmlType]: () => '',
 }
 
-const resolveFixture = (...p: string[]): string =>
-  path.join(__dirname, 'fixtures', ...p)
+const resolveFixture = (...p: string[]): string => path.join(__dirname, 'fixtures', ...p)
 
 const loadYozoraAst = (filepath: string): IRoot =>
   fs.readJSONSync(resolveFixture(filepath.replace(/(\.json)?$/, '.json')))
@@ -22,8 +21,6 @@ describe('snapshot', function () {
     const ast0 = loadYozoraAst('basic')
     const { root: ast1, definitionMap } = calcDefinitionMap(ast0)
     const { root, footnoteDefinitionMap } = calcFootnoteDefinitionMap(ast1)
-    expect(
-      renderMarkdown(root, definitionMap, footnoteDefinitionMap, renderMap),
-    ).toMatchSnapshot()
+    expect(renderMarkdown(root, definitionMap, footnoteDefinitionMap, renderMap)).toMatchSnapshot()
   })
 })

@@ -5,10 +5,7 @@ module.exports = {
   ...tsMonorepoConfig(__dirname),
   coveragePathIgnorePatterns: [],
   moduleNameMapper: {
-    '\\.(css|less|scss|sass|styl)$': path.resolve(
-      __dirname,
-      'script/mocks/style.js',
-    ),
+    '\\.(css|less|scss|sass|styl)$': path.resolve(__dirname, 'script/mocks/style.js'),
   },
   coverageThreshold: {
     global: {

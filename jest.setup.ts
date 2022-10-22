@@ -3,7 +3,4 @@ import { createNodesRenderer } from '@yozora/html-markdown'
 
 export { createNodesRenderer }
 
-export const renderChildren: (nodes: INode[]) => string = createNodesRenderer(
-  {},
-  {},
-)
+export const renderChildren: (nodes: INode[]) => string = createNodesRenderer({}, {})

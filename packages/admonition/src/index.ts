@@ -60,9 +60,7 @@ export function renderAdmonition(
   }
 
   const title: string =
-    admonition.title.length > 0
-      ? renderChildren(admonition.title)
-      : defaultTitle
+    admonition.title.length > 0 ? renderChildren(admonition.title) : defaultTitle
   const children: string = renderChildren(admonition.children)
 
   return (
