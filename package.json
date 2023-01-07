@@ -18,17 +18,16 @@
   },
   "scripts": {
     ":publish": "yarn test && lerna publish",
-    ":upgrade": "yarn upgrade-interactive --latest && run-s clean format build test",
+    ":upgrade": "yarn upgrade-interactive && run-s clean format build test",
     ":workspace:link": "lerna exec 'yarn link' --concurrency 1",
     ":workspace:unlink": "lerna exec 'yarn unlink' --concurrency 1",
     "build": "lerna run build --concurrency 1",
     "clean": "lerna clean --yes && yarn install",
-    "format": "run-s format:lint:fix format:prettier",
-    "format:lint:fix": "eslint . --fix",
+    "format": "run-s format:lintfix format:prettier",
+    "format:lintfix": "eslint . --fix",
     "format:prettier": "prettier --write .",
     "prepublishOnly": "pinst --disable",
-    "postinstall": "run-s postinstall:**",
-    "postinstall:main": "yarn update:lock",
+    "postinstall": "run-s postinstall:dev",
     "postinstall:dev": "is-ci || husky install",
     "postpublish": "pinst --enable",
     "rebuild": "run-s clean build",
@@ -36,8 +35,7 @@
     "test": "lerna run test --concurrency 4",
     "test:coverage": "lerna run test --concurrency 1 -- --coverage",
     "test:update": "lerna run test --parallel -- -u",
-    "update:changelog": "gitmoji-changelog update",
-    "update:lock": "yarn-deduplicate"
+    "update:changelog": "gitmoji-changelog update"
   },
   "workspaces": [
     "packages/*"
@@ -93,5 +91,6 @@
     "*.{json,eslintrc}": [
       "prettier --write"
     ]
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }
