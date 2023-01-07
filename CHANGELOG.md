@@ -1,5 +1,43 @@
 # Changelog
 
+<a name="2.0.0-alpha.4"></a>
+## 2.0.0-alpha.4 (2023-01-07)
+
+### Changed
+
+- ⬆️ chore: upgrade devDependencies [[12bed3b](https://github.com/yozorajs/yozora-html/commit/12bed3bef4ee799ca30bbd8f0c8d3d3683fe0795)]
+- 🔧 chore: use yarn@3 [[b5e119a](https://github.com/yozorajs/yozora-html/commit/b5e119ad07d2a3d5e23651867cf54b4694f6cbd4)]
+
+### Fixed
+
+- 💚 chore: fix ci config [[4fde7d9](https://github.com/yozorajs/yozora-html/commit/4fde7d9a969d1c8d7066db41b8ee30c12f83d6b7)]
+
+
+<a name="2.0.0-alpha.3"></a>
+## 2.0.0-alpha.3 (2022-10-22)
+
+### Added
+
+- ✅ test: update tests [[5e92427](https://github.com/yozorajs/yozora-html/commit/5e92427133c0f26c074a797db694ad4e4459e31f)]
+- ✅ test: update test snapshots due to the upgrade of jest [[b99b8a7](https://github.com/yozorajs/yozora-html/commit/b99b8a7ad0dce5c34bd2f6e948a6a14691f1e4eb)]
+
+### Changed
+
+- 🚚 move: move packages/markdown to packages/html-markdown [[51f20b8](https://github.com/yozorajs/yozora-html/commit/51f20b8f06116ff1b907b96744cfe837f1f02a42)]
+- 🔧 chore: update configs [[fe1326b](https://github.com/yozorajs/yozora-html/commit/fe1326b8a16a22dd1bf1f310c2d0931ddd3e8335)]
+- ⬆️ chore: upgrade dependencies [[ffdd0b0](https://github.com/yozorajs/yozora-html/commit/ffdd0b032564ac1f217971d1d311781aa61b33ac)]
+
+### Breaking changes
+
+- 💥 improve: refactor html-markdown [[d5ec4d8](https://github.com/yozorajs/yozora-html/commit/d5ec4d84042f5a036e5bd2c8eacafffc381fd83d)]
+- 💥 refactor: move common mast node renderer into &#x27;@yozora/core-html-renderer&#x27; [[d981b1a](https://github.com/yozorajs/yozora-html/commit/d981b1a69f91e30352db60dadb4327366bf69ad4)]
+
+### Miscellaneous
+
+- 📝 doc: update READMEs [[fd45d64](https://github.com/yozorajs/yozora-html/commit/fd45d6457a7cbb64423c50e61f70037467bf34c9)]
+- 📝 docs: update README [[eab8c18](https://github.com/yozorajs/yozora-html/commit/eab8c182e58e85082993acdc7f450f8334f13a46)]
+
+
 <a name="2.0.0-alpha.2"></a>
 ## 2.0.0-alpha.2 (2022-01-15)
 
@@ -10,7 +48,6 @@
 ### Miscellaneous
 
 -  improve: update styles [[3dc7fab](https://github.com/yozorajs/yozora-html/commit/3dc7faba52ed69ba31f9e7f6101e5c101eca3adf)]
-- 📝 docs: update CHANGELOG [[01219ec](https://github.com/yozorajs/yozora-html/commit/01219eccf98882fadbe6259db36e22214ee3c1bb)]
 
 
 <a name="2.0.0-alpha.1"></a>
@@ -20,10 +57,6 @@
 
 - 👽 fix: fix type errors due to the upgrade of @yozora/ast [[5a7f4e4](https://github.com/yozorajs/yozora-html/commit/5a7f4e47a433384324ef84ed429ab54a4917e120)]
 - ⬆️ chore: upgrade dependencies [[61ec568](https://github.com/yozorajs/yozora-html/commit/61ec56863b0ab0c8504e08cc279468f40391222b)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[7c09d60](https://github.com/yozorajs/yozora-html/commit/7c09d608ac3f8abccce2368e782ff81a2edf9da7)]
 
 
 <a name="2.0.0-alpha.0"></a>
@@ -41,10 +74,6 @@
 - 👽 fix: fix type errors [[f0dbe94](https://github.com/yozorajs/yozora-html/commit/f0dbe94a9102196bc54a8b4ea49bda074bd9a724)]
 - ⬆️ chore: upgrade dependencies [[c04aa51](https://github.com/yozorajs/yozora-html/commit/c04aa5161059fc227c735d92128707050bfe6321)]
 
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[08b338b](https://github.com/yozorajs/yozora-html/commit/08b338baccb1623fbf1de659508e4cf1d2594890)]
-
 
 <a name="1.0.0-alpha.4"></a>
 ## 1.0.0-alpha.4 (2021-09-13)
@@ -58,7 +87,6 @@
 -  feat(markdown): use styles bundle from yozora-react [[fbb7080](https://github.com/yozorajs/yozora-html/commit/fbb708060ec3bcd4ea49c607e7ad52f23b4fd1bb)]
 -  feat(image): keep consistent with yozora-react [[86dae9f](https://github.com/yozorajs/yozora-html/commit/86dae9f8d80f473649090d9944f19fde9c3ba583)]
 -  feat(admonition): keep consistent with yozora-react [[5b60ca4](https://github.com/yozorajs/yozora-html/commit/5b60ca46147062a0722d19d60c393171764a0544)]
-- 📝 docs: update CHANGELOG [[bb9eb60](https://github.com/yozorajs/yozora-html/commit/bb9eb609d3e555bc924196b81d364e7a70afc85c)]
 
 
 <a name="1.0.0-alpha.3"></a>
@@ -67,10 +95,6 @@
 ### Changed
 
 - ⬆️ chore: ugprade devDependencies [[271bc2d](https://github.com/yozorajs/yozora-html/commit/271bc2d2017048661488414038f36f9ea4c2b932)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[f3f4f2e](https://github.com/yozorajs/yozora-html/commit/f3f4f2e4e8f47246c3652c434a5645c6a1f06f0f)]
 
 
 <a name="1.0.0-alpha.2"></a>
@@ -84,7 +108,6 @@
 ### Miscellaneous
 
 -  feat: fix missing rederer (ecmaImport) warning [[7e63b50](https://github.com/yozorajs/yozora-html/commit/7e63b50cc2dc0c650dadfeb77fa04b2c493b7232)]
-- 📝 docs: add CHANGELOG [[886b00b](https://github.com/yozorajs/yozora-html/commit/886b00b47e8628b0ef332984838f5eb2fa4f80df)]
 
 
 <a name="1.0.0-alpha.1"></a>
