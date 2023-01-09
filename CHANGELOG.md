@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="2.0.0-alpha.5"></a>
+## 2.0.0-alpha.5 (2023-01-09)
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[a2062ce](https://github.com/yozorajs/yozora-html/commit/a2062ce80e9c28d6c516e57459647ff3312055a6)]
+- 🔧 chore: update yarn.lock when publish new release [[45feb20](https://github.com/yozorajs/yozora-html/commit/45feb207133da6880dc57b9b855a0e7a72a096b9)]
+
+### Fixed
+
+- 💚 chore: fix ci [[d1c2a1c](https://github.com/yozorajs/yozora-html/commit/d1c2a1c2c3728da7a57743cfa71d55ab12b382ba)]
+
+
 <a name="2.0.0-alpha.4"></a>
 ## 2.0.0-alpha.4 (2023-01-07)
 
