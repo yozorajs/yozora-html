@@ -1,5 +1,14 @@
 # Changelog
 
+<a name="2.0.0-alpha.6"></a>
+## 2.0.0-alpha.6 (2023-03-11)
+
+### Changed
+
+- 🔧 chore: fix jest config [[43d15a1](https://github.com/yozorajs/yozora-html/commit/43d15a1d3575ce2c5cd6ad6b9aa0327c781af924)]
+- ⬆️ chore: improve dependencies [[10b9000](https://github.com/yozorajs/yozora-html/commit/10b9000577be45d340a33c5cfb188e8c0e2bf7b0)]
+
+
 <a name="2.0.0-alpha.5"></a>
 ## 2.0.0-alpha.5 (2023-01-09)
 
