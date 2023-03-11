@@ -19,13 +19,13 @@
   "type": "module",
   "exports": {
     "types": "./lib/types/index.d.ts",
-    "require": "./lib/cjs/index.cjs",
-    "import": "./lib/esm/index.mjs"
+    "import": "./lib/esm/index.mjs",
+    "require": "./lib/cjs/index.cjs"
   },
+  "source": "./src/index.ts",
   "types": "./lib/types/index.d.ts",
   "main": "./lib/cjs/index.cjs",
   "module": "./lib/esm/index.mjs",
-  "source": "./src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 16.0.0"
@@ -47,10 +47,10 @@
   },
   "dependencies": {
     "prismjs": "^1.29.0",
-    "sanitize-html": "^2.8.1"
+    "sanitize-html": "^2.10.0"
   },
   "devDependencies": {
     "@types/prismjs": "^1.26.0",
-    "@types/sanitize-html": "^2.8.0"
+    "@types/sanitize-html": "^2.8.1"
   }
 }
