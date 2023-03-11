@@ -10,10 +10,6 @@ export default async function () {
     ...baseConfig,
     testEnvironment: 'jsdom',
     extensionsToTreatAsEsm: ['.ts', '.mts'],
-    moduleNameMapper: {
-      ...baseConfig.moduleNameMapper,
-      '\\.styl$': path.join(__dirname, 'jest.identity-obj-proxy.js'),
-    },
     collectCoverageFrom: [
       '<rootDir>/index.js',
       '<rootDir>/src/**/*.{js,jsx,ts,tsx}',
