@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="2.0.0-alpha.7"></a>
+## 2.0.0-alpha.7 (2023-03-23)
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[29c3a16](https://github.com/yozorajs/yozora-html/commit/29c3a1654da7a3a977f3d58b44eea39ed80ccaa6)]
+
+
 <a name="2.0.0-alpha.6"></a>
 ## 2.0.0-alpha.6 (2023-03-11)
 
