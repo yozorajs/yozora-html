@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="2.0.0-alpha.8"></a>
+## 2.0.0-alpha.8 (2023-04-02)
+
+### Changed
+
+- 🔧 chore: don&#x27;t pack sourcemap into tarball [[6c93217](https://github.com/yozorajs/yozora-html/commit/6c93217f64f61ff592639ce6825ced0c02e23d1a)]
+- ⬆️ chore: upgrade devDependencies [[5942f7c](https://github.com/yozorajs/yozora-html/commit/5942f7ca8e7ac0288d1b653662e924fb0e54cf88)]
+
+### Miscellaneous
+
+- 📄 chore: update LICENSE [[910210f](https://github.com/yozorajs/yozora-html/commit/910210f50c59a3754c09c026e2eca3b2a91a9971)]
+
+
 <a name="2.0.0-alpha.7"></a>
 ## 2.0.0-alpha.7 (2023-03-23)
 
