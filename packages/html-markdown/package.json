@@ -1,6 +1,6 @@
 {
   "name": "@yozora/html-markdown",
-  "version": "2.0.0-alpha.7",
+  "version": "2.0.0-alpha.8",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -46,8 +46,8 @@
     "@yozora/ast": "^2.0.0"
   },
   "dependencies": {
-    "@yozora/core-html-renderer": "^2.0.0-alpha.7",
-    "@yozora/html-admonition": "^2.0.0-alpha.7"
+    "@yozora/core-html-renderer": "^2.0.0-alpha.8",
+    "@yozora/html-admonition": "^2.0.0-alpha.8"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

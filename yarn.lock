@@ -2145,7 +2145,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yozora/core-html-renderer@^2.0.0-alpha.7, @yozora/core-html-renderer@workspace:packages/core-html-renderer":
+"@yozora/core-html-renderer@^2.0.0-alpha.8, @yozora/core-html-renderer@workspace:packages/core-html-renderer":
   version: 0.0.0-use.local
   resolution: "@yozora/core-html-renderer@workspace:packages/core-html-renderer"
   dependencies:
@@ -2158,7 +2158,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/html-admonition@^2.0.0-alpha.7, @yozora/html-admonition@workspace:packages/html-admonition":
+"@yozora/html-admonition@^2.0.0-alpha.8, @yozora/html-admonition@workspace:packages/html-admonition":
   version: 0.0.0-use.local
   resolution: "@yozora/html-admonition@workspace:packages/html-admonition"
   peerDependencies:
@@ -2170,8 +2170,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/html-markdown@workspace:packages/html-markdown"
   dependencies:
-    "@yozora/core-html-renderer": ^2.0.0-alpha.7
-    "@yozora/html-admonition": ^2.0.0-alpha.7
+    "@yozora/core-html-renderer": ^2.0.0-alpha.8
+    "@yozora/html-admonition": ^2.0.0-alpha.8
     cross-env: ^7.0.3
     jest: ^29.5.0
     rimraf: ^4.4.1

@@ -1,6 +1,6 @@
 {
   "name": "@yozora/html-admonition",
-  "version": "2.0.0-alpha.7",
+  "version": "2.0.0-alpha.8",
   "description": "render Yozora Markdown AST node `Admonition` into HTML string",
   "author": {
     "name": "guanghechen",
