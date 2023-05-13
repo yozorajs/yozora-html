@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-html/tree/main/packages/html-markdown#readme">@yozora/html-markdown</a>
+    <a href="https://github.com/yozorajs/yozora-html/tree/main/packages/html-markdown#readme">@yozora/html-markdown</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/html-markdown">

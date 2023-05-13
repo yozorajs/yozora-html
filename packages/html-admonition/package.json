@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guanghechen/yozora-html.git",
+    "url": "https://github.com/yozorajs/yozora-html.git",
     "directory": "packages/admonition"
   },
-  "homepage": "https://github.com/guanghechen/yozora-html/tree/main/packages/html-admonition#readme",
+  "homepage": "https://github.com/yozorajs/yozora-html/tree/main/packages/html-admonition#readme",
   "keywords": [
     "mdast to html",
     "yozora",

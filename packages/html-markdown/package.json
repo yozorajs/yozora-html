@@ -7,10 +7,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guanghechen/yozora-html.git",
+    "url": "https://github.com/yozorajs/yozora-html.git",
     "directory": "packages/html-markdown"
   },
-  "homepage": "https://github.com/guanghechen/yozora-html/tree/main/packages/html-markdown#readme",
+  "homepage": "https://github.com/yozorajs/yozora-html/tree/main/packages/html-markdown#readme",
   "keywords": [
     "mdast to html",
     "yozora"
