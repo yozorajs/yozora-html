@@ -14,7 +14,8 @@
     "prismjs",
     "styl",
     "Yast",
-    "yozora"
+    "yozora",
+    "yozorajs"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.associations": {

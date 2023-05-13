@@ -34,7 +34,7 @@
     "test": "lerna run test --concurrency 1",
     "test:coverage": "lerna run --concurrency 1 test -- --coverage",
     "test:update": "lerna run --concurrency 1 test -- -u",
-    "version": "yarn && git stage yarn.lock"
+    "version": "yarn && ghc-doc-link-rewrite --username=yozorajs --repository=yozora && git stage -u yarn.lock **/package.json **/*.md"
   },
   "workspaces": [
     "packages/*"
