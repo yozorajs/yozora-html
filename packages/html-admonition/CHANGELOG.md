@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0-alpha.10 (2024-09-29)
+
+* :arrow_up:  chore: upgrade devDependencies ([fa676a7](https://github.com/yozorajs/yozora-html/commit/fa676a7))
+* :memo:  docs: fix doc links ([6d0ea96](https://github.com/yozorajs/yozora-html/commit/6d0ea96))
+* :wrench:  chore: use nx ([63d8eac](https://github.com/yozorajs/yozora-html/commit/63d8eac))
+
+
+
+
+
 # 2.0.0-alpha.9 (2023-05-13)
 
 
