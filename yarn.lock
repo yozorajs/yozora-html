@@ -2372,45 +2372,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/html@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@yozora/html@workspace:."
-  dependencies:
-    "@guanghechen/conventional-changelog": ^6.0.0-alpha.3
-    "@guanghechen/eslint-config": ^7.0.8
-    "@guanghechen/jest-config": ^6.0.0-alpha.3
-    "@guanghechen/rollup-config": ^6.0.0-alpha.8
-    "@guanghechen/script-doc-link": ^6.0.0-alpha.23
-    "@types/jest": 29.5.13
-    "@types/node": ^20.16.10
-    "@types/prismjs": ^1.26.4
-    "@types/sanitize-html": ^2.13.0
-    "@yozora/ast": ^2.3.4
-    "@yozora/ast-util": ^2.3.4
-    clsx: ^2.1.1
-    cross-env: ^7.0.3
-    eslint: 9.11.1
-    husky: 9.1.6
-    is-ci: 3.0.1
-    jest: ^29.7.0
-    jest-environment-jsdom: 29.7.0
-    lerna: 8.1.8
-    lint-staged: 15.2.10
-    npm-run-all: 4.1.5
-    pinst: 3.0.0
-    postcss: ^8.4.47
-    prettier: 3.3.3
-    prismjs: ^1.29.0
-    rimraf: ^6.0.1
-    rollup: 4.22.5
-    sanitize-html: ^2.13.0
-    ts-jest: 29.2.5
-    ts-node: 10.9.2
-    tsconfig-paths: 4.2.0
-    typescript: 5.6.2
-  languageName: unknown
-  linkType: soft
-
 "@zkochan/js-yaml@npm:0.0.7":
   version: 0.0.7
   resolution: "@zkochan/js-yaml@npm:0.0.7"
@@ -8041,7 +8002,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nx@npm:19.8.2, nx@npm:>=17.1.2 < 20":
+"nx@npm:19.8.2, nx@npm:>=17.1.2 < 20, nx@npm:^19.8.2":
   version: 19.8.2
   resolution: "nx@npm:19.8.2"
   dependencies:
@@ -9337,6 +9298,46 @@ __metadata:
   checksum: 894b3d428b5a7f1db2245f50622ce65a3ad8f754265dd1da7dce133e39b315516dbcbac51e4fe100b44d59b168bac3f36ebaeb836fc9f7057d4972f44497d046
   languageName: node
   linkType: hard
+
+"root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "root@workspace:."
+  dependencies:
+    "@guanghechen/conventional-changelog": ^6.0.0-alpha.3
+    "@guanghechen/eslint-config": ^7.0.8
+    "@guanghechen/jest-config": ^6.0.0-alpha.3
+    "@guanghechen/rollup-config": ^6.0.0-alpha.8
+    "@guanghechen/script-doc-link": ^6.0.0-alpha.23
+    "@types/jest": 29.5.13
+    "@types/node": ^20.16.10
+    "@types/prismjs": ^1.26.4
+    "@types/sanitize-html": ^2.13.0
+    "@yozora/ast": ^2.3.4
+    "@yozora/ast-util": ^2.3.4
+    clsx: ^2.1.1
+    cross-env: ^7.0.3
+    eslint: 9.11.1
+    husky: 9.1.6
+    is-ci: 3.0.1
+    jest: ^29.7.0
+    jest-environment-jsdom: 29.7.0
+    lerna: 8.1.8
+    lint-staged: 15.2.10
+    npm-run-all: 4.1.5
+    nx: ^19.8.2
+    pinst: 3.0.0
+    postcss: ^8.4.47
+    prettier: 3.3.3
+    prismjs: ^1.29.0
+    rimraf: ^6.0.1
+    rollup: 4.22.5
+    sanitize-html: ^2.13.0
+    ts-jest: 29.2.5
+    ts-node: 10.9.2
+    tsconfig-paths: 4.2.0
+    typescript: 5.6.2
+  languageName: unknown
+  linkType: soft
 
 "run-async@npm:^2.4.0":
   version: 2.4.1

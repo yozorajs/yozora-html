@@ -16,7 +16,7 @@ export default async function rollupConfig() {
     presetConfigBuilders: [
       tsPresetConfigBuilder({
         typescriptOptions: {
-          tsconfig: 'tsconfig.src.json',
+          tsconfig: 'tsconfig.lib.json',
         },
       }),
     ],

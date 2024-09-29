@@ -1,0 +1,68 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "html-markdown",
+  "sourceRoot": "packages/html-markdown/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/html-markdown",
+        "parallel": false,
+        "commands": ["rimraf lib"]
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["clean", "^build"],
+      "options": {
+        "cwd": "packages/html-markdown",
+        "parallel": false,
+        "sourcemap": true,
+        "commands": ["rollup -c ../../rollup.config.mjs"]
+      },
+      "configurations": {
+        "production": {
+          "sourcemap": false,
+          "env": {
+            "NODE_ENV": "production"
+          }
+        }
+      }
+    },
+    "watch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/html-markdown",
+        "parallel": false,
+        "sourcemap": true,
+        "commands": ["rollup -c ../../rollup.config.mjs -w"],
+        "env": {
+          "NODE_ENV": "development"
+        }
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/html-markdown",
+        "commands": [
+          "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir ."
+        ]
+      },
+      "configurations": {
+        "coverage": {
+          "commands": [
+            "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir . --coverage"
+          ]
+        },
+        "update": {
+          "commands": [
+            "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir . -u"
+          ]
+        }
+      }
+    }
+  }
+}
