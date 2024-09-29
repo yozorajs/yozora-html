@@ -62,10 +62,10 @@ export function renderAdmonition(
 
   return (
     `<div class="yozora-admonition yozora-admonition--${modifier}">` +
-    `<h5 class="yozora-admonition__heading">` +
+    '<h5 class="yozora-admonition__heading">' +
     `<span class="yozora-admonition__heading-icon">${icon}</span>` +
     `<span class="yozora-admonition__heading-title">${title}</span>` +
-    `</h5>` +
+    '</h5>' +
     `<div class="yozora-admonition__body">${children}</div>` +
     '</div>'
   )

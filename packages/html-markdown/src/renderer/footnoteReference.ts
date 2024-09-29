@@ -13,6 +13,6 @@ export const renderFootnoteReference: INodeRenderer<FootnoteReference> = (node, 
   return (
     `<sup id="reference-${id}" class="yozora-footnote-reference">` +
     `<a href="#${id}" title="${label}">[${label}]</a>` +
-    `</sup>`
+    '</sup>'
   )
 }

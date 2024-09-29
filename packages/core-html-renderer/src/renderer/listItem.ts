@@ -13,10 +13,10 @@ export const renderListItem: INodeRenderer<ListItem> = (node, context) => {
   if (node.status != null) {
     switch (node.status) {
       case 'todo':
-        checkbox = `<input disabled="" type="checkbox" /> `
+        checkbox = '<input disabled="" type="checkbox" /> '
         break
       case 'done':
-        checkbox = `<input checked="" disabled="" type="checkbox" /> `
+        checkbox = '<input checked="" disabled="" type="checkbox" /> '
         break
     }
   }

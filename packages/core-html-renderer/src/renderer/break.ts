@@ -7,5 +7,5 @@ import type { INodeRenderer } from '../types'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-break
  */
 export const renderBreak: INodeRenderer<Break> = () => {
-  return `<br class="yozora-break" />`
+  return '<br class="yozora-break" />'
 }

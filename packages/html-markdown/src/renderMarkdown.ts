@@ -15,9 +15,9 @@ export function renderMarkdown(
 
   /* prettier-ignore */
   return (
-    `<section class="yozora-markdown">` +
+    '<section class="yozora-markdown">' +
       `<main>${children}</main>` +
       `<footer>${footnotes}</footer>` +
-    `</section>`
+    '</section>'
   )
 }

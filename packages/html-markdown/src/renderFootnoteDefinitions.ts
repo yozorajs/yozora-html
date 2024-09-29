@@ -12,9 +12,9 @@ export function renderFootnoteDefinitions(
   const title = 'footnote-definitions'
   const children: string = nodes.map(node => renderFootnoteDefinition(node, context)).join('')
   return (
-    `<div class="yozora-footnote-definitions">` +
+    '<div class="yozora-footnote-definitions">' +
     `<div class="yozora-footnote-definitions__title">${title}</div>` +
     `<ul class="yozora-footnote-definitions__main">${children}</ul>` +
-    `</div>`
+    '</div>'
   )
 }

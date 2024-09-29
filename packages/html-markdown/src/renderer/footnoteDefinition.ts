@@ -13,14 +13,14 @@ export const renderFootnoteDefinition: INodeRenderer<FootnoteDefinition> = (node
 
   /* prettier-ignore */
   return (
-    `<div className="yozora-footnote-definition">` +
-      `<p className="yozora-footnote-definition__title yozora-paragraph">` +
+    '<div className="yozora-footnote-definition">' +
+      '<p className="yozora-footnote-definition__title yozora-paragraph">' +
         `<a href="#reference-${identifier}">&uarr;</a>` +
         `<span>&nbsp;[${label}]:&nbsp;</span>` +
-      `</p>` +
-      `<div className="yozora-footnote-definition__content">` +
+      '</p>' +
+      '<div className="yozora-footnote-definition__content">' +
         children +
-      `</div>` +
-    `</div>`
+      '</div>' +
+    '</div>'
   )
 }

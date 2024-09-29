@@ -20,7 +20,7 @@ export const renderTable: INodeRenderer<Table> = (node, context) => {
 
   const [tHeadRow, ...tBodyRows] = node.children
   const thead: string =
-    `<thead class="yozora-table__thead"><tr class="yozora-table-row">` +
+    '<thead class="yozora-table__thead"><tr class="yozora-table-row">' +
     tHeadRow.children
       .map((th: TableCell, i): string => {
         const align = aligns[i] == null ? '' : ` align="${aligns[i]}"`
@@ -31,7 +31,7 @@ export const renderTable: INodeRenderer<Table> = (node, context) => {
     '</tr></thead>'
 
   const tbody: string =
-    `<tbody class="yozora-table__tbody">` +
+    '<tbody class="yozora-table__tbody">' +
     tBodyRows
       .map((row: TableRow) => {
         const tds: string = row.children

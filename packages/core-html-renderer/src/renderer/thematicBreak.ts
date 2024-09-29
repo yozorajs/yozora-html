@@ -7,5 +7,5 @@ import type { INodeRenderer } from '../types'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-thematic-break
  */
 export const renderThematicBreak: INodeRenderer<ThematicBreak> = () => {
-  return `<hr class="yozora-thematic-break" />`
+  return '<hr class="yozora-thematic-break" />'
 }
