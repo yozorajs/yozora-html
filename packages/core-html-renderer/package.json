@@ -42,11 +42,11 @@
     "@yozora/ast": "^2.0.0"
   },
   "dependencies": {
-    "prismjs": "^1.29.0",
-    "sanitize-html": "^2.13.0"
+    "prismjs": "1.29.0",
+    "sanitize-html": "2.13.1"
   },
   "devDependencies": {
-    "@types/prismjs": "^1.26.4",
-    "@types/sanitize-html": "^2.13.0"
+    "@types/prismjs": "1.26.4",
+    "@types/sanitize-html": "2.13.0"
   }
 }

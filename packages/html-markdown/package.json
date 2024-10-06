@@ -37,21 +37,11 @@
     "LICENSE",
     "README.md"
   ],
-  "scripts": {
-    "build": "rimraf lib/ && cross-env NODE_ENV=production rollup -c ../../rollup.config.mjs && cp src/style.css lib/style.css",
-    "prepublishOnly": "yarn build",
-    "test": "cross-env TS_NODE_FILES=true NODE_OPTIONS=--experimental-vm-modules jest --config ../../jest.config.mjs --rootDir ."
-  },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0"
   },
   "dependencies": {
     "@yozora/core-html-renderer": "^2.0.0-alpha.10",
     "@yozora/html-admonition": "^2.0.0-alpha.10"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "jest": "^29.7.0",
-    "rimraf": "^6.0.1"
   }
 }
