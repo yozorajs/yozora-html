@@ -5,7 +5,7 @@ import url from 'node:url'
 export default async function () {
   const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
   const { default: manifest } = await import(path.resolve('package.json'), {
-    assert: { type: 'json' },
+    with: { type: 'json' },
   })
 
   const baseConfig = await tsMonorepoConfig(__dirname, {
@@ -42,6 +42,6 @@ const coverageMap = {
     global: { branches: 8, lines: 85, statements: 85 },
   },
   '@yozora/html-markdown': {
-     global: { functions: 40},
+    global: { functions: 40 },
   }
 }

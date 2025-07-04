@@ -16,7 +16,7 @@ const resolveFixture = (...p: string[]): string => path.join(__dirname, 'fixture
 
 const loadYozoraAst = (filepath: string): Promise<Root> =>
   import(resolveFixture(filepath.replace(/(\.json)?$/, '.json')), {
-    assert: { type: 'json' },
+    with: { type: 'json' },
   }).then(md => md.default)
 
 describe('snapshot', function () {

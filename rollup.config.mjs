@@ -8,7 +8,7 @@ export default async function rollupConfig() {
   const sourcemap = sourcemapFromCLI.length > 0 ? sourcemapFromCLI[0] === 'true' : false
 
   const { default: manifest } = await import(path.resolve('package.json'), {
-    assert: { type: 'json' },
+    with: { type: 'json' },
   })
   const config = await createRollupConfig({
     manifest,
