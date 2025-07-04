@@ -1,0 +1,22 @@
+{
+  "language": "en",
+  "version": "0.2",
+  "words": [
+    "blockquote",
+    "clsx",
+    "gitmoji",
+    "guanghechen",
+    "lintfix",
+    "mathjax",
+    "mdast",
+    "pinst",
+    "postbuild",
+    "postpublish",
+    "prebuild",
+    "prismjs",
+    "styl",
+    "Yast",
+    "yozora",
+    "yozorajs"
+  ]
+}

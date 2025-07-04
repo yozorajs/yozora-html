@@ -1,22 +1,4 @@
 {
-  "cSpell.words": [
-    "blockquote",
-    "clsx",
-    "gitmoji",
-    "guanghechen",
-    "lintfix",
-    "mathjax",
-    "mdast",
-    "pinst",
-    "postbuild",
-    "postpublish",
-    "prebuild",
-    "prismjs",
-    "styl",
-    "Yast",
-    "yozora",
-    "yozorajs"
-  ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.associations": {
     ".prettierrc": "yaml"
