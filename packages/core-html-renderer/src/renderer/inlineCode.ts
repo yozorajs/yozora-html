@@ -9,5 +9,5 @@ import type { INodeRenderer } from '../types'
  */
 export const renderInlineCode: INodeRenderer<InlineCode> = node => {
   const value: string = escapeHtml(node.value)
-  return `<pre class="yozora-inline-code"><code>${value}</code></pre>`
+  return `<code class="yozora-inline-code">${value}</code>`
 }

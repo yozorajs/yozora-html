@@ -48,7 +48,9 @@ describe('renderAdmonition', () => {
     }
     const html = renderAdmonition(node, context)
     expect(html).toContain('yozora-admonition--note')
-    expect(html).toContain('<span class="yozora-text">Safe &amp; sound</span>')
+    expect(html).toContain(
+      '<span class="yozora-text">&lt;script&gt;removed&lt;/script&gt;Safe &amp; sound</span>',
+    )
     expect(html).not.toContain('<script>')
   })
 })

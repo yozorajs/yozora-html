@@ -1,4 +1,6 @@
 import type { LinkReference } from '@yozora/ast'
+import { escapeAttribute } from '../escapeHtml'
+import { sanitizeUrl } from '../sanitizeUrl'
 import type { INodeRenderer } from '../types'
 
 /**
@@ -11,8 +13,8 @@ export const renderLinkReference: INodeRenderer<LinkReference> = (node, context)
   const definition = context.getDefinition(node.identifier)
   if (definition == null) return ''
 
-  const url: string = context.sanitize(definition.url)
-  const title: string = context.sanitize(definition.title || url)
+  const url: string = escapeAttribute(sanitizeUrl(definition.url))
+  const title: string = escapeAttribute(definition.title || definition.url)
   const children: string = context.renderChildren(node.children)
   return `<a class="yozora-link" href="${url}" title="${title}" target="_blank" rel="noopener,noreferrer">${children}</a>`
 }

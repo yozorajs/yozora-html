@@ -5,7 +5,7 @@ import { render, text } from './helper'
 
 describe('link and image renderers', () => {
   it.each([undefined, '', '<b>Title</b>'])('renders links with title %j', title => {
-    const expectedTitle = title ? 'Title' : '/target'
+    const expectedTitle = title ? '&lt;b&gt;Title&lt;/b&gt;' : '/target'
     expect(render({ type: 'link', url: '/target', title, children: [text('label')] })).toBe(
       `<a class="yozora-link" href="/target" title="${expectedTitle}" target="_blank" rel="noopener,noreferrer"><span class="yozora-text">label</span></a>`,
     )
@@ -13,7 +13,7 @@ describe('link and image renderers', () => {
 
   it.each([undefined, '', '<b>Title</b>'])('renders images with title %j', title => {
     expect(render({ type: 'image', url: '/image.png', alt: '<b>Alt</b>', title })).toBe(
-      `<img class="yozora-image" alt="Alt" src="/image.png" title="${title ? 'Title' : 'Alt'}" />`,
+      `<img class="yozora-image" alt="&lt;b&gt;Alt&lt;/b&gt;" src="/image.png" title="${title ? '&lt;b&gt;Title&lt;/b&gt;' : '&lt;b&gt;Alt&lt;/b&gt;'}" />`,
     )
   })
 })
@@ -27,7 +27,7 @@ describe('reference renderers', () => {
         label: 'Missing',
         referenceType: 'full',
         children: [text('label')],
-        alt: 'Alt',
+        alt: '&lt;b&gt;Alt&lt;/b&gt;',
       }),
     ).toBe('')
   })
@@ -56,10 +56,10 @@ describe('reference renderers', () => {
       alt: '<b>Accessible description</b>',
     }
     expect(context.renderChildren([link])).toBe(
-      `<a class="yozora-link" href="/target" title="${title ? 'Title' : '/target'}" target="_blank" rel="noopener,noreferrer"><span class="yozora-text">label</span></a>`,
+      `<a class="yozora-link" href="/target" title="${title ? '&lt;b&gt;Title&lt;/b&gt;' : '/target'}" target="_blank" rel="noopener,noreferrer"><span class="yozora-text">label</span></a>`,
     )
     expect(context.renderChildren([image])).toBe(
-      `<img class="yozora-image" alt="Accessible description" src="/target" title="${title ? 'Title' : 'Accessible description'}" />`,
+      `<img class="yozora-image" alt="&lt;b&gt;Accessible description&lt;/b&gt;" src="/target" title="${title ? '&lt;b&gt;Title&lt;/b&gt;' : '&lt;b&gt;Accessible description&lt;/b&gt;'}" />`,
     )
   })
 

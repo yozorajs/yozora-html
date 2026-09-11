@@ -5,10 +5,12 @@ describe('math renderers', () => {
   it.each([
     ['math', 'div', 'yozora-math'],
     ['inlineMath', 'span', 'yozora-inline-math'],
-  ])('renders %s and removes embedded HTML', (type, tag, className) => {
+  ])('renders %s and escapes embedded HTML without losing source text', (type, tag, className) => {
     const context = createNodesRendererContext({}, {})
     const node = { type, value: '<script>alert(1)</script>x & y' }
-    expect(context.renderChildren([node])).toBe(`<${tag} class="${className}">x &amp; y</${tag}>`)
+    expect(context.renderChildren([node])).toBe(
+      `<${tag} class="${className}">&lt;script&gt;alert(1)&lt;/script&gt;x &amp; y</${tag}>`,
+    )
     const empty = { ...node, value: '' }
     expect(context.renderChildren([empty])).toBe(`<${tag} class="${className}"></${tag}>`)
   })

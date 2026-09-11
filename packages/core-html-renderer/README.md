@@ -37,6 +37,12 @@ Individual renderers are also exported, including `renderCode`, `renderLink`, `r
 `renderList` and `renderTable`. The base map handles standard Markdown nodes; use
 `@yozora/html-markdown` for document wrappers, admonitions, math and footnotes.
 
+Literal text, math and code are HTML-escaped without dropping their contents. Inline code
+uses a `<code>` element. Attribute values are escaped separately; link and image URLs accept
+relative addresses and the `http`, `https`, `mailto`, `tel` and `ftp` protocols. Other protocols
+produce an empty URL. Custom renderers can use the exported `escapeHtml` and `escapeAttribute`
+helpers; the context's `sanitize` method is intended for HTML fragments.
+
 ## Tests
 
 From the repository root:

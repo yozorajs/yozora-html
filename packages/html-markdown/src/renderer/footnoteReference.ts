@@ -1,5 +1,6 @@
 import type { FootnoteReference } from '@yozora/ast'
 import type { INodeRenderer } from '@yozora/core-html-renderer'
+import { escapeAttribute, escapeHtml } from '@yozora/core-html-renderer'
 
 /**
  * Render Yozora Markdown AST node `FootnoteReference` into HTML string.
@@ -8,11 +9,11 @@ import type { INodeRenderer } from '@yozora/core-html-renderer'
  */
 export const renderFootnoteReference: INodeRenderer<FootnoteReference> = (node, context) => {
   const identifier: string = context.sanitize(node.identifier)
-  const label: string = context.sanitize(node.label)
+  const label: string = escapeHtml(node.label)
   const id: string = encodeURIComponent(identifier)
   return (
     `<sup id="reference-${id}" class="yozora-footnote-reference">` +
-    `<a href="#${id}" title="${label}">[${label}]</a>` +
+    `<a href="#${id}" title="${escapeAttribute(node.label)}">[${label}]</a>` +
     '</sup>'
   )
 }

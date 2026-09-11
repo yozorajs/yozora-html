@@ -76,18 +76,20 @@ export function createNodeRendererContext(
 ): INodeRendererContext {
   const context: INodeRendererContext = {
     sanitize: value => sanitize(value, { allowedTags: [] }),
-    getDefinition: (identifier: string): Readonly<Definition> => definitionMap[identifier],
-    getFootnoteDefinition: (identifier: string): Readonly<FootnoteDefinition> =>
-      footnoteDefinitionMap[identifier],
+    getDefinition: (identifier: string): Readonly<Definition> | undefined =>
+      Object.hasOwn(definitionMap, identifier) ? definitionMap[identifier] : undefined,
+    getFootnoteDefinition: (identifier: string): Readonly<FootnoteDefinition> | undefined =>
+      Object.hasOwn(footnoteDefinitionMap, identifier)
+        ? footnoteDefinitionMap[identifier]
+        : undefined,
     renderChildren: (nodes: Node[]): string => {
       if (nodes == null || nodes.length < 1) return ''
       return nodes
         .map(node => {
-          const renderNode = rendererMap[node.type]
-          if (renderNode === undefined) {
-            console.warn(`Cannot find renderer for node ${node.type}`)
-            return ''
-          }
+          const renderNode =
+            Object.hasOwn(rendererMap, node.type) && typeof rendererMap[node.type] === 'function'
+              ? rendererMap[node.type]
+              : rendererMap._fallback
           return renderNode(node, context)
         })
         .join('')

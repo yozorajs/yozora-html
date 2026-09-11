@@ -1,4 +1,6 @@
 import type { ImageReference } from '@yozora/ast'
+import { escapeAttribute } from '../escapeHtml'
+import { sanitizeUrl } from '../sanitizeUrl'
 import type { INodeRenderer } from '../types'
 
 /**
@@ -11,8 +13,8 @@ export const renderImageReference: INodeRenderer<ImageReference> = (node, contex
   const definition = context.getDefinition(node.identifier)
   if (definition == null) return ''
 
-  const url: string = context.sanitize(definition.url)
-  const alt: string = context.sanitize(node.alt)
-  const title: string = context.sanitize(definition.title || alt)
+  const url: string = escapeAttribute(sanitizeUrl(definition.url))
+  const alt: string = escapeAttribute(node.alt)
+  const title: string = escapeAttribute(definition.title || node.alt)
   return `<img class="yozora-image" alt="${alt}" src="${url}" title="${title}" />`
 }

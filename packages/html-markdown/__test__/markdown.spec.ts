@@ -43,7 +43,9 @@ test('renders extensions and footnotes through the workspace renderers', () => {
   const root: Root = { type: 'root', children }
   const html = renderMarkdown(root, {}, { note: footnote })
   expect(html).toContain('yozora-admonition--note')
-  expect(html).toContain('<div class="yozora-math">x + y</div>')
+  expect(html).toContain(
+    '<div class="yozora-math">&lt;script&gt;alert(1)&lt;/script&gt;x + y</div>',
+  )
   expect(html).toContain('<span class="yozora-inline-math">x</span>')
   expect(html).toContain('<a href="#note" title="1">[1]</a>')
   expect(html).toContain('Footnote content')

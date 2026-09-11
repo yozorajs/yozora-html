@@ -1,3 +1,4 @@
+export * from './escapeHtml'
 export * from './renderer/blockquote'
 export * from './renderer/break'
 export * from './renderer/code'

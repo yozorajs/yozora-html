@@ -36,7 +36,7 @@ describe('code renderers', () => {
 
   it('preserves and escapes inline code', () => {
     expect(render({ type: 'inlineCode', value: '<b>inline</b> & text' })).toBe(
-      '<pre class="yozora-inline-code"><code>&lt;b&gt;inline&lt;/b&gt; &amp; text</code></pre>',
+      '<code class="yozora-inline-code">&lt;b&gt;inline&lt;/b&gt; &amp; text</code>',
     )
   })
 
@@ -45,7 +45,11 @@ describe('code renderers', () => {
     const expected = '\t&lt;script&gt;alert("x")&lt;/script&gt;\n&amp;lt;tag&amp;gt;\u00a0'
     const className = type === 'code' ? 'yozora-code' : 'yozora-inline-code'
     const html = render({ type, lang: null, meta: null, value })
-    expect(html).toBe(`<pre class="${className}"><code>${expected}</code></pre>`)
+    expect(html).toBe(
+      type === 'code'
+        ? `<pre class="${className}"><code>${expected}</code></pre>`
+        : `<code class="${className}">${expected}</code>`,
+    )
     expect(html).not.toContain('<script>')
   })
 })

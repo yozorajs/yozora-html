@@ -1,4 +1,6 @@
 import type { Image } from '@yozora/ast'
+import { escapeAttribute } from '../escapeHtml'
+import { sanitizeUrl } from '../sanitizeUrl'
 import type { INodeRenderer } from '../types'
 
 /**
@@ -7,9 +9,9 @@ import type { INodeRenderer } from '../types'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-image
  * @see https://www.npmjs.com/package/@yozora/tokenizer-image-reference
  */
-export const renderImage: INodeRenderer<Image> = (node, context) => {
-  const url: string = context.sanitize(node.url)
-  const alt: string = context.sanitize(node.alt)
-  const title: string = context.sanitize(node.title || alt)
+export const renderImage: INodeRenderer<Image> = node => {
+  const url: string = escapeAttribute(sanitizeUrl(node.url))
+  const alt: string = escapeAttribute(node.alt)
+  const title: string = escapeAttribute(node.title || node.alt)
   return `<img class="yozora-image" alt="${alt}" src="${url}" title="${title}" />`
 }

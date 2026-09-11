@@ -6,6 +6,38 @@ import { text } from './helper'
 afterEach(() => vi.restoreAllMocks())
 
 describe('createNodeRendererContext', () => {
+  it.each(['__proto__', 'constructor', 'toString'])(
+    'ignores inherited map entries named %s',
+    identifier => {
+      const context = createNodeRendererContext(
+        {},
+        {},
+        { ...defaultRendererMap, _fallback: node => `unknown:${node.type}` },
+      )
+      expect(context.getDefinition(identifier)).toBeUndefined()
+      expect(context.getFootnoteDefinition(identifier)).toBeUndefined()
+      expect(context.renderChildren([{ type: identifier }])).toBe(`unknown:${identifier}`)
+    },
+  )
+
+  it('accepts own definition entries with names also found on Object.prototype', () => {
+    const definition: Definition = {
+      type: 'definition',
+      identifier: 'constructor',
+      label: 'Link',
+      url: '/target',
+    }
+    const context = createNodeRendererContext({ constructor: definition }, {})
+    expect(context.getDefinition('constructor')).toBe(definition)
+  })
+
+  it('uses the configured fallback for invalid own renderer entries', () => {
+    const map = { ...defaultRendererMap, _fallback: () => 'fallback' }
+    Object.defineProperty(map, 'invalid', { value: undefined })
+    expect(createNodeRendererContext({}, {}, map).renderChildren([{ type: 'invalid' }])).toBe(
+      'fallback',
+    )
+  })
   it('looks up definitions by identifier and keeps contexts independent', () => {
     const definition: Definition = {
       type: 'definition',
@@ -72,7 +104,10 @@ describe('createNodeRendererContext', () => {
     expect(context.renderChildren([{ type: 'unsupported' }, text('kept')])).toBe(
       '<span class="yozora-text">kept</span>',
     )
-    expect(warning).toHaveBeenCalledExactlyOnceWith('Cannot find renderer for node unsupported')
+    expect(warning).toHaveBeenCalledExactlyOnceWith(
+      'Cannot find render for `unsupported` type node:',
+      { type: 'unsupported' },
+    )
   })
 
   it('omits raw HTML and definition nodes from the output', () => {

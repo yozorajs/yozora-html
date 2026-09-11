@@ -5,7 +5,10 @@ describe('text renderers', () => {
   it.each([
     ['', ''],
     ['Hello 世界', 'Hello 世界'],
-    ['<b>bold</b> & <script>removed</script>', 'bold &amp; '],
+    [
+      '<b>bold</b> & <script>removed</script>',
+      '&lt;b&gt;bold&lt;/b&gt; &amp; &lt;script&gt;removed&lt;/script&gt;',
+    ],
   ])('renders text %j', (value, expected) => {
     expect(render(text(value))).toBe(`<span class="yozora-text">${expected}</span>`)
   })

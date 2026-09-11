@@ -1,4 +1,5 @@
 import type { Text } from '@yozora/ast'
+import { escapeHtml } from '../escapeHtml'
 import type { INodeRenderer } from '../types'
 
 /**
@@ -6,7 +7,7 @@ import type { INodeRenderer } from '../types'
  * @see https://www.npmjs.com/package/@yozora/ast#text
  * @see https://www.npmjs.com/package/@yozora/tokenizer-text
  */
-export const renderText: INodeRenderer<Text> = (node, context) => {
-  const value: string = context.sanitize(node.value)
+export const renderText: INodeRenderer<Text> = node => {
+  const value: string = escapeHtml(node.value)
   return `<span class="yozora-text">${value}</span>`
 }

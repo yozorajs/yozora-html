@@ -5,7 +5,29 @@ import { renderFootnoteReference } from '../src/renderer/footnoteReference'
 import { renderFootnoteDefinitions } from '../src/renderFootnoteDefinitions'
 
 describe('footnotes', () => {
-  it('encodes reference identifiers and strips markup from labels', () => {
+  it('escapes quoted labels and emits HTML class attributes', () => {
+    const context = createNodesRendererContext({}, {})
+    const label = 'x" onclick="alert(1)'
+    const reference = renderFootnoteReference(
+      { type: 'footnoteReference', identifier: 'note', label },
+      context,
+    )
+    expect(reference).toContain('title="x&quot; onclick=&quot;alert(1)"')
+    expect(reference.match(/<a[^>]*>/)?.[0]).toBe(
+      '<a href="#note" title="x&quot; onclick=&quot;alert(1)">',
+    )
+    const definition: FootnoteDefinition = {
+      type: 'footnoteDefinition',
+      identifier: label,
+      label: '1',
+      children: [],
+    }
+    const html = renderFootnoteDefinitions([definition], context)
+    expect(html).toContain('href="#reference-x&quot; onclick=&quot;alert(1)"')
+    expect(html).toContain('class="yozora-footnote-definition"')
+    expect(html).not.toContain('className=')
+  })
+  it('encodes reference identifiers and escapes markup in labels', () => {
     const context = createNodesRendererContext({}, {})
     expect(
       renderFootnoteReference(
@@ -14,7 +36,7 @@ describe('footnotes', () => {
       ),
     ).toBe(
       '<sup id="reference-a%20b%2F%E4%B8%AD%E6%96%87" class="yozora-footnote-reference">' +
-        '<a href="#a%20b%2F%E4%B8%AD%E6%96%87" title="1">[1]</a></sup>',
+        '<a href="#a%20b%2F%E4%B8%AD%E6%96%87" title="&lt;b&gt;1&lt;/b&gt;">[&lt;b&gt;1&lt;/b&gt;]</a></sup>',
     )
   })
 
@@ -30,7 +52,7 @@ describe('footnotes', () => {
     expect(html).toContain('<span class="yozora-text">second content</span>')
     expect(html.indexOf('first content')).toBeLessThan(html.indexOf('second content'))
     expect(html).toContain('<a href="#reference-first">&uarr;</a>')
-    expect(html).toContain('<span>&nbsp;[first]:&nbsp;</span>')
+    expect(html).toContain('<span>&nbsp;[&lt;b&gt;first&lt;/b&gt;]:&nbsp;</span>')
     expect(html).not.toContain('<b>')
   })
 

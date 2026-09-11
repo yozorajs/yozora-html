@@ -11,6 +11,7 @@ groups related behavior with `describe` and uses explicit assertions for HTML ou
 | [text.spec.ts](text.spec.ts) | Text, container nodes, headings and breaks |
 | [code.spec.ts](code.spec.ts) | Prism highlighting, unsupported languages and inline code |
 | [resource.spec.ts](resource.spec.ts) | Links, images, definitions and title fallback |
+| [escaping.spec.ts](escaping.spec.ts) | Attribute quoting, URL protocols and inline code structure |
 | [list.spec.ts](list.spec.ts) | Ordered and unordered lists, task status |
 | [table.spec.ts](table.spec.ts) | Header/body output and column alignment |
 | [helper.ts](helper.ts) | Text fixtures and rendering through a fresh real context |

@@ -52,18 +52,18 @@ export interface INodeRendererContext {
    */
   renderChildren(nodes: Node[]): string
   /**
-   * Sanitize the html to avoid jss attack.
+   * Sanitize an HTML fragment. Use escapeHtml / escapeAttribute for literal values.
    * @param html
    */
   sanitize(html: string): string
   /**
    * Link / Image reference definitions.
    */
-  getDefinition(identifier: string): Readonly<Definition>
+  getDefinition(identifier: string): Readonly<Definition> | undefined
   /**
    * Footnote reference definitions.
    */
-  getFootnoteDefinition(identifier: string): Readonly<FootnoteDefinition>
+  getFootnoteDefinition(identifier: string): Readonly<FootnoteDefinition> | undefined
 }
 
 export type INodeRenderer<T extends Node = Node> = (
