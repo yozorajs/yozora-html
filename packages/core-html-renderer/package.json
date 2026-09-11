@@ -52,6 +52,6 @@
   "scripts": {
     "build": "vite build --config ../../vite.config.ts --mode development",
     "build:production": "vite build --config ../../vite.config.ts",
-    "clean": "rimraf lib"
+    "clean": "node ../../script/clean.mjs"
   }
 }
