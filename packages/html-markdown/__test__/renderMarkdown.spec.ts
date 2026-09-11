@@ -26,12 +26,12 @@ describe('renderMarkdown', () => {
       ...defaultRendererMap,
       text: (node: typeof body) => `[${node.value.toUpperCase()}]`,
     }
+    const original = structuredClone({ root, footnote })
     const html = renderMarkdown(root, {}, { '1': footnote }, custom)
     expect(html).toContain('<main>[BODY]</main>')
     expect(html).toContain('[NOTE]')
     expect(renderMarkdown(root, {}, {})).toContain('<span class="yozora-text">body</span>')
-    expect(root.children).toEqual([body])
-    expect(footnote.children).toEqual([note])
+    expect({ root, footnote }).toEqual(original)
   })
 
   it('resolves document link and image references from the supplied definitions', () => {

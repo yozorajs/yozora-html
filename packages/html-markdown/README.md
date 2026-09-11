@@ -112,6 +112,8 @@ document. Fragment URLs encode those complete IDs, so spaces, Unicode and litera
 signs resolve consistently. Repeated references link to the same definition, and the default
 backlink points to the first rendered reference when one exists.
 
+The footer wraps each definition renderer's non-empty output in an `li` within its `ul`.
+Returning an empty string omits the list item.
 The footer honors `rendererMap.footnoteDefinition`, and its children use the same custom
 renderers as the document body. Custom reference or definition renderers own their markup
 and anchor conventions; delegate to `defaultRendererMap` to retain the default output.

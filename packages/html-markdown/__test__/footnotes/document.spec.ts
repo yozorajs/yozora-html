@@ -323,8 +323,38 @@ describe('document footnotes', () => {
     const html = renderMarkdown(root, {}, { note, nested }, rendererMap)
     expect(rendered).toEqual(['note', 'nested'])
     expect(html).toContain('<main></main>')
-    expect(html).toContain('<aside>BODY:NOTE</aside><aside>BODY:NESTED</aside>')
+    expect(html).toContain(
+      '<ul class="yozora-footnote-definitions__main">' +
+        '<li><aside>BODY:NOTE</aside></li><li><aside>BODY:NESTED</aside></li></ul>',
+    )
     expect(rendererMap.footnoteDefinition).not.toBe(defaultRendererMap.footnoteDefinition)
+  })
+
+  it.each([
+    { visible: [], expected: '' },
+    {
+      visible: ['first', 'last'],
+      expected: '<li><aside>body:first</aside></li><li><aside>body:last</aside></li>',
+    },
+  ])('omits empty list items when visible definitions are $visible', ({ visible, expected }) => {
+    const rendered: string[] = []
+    const html = renderMarkdown(
+      { type: 'root', children: [] },
+      {},
+      { first: definition('first'), hidden: definition('hidden'), last: definition('last') },
+      {
+        ...defaultRendererMap,
+        footnoteDefinition: (node, context) => {
+          rendered.push(node.identifier)
+          return visible.includes(node.identifier)
+            ? `<aside>${context.renderChildren(node.children)}</aside>`
+            : ''
+        },
+        text: node => node.value,
+      },
+    )
+    expect(html).toContain(`<ul class="yozora-footnote-definitions__main">${expected}</ul>`)
+    expect(rendered).toEqual(['first', 'hidden', 'last'])
   })
 
   it('retains a custom reference renderer', () => {

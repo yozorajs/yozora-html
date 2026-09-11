@@ -1,4 +1,4 @@
-import type { FootnoteDefinition } from '@yozora/ast'
+import type { FootnoteDefinition, Text } from '@yozora/ast'
 import { describe, expect, it } from 'vitest'
 import { createNodesRendererContext } from '../../src'
 import {
@@ -7,6 +7,25 @@ import {
 } from '../../src/renderer/footnote/render'
 
 describe('footnotes', () => {
+  it('places the default definition inside a list item', () => {
+    const content: Text = { type: 'text', value: 'Content' }
+    const node: FootnoteDefinition = {
+      type: 'footnoteDefinition',
+      identifier: 'note',
+      label: '1',
+      children: [content],
+    }
+    expect(renderFootnoteDefinitions([node], createNodesRendererContext({}, {}))).toBe(
+      '<div class="yozora-footnote-definitions">' +
+        '<div class="yozora-footnote-definitions__title">footnote-definitions</div>' +
+        '<ul class="yozora-footnote-definitions__main"><li>' +
+        '<div id="footnote-note" class="yozora-footnote-definition">' +
+        '<p class="yozora-footnote-definition__title yozora-paragraph"><span>&nbsp;[1]:&nbsp;</span></p>' +
+        '<div class="yozora-footnote-definition__content"><span class="yozora-text">Content</span></div>' +
+        '</div></li></ul></div>',
+    )
+  })
+
   it('escapes quoted labels and emits HTML class attributes', () => {
     const context = createNodesRendererContext({}, {})
     const label = 'x" onclick="alert(1)'

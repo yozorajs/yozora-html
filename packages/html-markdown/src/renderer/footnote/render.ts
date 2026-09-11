@@ -35,7 +35,12 @@ export function renderFootnoteDefinitions(
   context: INodeRendererContext,
   renderDefinition: INodeRenderer<FootnoteDefinition> = renderFootnoteDefinition,
 ): string {
-  const children = nodes.map(node => renderDefinition(node, context)).join('')
+  const children = nodes
+    .map(node => {
+      const html = renderDefinition(node, context)
+      return html === '' ? '' : `<li>${html}</li>`
+    })
+    .join('')
   return (
     '<div class="yozora-footnote-definitions">' +
     '<div class="yozora-footnote-definitions__title">footnote-definitions</div>' +
