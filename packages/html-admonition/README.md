@@ -33,10 +33,10 @@
         src="https://img.shields.io/node/v/@yozora/html-admonition"
       />
     </a>
-    <a href="https://github.com/facebook/jest">
+    <a href="https://vitest.dev">
       <img
         alt="Tested with Jest"
-        src="https://img.shields.io/badge/tested_with-jest-9c465e.svg"
+        src="https://img.shields.io/badge/tested_with-vitest-6E9F18.svg"
       />
     </a>
     <a href="https://github.com/prettier/prettier">
@@ -62,10 +62,10 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
   npm install --save @yozora/html-admonition
   ```
 
-* yarn
+* pnpm
 
   ```bash
-  yarn add @yozora/html-admonition
+  pnpm add @yozora/html-admonition
   ```
 
 

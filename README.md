@@ -33,10 +33,10 @@
         src="https://github.com/yozorajs/yozora-html/workflows/Build/badge.svg?branch=main"
       />
     </a>
-    <a href="https://github.com/facebook/jest">
+    <a href="https://vitest.dev">
       <img
         alt="Tested with Jest"
-        src="https://img.shields.io/badge/tested_with-jest-9c465e.svg"
+        src="https://img.shields.io/badge/tested_with-vitest-6E9F18.svg"
       />
     </a>
     <a href="https://github.com/prettier/prettier">
@@ -52,6 +52,23 @@ A monorepo contains renderers for rendering [yozora ast][yozora/ast] into HTML s
 See https://yozora.guanghechen.com for details.
 
 Use [@yozora/html-markdown][] to render the [Root][yozora/ast__root] of Yozora ast.
+
+## Development
+
+Use the pnpm version pinned in `package.json` with Node.js 22.22.1+, 24.x or 26.x.
+
+```bash
+pnpm install --frozen-lockfile
+pnpm typecheck
+pnpm lint
+pnpm build
+pnpm test:build
+pnpm test:coverage
+```
+
+Vite builds each workspace package in dependency order. ESM, CJS and bundled TypeScript
+declarations retain their existing `lib/` entrypoints. `pnpm build:production` omits source
+maps. Tests use Vitest; run `pnpm test:update` to update snapshots intentionally.
 
 ## Overview
 

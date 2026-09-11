@@ -33,10 +33,10 @@
         src="https://img.shields.io/node/v/@yozora/html-markdown"
       />
     </a>
-    <a href="https://github.com/facebook/jest">
+    <a href="https://vitest.dev">
       <img
         alt="Tested with Jest"
-        src="https://img.shields.io/badge/tested_with-jest-9c465e.svg"
+        src="https://img.shields.io/badge/tested_with-vitest-6E9F18.svg"
       />
     </a>
     <a href="https://github.com/prettier/prettier">
@@ -60,10 +60,10 @@ produced by [@yozora/parser][] into HTML string.
   npm install --save @yozora/html-markdown
   ```
 
-* yarn
+* pnpm
 
   ```bash
-  yarn add @yozora/html-markdown
+  pnpm add @yozora/html-markdown
   ```
 
 
