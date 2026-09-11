@@ -70,6 +70,31 @@ Vite builds each workspace package in dependency order. ESM, CJS and bundled Typ
 declarations retain their existing `lib/` entrypoints. `pnpm build:production` omits source
 maps. Tests use Vitest; run `pnpm test:update` to update snapshots intentionally.
 
+### Releases
+
+Packages retain independent versions. Update each changed package's `version` and
+`CHANGELOG.md` before release; internal `workspace:^` dependencies are resolved by pnpm
+when packing. For example, bump one package without creating a Git commit or tag:
+
+```bash
+pnpm --filter @yozora/html-markdown exec npm version 2.0.0-alpha.13 --no-git-tag-version
+pnpm docs:links
+pnpm install --lockfile-only
+```
+
+Review and commit the release changes, then run `pnpm run :publish` from `main`.
+It builds production artifacts and checks types, package entrypoints and coverage before
+publishing unpublished package versions. `pnpm run :publish-recover` repeats the same
+checks and retries the remaining versions. Version bumps, changelogs and Git tags are
+managed explicitly; publishing does not generate them.
+
+To validate a release locally without publishing:
+
+```bash
+pnpm run :publish:prepare
+pnpm run :publish:verify
+```
+
 ## Overview
 
 
