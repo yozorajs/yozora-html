@@ -35,8 +35,8 @@
     </a>
     <a href="https://vitest.dev">
       <img
-        alt="Tested with Jest"
-        src="https://img.shields.io/badge/tested_with-vitest-6E9F18.svg"
+        alt="Tested with Vitest"
+        src="https://img.shields.io/badge/tested_with-Vitest-6E9F18?logo=vitest"
       />
     </a>
     <a href="https://github.com/prettier/prettier">

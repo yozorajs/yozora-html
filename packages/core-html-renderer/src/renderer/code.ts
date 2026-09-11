@@ -1,5 +1,6 @@
 import type { Code } from '@yozora/ast'
 import prism from 'prismjs'
+import { escapeHtml } from '../escapeHtml'
 import type { INodeRenderer } from '../types'
 
 /**
@@ -7,11 +8,11 @@ import type { INodeRenderer } from '../types'
  * @see https://www.npmjs.com/package/@yozora/ast#code
  * @see https://www.npmjs.com/package/@yozora/tokenizer-code
  */
-export const renderCode: INodeRenderer<Code> = (node, context) => {
+export const renderCode: INodeRenderer<Code> = node => {
   const { value, lang } = node
   const highlightedCode: string =
     lang != null && prism.languages[lang] != null
       ? prism.highlight(value, prism.languages[lang], lang)
-      : context.sanitize(value)
+      : escapeHtml(value)
   return `<pre class="yozora-code"><code>${highlightedCode}</code></pre>`
 }

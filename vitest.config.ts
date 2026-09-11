@@ -3,7 +3,6 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vitest/config'
 
 const workspaceRoot = path.dirname(fileURLToPath(import.meta.url))
-const packageName = path.basename(process.cwd())
 
 export default defineConfig({
   resolve: {
@@ -24,10 +23,10 @@ export default defineConfig({
       provider: 'v8',
       include: ['src/**/*.ts'],
       thresholds: {
-        branches: packageName === 'html-admonition' ? 8 : 50,
-        functions: packageName === 'html-markdown' ? 40 : 60,
-        lines: packageName === 'html-admonition' ? 85 : 90,
-        statements: packageName === 'html-admonition' ? 85 : 90,
+        branches: 100,
+        functions: 100,
+        lines: 100,
+        statements: 100,
       },
     },
   },

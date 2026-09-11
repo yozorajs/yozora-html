@@ -22,6 +22,37 @@ it.each([
   expect(html).toContain(`<span class="yozora-admonition__heading-title">${title}</span>`)
 })
 
+describe('renderAdmonition', () => {
+  it('uses a rendered custom title instead of the keyword default', () => {
+    const title = { type: 'strong', children: [{ type: 'text', value: 'Custom' }] }
+    const node: IAdmonition = {
+      type: 'admonition',
+      keyword: 'warning',
+      title: [title],
+      children: [],
+    }
+    const html = renderAdmonition(node, context)
+    expect(html).toContain(
+      '<strong class="yozora-strong"><span class="yozora-text">Custom</span></strong>',
+    )
+    expect(html).not.toContain('>CAUTION<')
+  })
+
+  it('strips markup from the keyword and renders sanitized children', () => {
+    const child = { type: 'text', value: '<script>removed</script>Safe & sound' }
+    const node: IAdmonition = {
+      type: 'admonition',
+      keyword: '<b>note</b>',
+      title: [],
+      children: [child],
+    }
+    const html = renderAdmonition(node, context)
+    expect(html).toContain('yozora-admonition--note')
+    expect(html).toContain('<span class="yozora-text">Safe &amp; sound</span>')
+    expect(html).not.toContain('<script>')
+  })
+})
+
 describe('snapshot', function () {
   it('basic', function () {
     const node = {

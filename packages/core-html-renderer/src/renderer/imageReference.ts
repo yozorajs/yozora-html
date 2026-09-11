@@ -12,7 +12,7 @@ export const renderImageReference: INodeRenderer<ImageReference> = (node, contex
   if (definition == null) return ''
 
   const url: string = context.sanitize(definition.url)
-  const alt: string = context.sanitize(definition.label)
+  const alt: string = context.sanitize(node.alt)
   const title: string = context.sanitize(definition.title || alt)
   return `<img class="yozora-image" alt="${alt}" src="${url}" title="${title}" />`
 }

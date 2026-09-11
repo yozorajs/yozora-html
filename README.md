@@ -35,8 +35,8 @@
     </a>
     <a href="https://vitest.dev">
       <img
-        alt="Tested with Jest"
-        src="https://img.shields.io/badge/tested_with-vitest-6E9F18.svg"
+        alt="Tested with Vitest"
+        src="https://img.shields.io/badge/tested_with-Vitest-6E9F18?logo=vitest"
       />
     </a>
     <a href="https://github.com/prettier/prettier">
@@ -69,6 +69,14 @@ pnpm test:coverage
 Vite builds each workspace package in dependency order. ESM, CJS and bundled TypeScript
 declarations retain their existing `lib/` entrypoints. `pnpm build:production` omits source
 maps. Tests use Vitest; run `pnpm test:update` to update snapshots intentionally.
+
+Tests live in each package's `__test__/` directory, split into module-focused `*.spec.ts`
+files. Fixtures and snapshots stay alongside the tests. `pnpm test:coverage` runs all three
+packages and enforces 100% statements, branches, functions and lines coverage per package.
+
+Test guides: [core renderer](packages/core-html-renderer/__test__/README.md),
+[admonitions](packages/html-admonition/__test__/README.md),
+[Markdown](packages/html-markdown/__test__/README.md).
 
 ### Releases
 
