@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0-alpha.12 (2026-09-11)
+
+* Ship ESM, CJS and bundled declarations through the pnpm and Vite build workflow.
+* Expand keyword, title and content rendering coverage.
+
+
 ## 2.0.0-alpha.11 (2024-10-06)
 
 * :arrow_up:  chore: upgrade dependencies ([7ca4582](https://github.com/yozorajs/yozora-html/commit/7ca4582))

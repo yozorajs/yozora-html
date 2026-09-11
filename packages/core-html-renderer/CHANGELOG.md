@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0-alpha.13 (2026-09-11)
+
+* Escape literal text and attributes, reject unsafe URL protocols, and ignore inherited renderer and definition entries.
+* Preserve code source text and image alternative text; render inline code as phrasing HTML.
+* Ship ESM, CJS and bundled declarations with expanded renderer regression coverage.
+
+
 ## 2.0.0-alpha.12 (2025-07-04)
 
 * chore: upgrade dependencies ([96d3e6e](https://github.com/yozorajs/yozora-html/commit/96d3e6e))
