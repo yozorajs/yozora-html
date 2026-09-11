@@ -5,7 +5,15 @@
     "declarationMap": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "sourceMap": true
+    "sourceMap": true,
+    "types": ["node"],
+    "skipLibCheck": true
   },
-  "include": ["src", "__test__", "jest.helper.mts"]
+  "include": [
+    "packages/*/src",
+    "packages/*/__test__",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "vitest.setup.ts"
+  ]
 }

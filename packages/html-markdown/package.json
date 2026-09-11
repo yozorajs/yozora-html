@@ -27,7 +27,7 @@
   "module": "./lib/esm/index.mjs",
   "license": "MIT",
   "engines": {
-    "node": ">= 16.0.0"
+    "node": "^22.13.0 || >=24"
   },
   "files": [
     "lib/",
@@ -41,7 +41,15 @@
     "@yozora/ast": "^2.0.0"
   },
   "dependencies": {
-    "@yozora/core-html-renderer": "^2.0.0-alpha.12",
-    "@yozora/html-admonition": "^2.0.0-alpha.11"
+    "@yozora/core-html-renderer": "workspace:^",
+    "@yozora/html-admonition": "workspace:^"
+  },
+  "scripts": {
+    "build": "vite build --config ../../vite.config.ts --mode development",
+    "build:production": "vite build --config ../../vite.config.ts",
+    "clean": "rimraf lib",
+    "test": "vitest run --config ../../vitest.config.ts",
+    "test:coverage": "vitest run --config ../../vitest.config.ts --coverage",
+    "test:update": "vitest run --config ../../vitest.config.ts -u"
   }
 }

@@ -28,7 +28,7 @@
   "module": "./lib/esm/index.mjs",
   "license": "MIT",
   "engines": {
-    "node": ">= 16.0.0"
+    "node": "^22.13.0 || >=24"
   },
   "files": [
     "lib/",
@@ -43,10 +43,15 @@
   },
   "dependencies": {
     "prismjs": "1.30.0",
-    "sanitize-html": "2.17.0"
+    "sanitize-html": "2.17.7"
   },
   "devDependencies": {
-    "@types/prismjs": "1.26.5",
-    "@types/sanitize-html": "2.16.0"
+    "@types/prismjs": "1.26.6",
+    "@types/sanitize-html": "2.16.1"
+  },
+  "scripts": {
+    "build": "vite build --config ../../vite.config.ts --mode development",
+    "build:production": "vite build --config ../../vite.config.ts",
+    "clean": "rimraf lib"
   }
 }
