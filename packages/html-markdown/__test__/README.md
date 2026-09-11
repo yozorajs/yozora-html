@@ -6,7 +6,8 @@
 | --- | --- |
 | [markdown.spec.ts](markdown.spec.ts) | Complete AST rendering, extension integration and the existing HTML snapshot |
 | [renderMarkdown.spec.ts](renderMarkdown.spec.ts) | Empty documents, custom renderers, references and context integration |
-| [footnote.spec.ts](footnote.spec.ts) | Reference identifier encoding, labels and definition output |
+| [footnotes/render.spec.ts](footnotes/render.spec.ts) | Reference identifier encoding, labels and definition output |
+| [footnotes/document.spec.ts](footnotes/document.spec.ts) | Reference precomputation, cross-footnote links, delegated renderers, HTML post-processing and failure isolation |
 | [math.spec.ts](math.spec.ts) | Block/inline math and empty values |
 
 The [basic AST fixture](fixtures/basic.json) and
@@ -19,7 +20,7 @@ From the repository root:
 
 ```sh
 pnpm --filter @yozora/html-markdown test
-pnpm --filter @yozora/html-markdown test -- __test__/footnote.spec.ts
+pnpm --filter @yozora/html-markdown test -- __test__/footnotes/
 pnpm --filter @yozora/html-markdown test:coverage
 ```
 

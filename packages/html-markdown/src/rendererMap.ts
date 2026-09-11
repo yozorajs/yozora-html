@@ -26,8 +26,7 @@ import {
   defaultRendererMap as baseDefaultRendererMap,
 } from '@yozora/core-html-renderer'
 import { renderAdmonition } from './renderer/admonition'
-import { renderFootnoteDefinition } from './renderer/footnoteDefinition'
-import { renderFootnoteReference } from './renderer/footnoteReference'
+import { renderFootnoteDefinition, renderFootnoteReference } from './renderer/footnote/render'
 import { renderInlineMath } from './renderer/inlineMath'
 import { renderMath } from './renderer/math'
 

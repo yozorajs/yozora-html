@@ -1,8 +1,10 @@
 import type { FootnoteDefinition } from '@yozora/ast'
 import { describe, expect, it } from 'vitest'
-import { createNodesRendererContext } from '../src'
-import { renderFootnoteReference } from '../src/renderer/footnoteReference'
-import { renderFootnoteDefinitions } from '../src/renderFootnoteDefinitions'
+import { createNodesRendererContext } from '../../src'
+import {
+  renderFootnoteDefinitions,
+  renderFootnoteReference,
+} from '../../src/renderer/footnote/render'
 
 describe('footnotes', () => {
   it('escapes quoted labels and emits HTML class attributes', () => {
@@ -14,7 +16,7 @@ describe('footnotes', () => {
     )
     expect(reference).toContain('title="x&quot; onclick=&quot;alert(1)"')
     expect(reference.match(/<a[^>]*>/)?.[0]).toBe(
-      '<a href="#note" title="x&quot; onclick=&quot;alert(1)">',
+      '<a href="#footnote-note" title="x&quot; onclick=&quot;alert(1)">',
     )
     const definition: FootnoteDefinition = {
       type: 'footnoteDefinition',
@@ -22,8 +24,9 @@ describe('footnotes', () => {
       label: '1',
       children: [],
     }
+    renderFootnoteReference({ type: 'footnoteReference', identifier: label, label: '1' }, context)
     const html = renderFootnoteDefinitions([definition], context)
-    expect(html).toContain('href="#reference-x&quot; onclick=&quot;alert(1)"')
+    expect(html).toContain('href="#reference-x%2522%2520onclick%253D%2522alert(1)-1"')
     expect(html).toContain('class="yozora-footnote-definition"')
     expect(html).not.toContain('className=')
   })
@@ -35,8 +38,8 @@ describe('footnotes', () => {
         context,
       ),
     ).toBe(
-      '<sup id="reference-a%20b%2F%E4%B8%AD%E6%96%87" class="yozora-footnote-reference">' +
-        '<a href="#a%20b%2F%E4%B8%AD%E6%96%87" title="&lt;b&gt;1&lt;/b&gt;">[&lt;b&gt;1&lt;/b&gt;]</a></sup>',
+      '<sup id="reference-a%20b%2F%E4%B8%AD%E6%96%87-1" class="yozora-footnote-reference">' +
+        '<a href="#footnote-a%2520b%252F%25E4%25B8%25AD%25E6%2596%2587" title="&lt;b&gt;1&lt;/b&gt;">[&lt;b&gt;1&lt;/b&gt;]</a></sup>',
     )
   })
 
@@ -47,11 +50,18 @@ describe('footnotes', () => {
       label: `<b>${identifier}</b>`,
       children: [{ type: 'text', value: `${identifier} content` }],
     }))
-    const html = renderFootnoteDefinitions(definitions, createNodesRendererContext({}, {}))
+    const context = createNodesRendererContext({}, {})
+    for (const node of definitions) {
+      renderFootnoteReference(
+        { type: 'footnoteReference', identifier: node.identifier, label: node.label },
+        context,
+      )
+    }
+    const html = renderFootnoteDefinitions(definitions, context)
     expect(html).toContain('<span class="yozora-text">first content</span>')
     expect(html).toContain('<span class="yozora-text">second content</span>')
     expect(html.indexOf('first content')).toBeLessThan(html.indexOf('second content'))
-    expect(html).toContain('<a href="#reference-first">&uarr;</a>')
+    expect(html).toContain('<a href="#reference-first-1">&uarr;</a>')
     expect(html).toContain('<span>&nbsp;[&lt;b&gt;first&lt;/b&gt;]:&nbsp;</span>')
     expect(html).not.toContain('<b>')
   })

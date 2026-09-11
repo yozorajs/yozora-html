@@ -47,7 +47,7 @@ test('renders extensions and footnotes through the workspace renderers', () => {
     '<div class="yozora-math">&lt;script&gt;alert(1)&lt;/script&gt;x + y</div>',
   )
   expect(html).toContain('<span class="yozora-inline-math">x</span>')
-  expect(html).toContain('<a href="#note" title="1">[1]</a>')
+  expect(html).toContain('<a href="#footnote-note" title="1">[1]</a>')
   expect(html).toContain('Footnote content')
   expect(html).not.toContain('<script>')
   expect(html).not.toContain('ignored import')
