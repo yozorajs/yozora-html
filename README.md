@@ -39,10 +39,10 @@
         src="https://img.shields.io/badge/tested_with-Vitest-6E9F18?logo=vitest"
       />
     </a>
-    <a href="https://github.com/prettier/prettier">
+    <a href="https://biomejs.dev/">
       <img
-        alt="Code Style: prettier"
-        src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"
+        alt="Code Style: Biome"
+        src="https://img.shields.io/badge/code_style-Biome-60a5fa.svg?style=flat-square"
       />
     </a>
   </div>
@@ -65,6 +65,11 @@ pnpm build
 pnpm test:build
 pnpm test:coverage
 ```
+
+Run `pnpm format` to apply Biome formatting, import organization, and safe lint fixes.
+`pnpm lint` checks the same rules without modifying files, including in CI. The pre-commit
+hook applies Biome to staged JavaScript, TypeScript, and JSON files. Markdown, YAML, CSS,
+fixtures, and generated output are outside the formatting scope.
 
 Vite builds each workspace package in dependency order. ESM, CJS and bundled TypeScript
 declarations retain their existing `lib/` entrypoints. `pnpm build:production` omits source

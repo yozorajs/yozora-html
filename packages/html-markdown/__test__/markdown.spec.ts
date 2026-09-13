@@ -1,8 +1,8 @@
+import path from 'node:path'
+import url from 'node:url'
 import type { FootnoteDefinition, Root } from '@yozora/ast'
 import { HtmlType } from '@yozora/ast'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
-import path from 'node:path'
-import url from 'node:url'
 import { describe, expect, test } from 'vitest'
 import type { INodeRendererMap } from '../src'
 import { defaultRendererMap, renderMarkdown } from '../src'
@@ -53,8 +53,8 @@ test('renders extensions and footnotes through the workspace renderers', () => {
   expect(html).not.toContain('ignored import')
 })
 
-describe('snapshot', function () {
-  test('basic', async function () {
+describe('snapshot', () => {
+  test('basic', async () => {
     const ast0 = await loadYozoraAst('basic')
     const { root: ast1, definitionMap } = calcDefinitionMap(ast0)
     const { root, footnoteDefinitionMap } = calcFootnoteDefinitionMap(ast1)

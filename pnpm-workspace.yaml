@@ -1,9 +1,6 @@
 packages:
   - 'packages/*'
 
-allowBuilds:
-  unrs-resolver: true
-
 minimumReleaseAgeExclude:
   - lint-staged@17.5.1
   - vite@8.3.0

@@ -55,8 +55,8 @@ describe('renderAdmonition', () => {
   })
 })
 
-describe('snapshot', function () {
-  it('basic', function () {
+describe('snapshot', () => {
+  it('basic', () => {
     const node = {
       type: 'admonition',
       keyword: 'note',

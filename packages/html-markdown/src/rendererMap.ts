@@ -5,7 +5,7 @@ import type {
   FootnoteDefinition,
   FootnoteReference,
   InlineMath,
-  Math,
+  Math as MathNode,
 } from '@yozora/ast'
 import {
   AdmonitionType,
@@ -35,7 +35,7 @@ export interface INodeRendererMap extends IBaseNodeRendererMap {
   [FootnoteDefinitionType]: INodeRenderer<FootnoteDefinition>
   [FootnoteReferenceType]: INodeRenderer<FootnoteReference>
   [InlineMathType]: INodeRenderer<InlineMath>
-  [MathType]: INodeRenderer<Math>
+  [MathType]: INodeRenderer<MathNode>
   [EcmaImportType]: INodeRenderer<EcmaImport>
 }
 

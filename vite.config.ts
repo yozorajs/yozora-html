@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
     {
       name: 'declaration-bundle',
       apply: 'build',
-      async closeBundle() {
+      async closeBundle(): Promise<void> {
         const bundle = await rollup({
           input: manifest.source,
           external,
