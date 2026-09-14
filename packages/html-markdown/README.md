@@ -49,23 +49,17 @@
 </header>
 <br/>
 
-This component is for rendering the Yozora Markdown AST node [`Root`][@yozora/ast] 
-produced by [@yozora/parser][] into HTML string.
+Render a [Yozora AST](https://www.npmjs.com/package/@yozora/ast#root) into an HTML string.
+Includes tables, task lists, admonitions, footnotes and syntax highlighting.
+Math is rendered as plain text; no LaTeX engine is included.
 
 ## Install
 
-* npm
+```sh
+pnpm add @yozora/html-markdown
+```
 
-  ```bash
-  npm install --save @yozora/html-markdown
-  ```
-
-* pnpm
-
-  ```bash
-  pnpm add @yozora/html-markdown
-  ```
-
+ESM, CommonJS and TypeScript declarations are included.
 
 ## Usage
 
@@ -76,25 +70,24 @@ import '@yozora/html-markdown/style.css'
 
 const paragraph = {
   type: 'paragraph',
-  children: [{ type: 'text', value: 'yozora is cool!' }],
+  children: [{ type: 'text', value: 'Hello, Yozora!' }],
 }
 const root: Root = { type: 'root', children: [paragraph] }
-
 const html = renderMarkdown(root, {}, {})
 ```
 
-The output is a `section.yozora-markdown` containing `main` and `footer` elements.
-The optional fourth argument is a renderer map. The optional fifth argument accepts
-`IRenderMarkdownOptions`: `className` adds HTML-escaped classes to the root section,
-preserving `yozora-markdown`. Pass `undefined` for the fourth argument to use the default
-renderers with custom classes.
+`renderMarkdown(root, definitionMap, footnoteDefinitionMap, rendererMap?, options?)` returns
+`section.yozora-markdown` with a `main` body and `footer`. Supply link/image and footnote
+definitions keyed by their raw AST identifiers; use empty maps when there are none.
+`options.className` adds escaped classes to the section.
 
-### Rendering individual nodes
+### Custom renderers
 
-This package also exports the standard node renderers, `renderAdmonition`, `escapeHtml`, `escapeAttribute`,
-`INodeRenderer`, `INodeRendererContext`, `INodeRendererProps` and the complete `INodeRendererMap`.
-Use `createNodeRendererContext(definitionMap, footnoteDefinitionMap, rendererMap?)` to render
-children independently of the document wrapper:
+Override entries by spreading `defaultRendererMap` into the fourth argument. The map covers
+standard and extended Markdown nodes. Node renderers, escaping helpers and renderer types
+are also exported.
+
+For individual nodes, use `createNodeRendererContext(definitionMap, footnoteDefinitionMap, rendererMap?)`:
 
 ```typescript
 import type { Text } from '@yozora/ast'
@@ -106,109 +99,43 @@ context.renderChildren([node])
 // <span class="yozora-text">Hello, world!</span>
 ```
 
-The context provides `renderChildren`, `sanitize`, `getDefinition` and `getFootnoteDefinition`.
-`createNodesRendererContext` remains an alias of the same factory. Both names use the complete
-Markdown renderer map, including admonitions, math and footnotes. For document-level footnote
-preparation and the footer, use `renderMarkdown`.
+Custom renderers should use `escapeHtml` for literal text and `escapeAttribute` for attributes.
+`context.sanitize` strips tags from HTML fragments. Default link/image renderers allow relative
+URLs and the `http`, `https`, `mailto`, `tel` and `ftp` protocols.
 
-Literal text and code are HTML-escaped. Attribute values use separate escaping; link and image
-URLs accept relative addresses and the `http`, `https`, `mailto`, `tel` and `ftp` protocols.
-Custom renderers can use the escaping helpers; `context.sanitize` is for HTML fragments.
+## Styles
 
-### Migration from `@yozora/core-html-renderer`
+CSS is opt-in. Choose **one** entry:
 
-The core package's implementation and tests have been merged into this package. Change imports
-of its renderers, helpers, context factory and types to `@yozora/html-markdown`, and replace the
-old dependency. The old package is no longer part of this workspace.
+* `@yozora/html-markdown/style.css` — standalone styles; `lib/index.css` remains an alias.
+* `@yozora/html-markdown/tailwind.css` — requires a Tailwind v4 build; styles use the
+  `components` layer so utilities can override them.
 
-There is one `defaultRendererMap` and one `INodeRendererMap`, covering standard and extended
-Markdown nodes. When migrating a custom base map, spread the complete `defaultRendererMap`
-and override the desired entries. Previously unsupported extension nodes now have the Markdown
-defaults. Existing `@yozora/html-markdown` calls and HTML output retain their behavior.
+Loading both makes the standalone rules override layered utilities. Set `--yozora__*`
+variables directly on `.yozora-markdown`, where the defaults are declared:
 
-### Migration from `@yozora/html-admonition`
-
-The admonition renderer, icons and tests are now included in this package. Replace the old
-dependency and change both default and named imports to the named `renderAdmonition` export:
-
-```typescript
-import { createNodeRendererContext, renderAdmonition } from '@yozora/html-markdown'
-
-const html = renderAdmonition(
-  { type: 'admonition', keyword: 'note', title: [], children: [] },
-  createNodeRendererContext({}, {}),
-)
+```css
+.yozora-markdown {
+  --yozora__link-color: #4f46e5;
+  --yozora__code-font-size: 14px;
+}
 ```
 
-Existing custom contexts still need only `sanitize` and `renderChildren`; a complete
-`INodeRendererContext` is optional. The default export of `@yozora/html-markdown` remains
-`renderMarkdown`. Admonition markup, icons and keyword aliases are unchanged, and the old
-package is no longer part of this workspace. Use the CSS entries below and a `.yozora-markdown`
-wrapper when displaying standalone admonitions with the default styles.
-
-### Styles
-
-JavaScript imports do not load CSS. Choose one stylesheet in your application:
-
-* `@yozora/html-markdown/style.css`: standalone default styles, with no Tailwind dependency.
-  The previously documented `@yozora/html-markdown/lib/index.css` is an alias for this file.
-* `@yozora/html-markdown/tailwind.css`: default styles in Tailwind v4's `components` layer,
-  followed by mappings to the host's theme variables. Process this entry with Tailwind v4;
-  its `--theme(...)` references are resolved at build time. It adds no JavaScript or Tailwind
-  runtime dependency. Use `style.css` for direct browser loading without a Tailwind build.
-
-Do not load both entries: the unlayered standalone styles would override normal layered
-utilities. Colors, fonts and spacing are customizable through `--yozora__*` CSS variables
-on `.yozora-markdown`; setting variables only on an ancestor does not override defaults
-declared on the section itself. Code blocks include scoped syntax highlighting colors.
-Admonition headings inherit the block's text color independently of the border color.
-Override `--yozora__admonition-heading-color` to customize their foreground color.
-Icons use separate semantic colors. Override `--yozora__admonition-icon-color` to set all
-icons to one color, or the per-variant tokens such as `--yozora__admonition-info-color-icon`.
-Neither setting changes the heading or body text color.
-
-### Code blocks
-
-Code blocks use a bordered `.yozora-code` container with a language label, decorative window
-dots and a line-number gutter. The source remains inside `.yozora-code__pre > code`; that area
-scrolls horizontally and can receive keyboard focus. Line numbers are outside the source,
-excluded from text selection and hidden from screen readers. When updating custom styles,
-target `.yozora-code__pre` for the `pre` element; `.yozora-code` now names the outer container.
-
-Prism's default grammars and TypeScript (`typescript` / `ts`) are available out of the box.
-Unknown languages remain escaped plain text. The toolbar displays the language; code metadata
-is not interpreted as a title or executable configuration.
-Highlighted HTML is sanitized before insertion: only `span` elements and their `class`
-attributes are retained. Custom Prism hooks that emit links, inline styles or other attributes
-will have that markup removed. Hooks themselves still execute as application code.
-
-The light/dark palettes are inspired by the React code renderer's VS Code themes. Customize
-`--yozora__code-bg-primary`, `--yozora__code-bg-toolbar`, `--yozora__code-color-border`,
-`--yozora__code-color-title`, `--yozora__code-color-text` and token colors such as
-`--yozora__code-color-keyword` and `--yozora__code-color-string` on `.yozora-markdown`.
-`--yozora__code-font-size` defaults to `14px`, `--yozora__code-line-height` to `1.6`.
-Set `--yozora__code-line-numbers-display: none` to hide the gutter.
+For Tailwind, place overrides in `@layer components` after the imports. The host controls
+the page background and dark-mode trigger; see the [demo theme][demo-theme] for a complete
+palette. Admonition headings and icons can be styled independently with
+`--yozora__admonition-heading-color` and `--yozora__admonition-icon-color`.
 
 ### Tailwind CSS v4
 
-In an application that already builds Tailwind v4, add these imports to its CSS entry:
+Replace the standalone CSS import with these imports in your application CSS:
 
 ```css
 @import 'tailwindcss';
 @import '@yozora/html-markdown/tailwind.css';
 ```
 
-The integration declares the order `theme, base, components, utilities`. Preflight runs
-before the component styles; lists explicitly retain their markers, and utilities can
-override component declarations regardless of their selector specificity. The adapter maps
-Tailwind's `--font-sans`, `--font-mono`, `--spacing` and palette variables to Yozora tokens,
-with fallback values for missing tokens. It does not include Preflight or utilities itself.
-Theme references also follow a configured prefix, such as `@import 'tailwindcss' prefix(tw)`;
-compiled mappings retain `var(--tw-...)` references so host variables can still change at runtime.
-When writing additional host CSS, use its prefixed variable names (for example,
-`var(--tw-color-indigo-600)`) and prefix utility classes according to the Tailwind configuration.
-
-Pass complete, statically discoverable class names from your application source:
+Pass complete utility class names from source files Tailwind scans:
 
 ```typescript
 const html = renderMarkdown(root, {}, {}, undefined, {
@@ -216,114 +143,48 @@ const html = renderMarkdown(root, {}, {}, undefined, {
 })
 ```
 
-Tailwind must scan the file containing these strings. It does not discover classes from
-runtime-generated HTML or expressions such as `text-${size}`. Use complete literal class
-maps; when the source is outside Tailwind's detected paths, register it with `@source` in
-the application CSS. The package's semantic `yozora-*` classes need no source registration.
+Use `@source` for files outside Tailwind's detected paths; runtime-generated HTML and class
+fragments such as `text-${size}` are not scanned. The package's `yozora-*` classes need no
+source registration. Theme mappings support Tailwind prefixes; your own variables and
+utility classes must use the configured prefix too.
 
-The host controls its theme and dark-mode trigger. For example, place these rules after the
-imports to use an ancestor or root `.dark` class and your Tailwind palette:
+With `@tailwindcss/typography`, you may instead omit both stylesheets and pass
+`className: 'prose dark:prose-invert'`. Supply your own admonition, math and footnote styles.
 
-```css
-@custom-variant dark (&:where(.dark, .dark *));
+### Code blocks
 
-@layer components {
-  .yozora-markdown {
-    --yozora__link-color: var(--color-indigo-600);
-    --yozora__link-color-hover: var(--color-indigo-500);
+Code blocks include a language toolbar, line numbers and scoped Prism colors. Default Prism
+grammars plus TypeScript (`typescript` / `ts`) are registered; unknown languages are escaped
+plain text. The `.yozora-code__pre > code` area supports keyboard scrolling and copying
+without line numbers. Code metadata is not interpreted.
 
-    @variant dark {
-      --yozora__color-bg-primary: var(--color-slate-950);
-      --yozora__color-bg-secondary: var(--color-slate-900);
-      --yozora__color-bg-tertiary: var(--color-slate-800);
-      --yozora__color-text-primary: var(--color-slate-200);
-      --yozora__color-text-secondary: var(--color-slate-300);
-      --yozora__color-text-tertiary: var(--color-slate-400);
-      --yozora__color-border-primary: var(--color-slate-700);
-      --yozora__color-border-secondary: var(--color-slate-700);
-      --yozora__color-border-tertiary: var(--color-slate-600);
-      --yozora__link-color: var(--color-indigo-400);
-      --yozora__link-color-hover: var(--color-indigo-300);
-      --yozora__inline-code-color: var(--color-rose-400);
-      --yozora__code-bg-primary: #1e1e1e;
-      --yozora__code-bg-toolbar: #252526;
-      --yozora__code-color-border: #3f3f46;
-      --yozora__code-color-title: #9da2aa;
-      --yozora__code-color-text: #d4d4d4;
-      --yozora__code-color-comment: #6a9955;
-      --yozora__code-color-keyword: #569cd6;
-      --yozora__code-color-string: #ce9178;
-      --yozora__code-color-number: #b5cea8;
-      --yozora__code-color-function: #dcdcaa;
-      --yozora__code-color-type: #4ec9b0;
-      --yozora__code-color-punctuation: #d4d4d4;
-      --yozora__admonition-info-bg: var(--color-sky-950);
-      --yozora__admonition-tip-bg: var(--color-green-950);
-      --yozora__admonition-caution-bg: var(--color-amber-950);
-      --yozora__admonition-danger-bg: var(--color-red-950);
-      --yozora__admonition-note-color-icon: var(--color-slate-400);
-      --yozora__admonition-info-color-icon: var(--color-sky-400);
-      --yozora__admonition-tip-color-icon: var(--color-green-400);
-      --yozora__admonition-caution-color-icon: var(--color-amber-400);
-      --yozora__admonition-danger-color-icon: var(--color-red-400);
-    }
-  }
-}
-```
-
-The host supplies the page background. Blockquotes, code blocks and tables follow the
-shared background tokens. This example uses the application's `dark` variant; the adapter
-does not select a dark-mode strategy or require the legacy `yozora-markdown--darken` class.
-
-If your application uses `@tailwindcss/typography`, you can instead omit both Yozora stylesheets
-and set `className: 'prose dark:prose-invert'`. Typography handles standard Markdown elements;
-provide your own styles for Yozora's admonitions, math and footnote layout. Avoid combining
-both full typography presets unless you explicitly manage their overlapping rules.
+Customize the `--yozora__code-*` variables; set `--yozora__code-line-numbers-display: none`
+to hide the gutter. Highlighted output retains only `span` elements and `class` attributes,
+including output from custom Prism hooks. Hooks still execute as application code;
+HTML sanitization does not sandbox them.
 
 ## Footnotes
 
-Pass definitions indexed by their raw AST identifiers in `footnoteDefinitionMap`, including
-definitions nested in other nodes. `renderMarkdown` treats this map as the footer's source;
-definition nodes in the document or in definition children are skipped during normal child
-rendering. This renders each mapped definition once without changing the input AST.
+`footnoteDefinitionMap` is the footer's source: include nested definitions as well. Definition
+nodes are skipped in the body, and mapped definitions render once without mutating the AST.
+Repeated references share a definition; its backlink targets the first reference when present.
 
-Default definitions have `footnote-<encoded identifier>` IDs. References use
-`reference-<encoded identifier>-<occurrence>` IDs, with occurrences starting at 1 for each
-document. Fragment URLs encode those complete IDs, so spaces, Unicode and literal percent
-signs resolve consistently. Repeated references link to the same definition, and the default
-backlink points to the first rendered reference when one exists.
+The footer uses the supplied renderer map and omits definitions whose renderer returns `''`.
+Custom wrappers can delegate to `defaultRendererMap` to preserve links. Backlinks are
+precomputed from standard AST children and admonition titles: renderers that add or hide
+references must manage the affected links or normalize the AST before rendering.
 
-The footer wraps each definition renderer's non-empty output in an `li` within its `ul`.
-Returning an empty string omits the list item.
-The footer honors `rendererMap.footnoteDefinition`, and its children use the same custom
-renderers as the document body. Custom reference or definition renderers own their markup
-and anchor conventions; delegate to `defaultRendererMap` to retain the default output.
+## Migration
 
-Footnote state is associated with the renderer context, so delegated default renderers share
-reference numbering. Before rendering, `renderMarkdown` scans standard AST children and
-admonition titles in the document and mapped definitions to determine which backlinks exist.
-Default renderers return complete HTML immediately, so wrappers may remove comments or
-post-process that HTML. The scan does not execute custom renderers; each renderer is called
-only during the normal rendering pass.
+* Replace `@yozora/core-html-renderer` imports and dependencies with `@yozora/html-markdown`.
+  `createNodesRendererContext` remains an alias of `createNodeRendererContext`; both use the
+  complete `defaultRendererMap`.
+* Replace `@yozora/html-admonition` imports with the named `renderAdmonition` export.
+  Custom contexts still need only `sanitize` and `renderChildren`. Standalone admonitions
+  need a `.yozora-markdown` wrapper for the default theme variables.
+* `.yozora-code` is now a `div`; target `.yozora-code__pre` for `pre` styles. Prism hook
+  markup is limited to `span.class`.
 
-Precomputed backlinks assume standard AST traversal. If a custom renderer hides AST references,
-introduces references absent from the AST, or changes which child fields are rendered, it must
-also manage the affected reference/definition links, or receive an AST normalized to reflect
-its output. Pure wrappers delegating to the default renderers need no special handling.
+The default export remains `renderMarkdown`. See the [changelog](CHANGELOG.md) for release details.
 
-Implementation is grouped under `src/renderer/footnote/`: `context.ts` owns IDs, per-context reference
-state and reference precomputation; `index.ts` renders references, definitions and the footer.
-The corresponding tests live under `__test__/footnotes/`.
-
-## Related
-
-* [@yozora/ast][]
-* [@yozora/react-markdown][]
-* [@yozora/tokenizer-markdown][]
-* [markdown | Mdast][mdast]
-
-
-[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#root
-[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
-[@yozora/tokenizer-markdown]: https://www.npmjs.com/package/@yozora/tokenizer-markdown
-[mdast]: https://github.com/syntax-tree/mdast#markdown
+[demo-theme]: https://github.com/yozorajs/yozora-html/blob/main/packages/demo/src/theme.css

@@ -48,25 +48,17 @@
   </div>
 </header>
 
-A monorepo contains renderers for rendering [yozora ast][yozora/ast] into HTML strings. 
-See https://yozora.guanghechen.com for details.
+Render [Yozora AST](https://www.npmjs.com/package/@yozora/ast) into HTML strings, with
+standalone styles or Tailwind CSS v4 integration.
 
-Use [@yozora/html-markdown][] to render the [Root][yozora/ast__root] of Yozora ast.
-
-The Markdown package provides optional standalone CSS and a Tailwind CSS v4 integration.
-See its [styling and Tailwind guide](packages/html-markdown/README.md#styles) for CSS imports,
-root classes, theme variables and dark mode.
-
-Run `pnpm demo` to inspect both styles in the private [demo application](packages/demo/README.md).
-It includes light/dark themes, Tailwind utility overrides and a narrow-column preview using
-the same sample document. `pnpm build` also builds the demo for production.
+* [@yozora/html-markdown](packages/html-markdown/README.md) — installation, rendering and styling.
+* [Demo](packages/demo/README.md) — run `pnpm demo` to compare both styles at `http://127.0.0.1:7301/`.
 
 ## Development
 
-Use pnpm with Node.js 22.22.1+, 24.11.0+ or 26.x. CI selects pnpm 12.3.4 explicitly,
-builds and runs tests on Node.js 24, then checks production output on Node.js 22, 24 and 26.
+Use pnpm 12.3.4 and Node.js 22.22.1+, 24.11.0+ or 26.x.
 
-```bash
+```sh
 pnpm install --frozen-lockfile
 pnpm typecheck
 pnpm lint
@@ -75,92 +67,22 @@ pnpm test:build --sourcemap
 pnpm test:coverage
 ```
 
-Run `pnpm format` to apply Biome formatting, import organization, and safe lint fixes.
-`pnpm lint` checks the same rules without modifying files, including in CI. The pre-commit
-hook applies Biome to staged JavaScript, TypeScript, and JSON files. Markdown, YAML, CSS,
-fixtures, and generated output are outside the formatting scope.
+`pnpm build` builds the library and private demo. `pnpm build:production` omits library
+source maps; verify it with `pnpm test:build --no-sourcemap`. `pnpm format` applies Biome fixes.
+See the [test guide](packages/html-markdown/__test__/README.md) for focused runs and snapshots.
 
-tsdown builds `@yozora/html-markdown`; Vite then builds the private demo.
-ESM, CJS and bundled TypeScript
-declarations retain their existing `lib/` entrypoints. `pnpm build:production` omits source
-maps; verify those outputs with `pnpm test:build --no-sourcemap`. Each build removes
-the previous `lib/` output. Dependencies and peer dependencies remain external.
-Type checking uses TypeScript 7; tsdown generates declarations with its `tsgo` backend.
-Tests use Vitest; run `pnpm test:update` to update snapshots intentionally.
+## Releases
 
-Library tests live in `packages/html-markdown/__test__/`, split into module-focused `*.spec.ts`
-files. Fixtures and snapshots stay alongside the tests. `pnpm test:coverage` enforces 100%
-statements, branches, functions and lines coverage for the renderer, including admonitions.
-It also runs the demo's CSS integration tests against the built public entrypoints.
+Only `@yozora/html-markdown` is published.
 
-See the [Markdown test guide](packages/html-markdown/__test__/README.md).
+1. Update its `package.json` version and `CHANGELOG.md`, then run `pnpm docs:links` and
+   `pnpm install --lockfile-only`.
+2. Run `pnpm run :publish:prepare` and `pnpm run :publish:verify` to build and validate locally.
+3. Review and commit the changes, then run `pnpm run :publish` from `main`.
 
-### Releases
+Publishing repeats the validation and publishes unpublished versions; it does not create
+version bumps or Git tags. Use `pnpm run :publish-recover` to retry an interrupted release.
 
-`@yozora/html-markdown` is the only published workspace package; the demo is private.
-Update the renderer's `version` and `CHANGELOG.md` before release. For example, bump its
-version without creating a Git commit or tag:
+## License
 
-```bash
-pnpm --filter @yozora/html-markdown exec npm version 2.0.0-alpha.13 --no-git-tag-version
-pnpm docs:links
-pnpm install --lockfile-only
-```
-
-Review and commit the release changes, then run `pnpm run :publish` from `main`.
-It builds production artifacts and checks types, package entrypoints and coverage before
-publishing unpublished package versions. `pnpm run :publish-recover` repeats the same
-checks and retries the remaining versions. Version bumps, changelogs and Git tags are
-managed explicitly; publishing does not generate them.
-
-To validate a release locally without publishing:
-
-```bash
-pnpm run :publish:prepare
-pnpm run :publish:verify
-```
-
-## Overview
-
-
-
-### Markdown components
-
-
-### Other components
-
-
-[react-live]: https://github.com/FormidableLabs/react-live
-
-<!-- yozora component links -->
-[@yozora/html-markdown]: https://github.com/yozorajs/yozora-html/tree/main/packages/html-markdown#readme
-
-[yozora/ast]: https://www.npmjs.com/package/@yozora/ast
-[yozora/ast__root]: https://www.npmjs.com/package/@yozora/ast#root
-[yozora/admonition]: https://www.npmjs.com/package/@yozora/ast#admonition
-[yozora/blockquote]: https://www.npmjs.com/package/@yozora/ast#blockquote
-[yozora/break]: https://www.npmjs.com/package/@yozora/ast#break
-[yozora/code]: https://www.npmjs.com/package/@yozora/ast#code
-[yozora/delete]: https://www.npmjs.com/package/@yozora/ast#delete
-[yozora/emphasis]: https://www.npmjs.com/package/@yozora/ast#emphasis
-[yozora/footnote-definition]: https://www.npmjs.com/package/@yozora/ast#footnotedefinition
-[yozora/footnote-reference]: https://www.npmjs.com/package/@yozora/ast#footnotereference
-[yozora/heading]: https://www.npmjs.com/package/@yozora/ast#heading
-[yozora/html]: https://www.npmjs.com/package/@yozora/ast#html
-[yozora/image]: https://www.npmjs.com/package/@yozora/ast#image
-[yozora/image-reference]: https://www.npmjs.com/package/@yozora/ast#imagereference
-[yozora/inline-code]: https://www.npmjs.com/package/@yozora/ast#inlinecode
-[yozora/inline-math]: https://www.npmjs.com/package/@yozora/ast#inlinemath
-[yozora/link]: https://www.npmjs.com/package/@yozora/ast#link
-[yozora/link-reference]: https://www.npmjs.com/package/@yozora/ast#linkreference
-[yozora/definition]: https://www.npmjs.com/package/@yozora/ast#definition
-[yozora/list]: https://www.npmjs.com/package/@yozora/ast#list
-[yozora/list-item]: https://www.npmjs.com/package/@yozora/ast#listitem
-[yozora/math]: https://www.npmjs.com/package/@yozora/ast#math
-[yozora/paragraph]: https://www.npmjs.com/package/@yozora/ast#paragraph
-[yozora/setext-heading]: https://www.npmjs.com/package/@yozora/ast#setextheading
-[yozora/table]: https://www.npmjs.com/package/@yozora/ast#table
-[yozora/table-cell]: https://www.npmjs.com/package/@yozora/ast#tablecell
-[yozora/table-row]: https://www.npmjs.com/package/@yozora/ast#tablerow
-[yozora/text]: https://www.npmjs.com/package/@yozora/ast#text
-[yozora/thematic-break]: https://www.npmjs.com/package/@yozora/ast#thematicbreak
+[MIT](LICENSE)
