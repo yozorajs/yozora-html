@@ -35,14 +35,19 @@
     --yozora__table-bg-row-even: var(--yozora__color-bg-secondary);
     --yozora__table-color-border: var(--yozora__color-border-primary);
     --yozora__admonition-note-color-border: --theme(--color-slate-400, #94a3b8);
+    --yozora__admonition-note-color-icon: --theme(--color-slate-500, #64748b);
     --yozora__admonition-note-bg: var(--yozora__color-bg-secondary);
     --yozora__admonition-info-color-border: --theme(--color-sky-500, #0ea5e9);
+    --yozora__admonition-info-color-icon: --theme(--color-sky-600, #0284c7);
     --yozora__admonition-info-bg: --theme(--color-sky-50, #f0f9ff);
     --yozora__admonition-tip-color-border: --theme(--color-green-600, #16a34a);
+    --yozora__admonition-tip-color-icon: --theme(--color-green-700, #15803d);
     --yozora__admonition-tip-bg: --theme(--color-green-50, #f0fdf4);
     --yozora__admonition-caution-color-border: --theme(--color-amber-600, #d97706);
+    --yozora__admonition-caution-color-icon: --theme(--color-amber-700, #b45309);
     --yozora__admonition-caution-bg: --theme(--color-amber-50, #fffbeb);
     --yozora__admonition-danger-color-border: --theme(--color-red-600, #dc2626);
+    --yozora__admonition-danger-color-icon: --theme(--color-red-600, #dc2626);
     --yozora__admonition-danger-bg: --theme(--color-red-50, #fef2f2);
   }
 }

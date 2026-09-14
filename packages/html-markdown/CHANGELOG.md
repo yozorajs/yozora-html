@@ -5,6 +5,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## Unreleased
 
+* Redesign admonition icons with consistent rounded strokes, distinct silhouettes and decorative SVG accessibility attributes.
+* Give admonition icons independent semantic colors with per-variant theme tokens and a shared override.
 * Merge `@yozora/html-admonition`, including its icons and tests, into this package. Replace old default/named imports with the named `renderAdmonition` export; custom contexts still need only `sanitize` and `renderChildren`.
 * Merge the former `@yozora/core-html-renderer` implementation and public exports into this package; migrate core imports to `@yozora/html-markdown`.
 * Use one complete renderer map and context factory, retaining `createNodesRendererContext` as an alias of `createNodeRendererContext`.

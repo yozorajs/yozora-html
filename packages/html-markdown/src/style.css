@@ -12,14 +12,19 @@
   --yozora__admonition-color: inherit;
   --yozora__admonition-border-width: 5px;
   --yozora__admonition-note-color-border: #d4d5d8;
+  --yozora__admonition-note-color-icon: #64748b;
   --yozora__admonition-note-bg: #fdfdfe;
   --yozora__admonition-info-color-border: #4cb3d4;
+  --yozora__admonition-info-color-icon: #0284c7;
   --yozora__admonition-info-bg: #eef9fd;
   --yozora__admonition-tip-color-border: #009400;
+  --yozora__admonition-tip-color-icon: #15803d;
   --yozora__admonition-tip-bg: #e6f6e6;
   --yozora__admonition-caution-color-border: #e6a700;
+  --yozora__admonition-caution-color-icon: #b45309;
   --yozora__admonition-caution-bg: #fff8e6;
   --yozora__admonition-danger-color-border: #e13238;
+  --yozora__admonition-danger-color-icon: #dc2626;
   --yozora__admonition-danger-bg: #ffebec;
   --yozora__blockquote-color-bg: #fafaf9;
   --yozora__blockquote-color-border: #dfe2e5;
@@ -55,6 +60,11 @@
   --yozora__table-color-border: #dfe2e5;
 }
 .yozora-markdown.yozora-markdown--darken {
+  --yozora__admonition-note-color-icon: #94a3b8;
+  --yozora__admonition-info-color-icon: #38bdf8;
+  --yozora__admonition-tip-color-icon: #4ade80;
+  --yozora__admonition-caution-color-icon: #fbbf24;
+  --yozora__admonition-danger-color-icon: #f87171;
   --yozora__color-bg-primary: #fff;
   --yozora__color-bg-secondary: #fafbfa;
   --yozora__color-bg-tertiary: #f6f8fa;
@@ -142,10 +152,13 @@
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif;
 }
 .yozora-admonition .yozora-admonition__heading .yozora-admonition__heading-icon {
+  color: var(--yozora__admonition-icon-color, var(--yozora__admonition-variant-icon-color, inherit));
+  display: inline-flex;
+  flex: none;
   margin-right: 0.5rem;
 }
-.yozora-admonition .yozora-admonition__heading .yozora-admonition__heading-icon > svg:first-child path {
-  fill: currentColor;
+.yozora-admonition .yozora-admonition__heading .yozora-admonition__heading-icon > svg:first-child {
+  display: block;
 }
 .yozora-admonition .yozora-admonition__heading .yozora-admonition__heading-title {
   display: block;
@@ -154,25 +167,30 @@
   display: block;
 }
 .yozora-admonition.yozora-admonition--note {
+  --yozora__admonition-variant-icon-color: var(--yozora__admonition-note-color-icon, #64748b);
   border-right: 1px solid rgba(0,0,0,0.1);
   border-color: var(--yozora__admonition-note-color-border, #d4d5d8);
   background-color: var(--yozora__admonition-note-bg, #fdfdfe);
 }
 .yozora-admonition.yozora-admonition--info {
+  --yozora__admonition-variant-icon-color: var(--yozora__admonition-info-color-icon, #0284c7);
   border-color: var(--yozora__admonition-info-color-border, #4cb3d4);
   background-color: var(--yozora__admonition-info-bg, #eef9fd);
 }
 .yozora-admonition.yozora-admonition--tip,
 .yozora-admonition.yozora-admonition--success {
+  --yozora__admonition-variant-icon-color: var(--yozora__admonition-tip-color-icon, #15803d);
   border-color: var(--yozora__admonition-tip-color-border, #009400);
   background-color: var(--yozora__admonition-tip-bg, #e6f6e6);
 }
 .yozora-admonition.yozora-admonition--caution,
 .yozora-admonition.yozora-admonition--warning {
+  --yozora__admonition-variant-icon-color: var(--yozora__admonition-caution-color-icon, #b45309);
   border-color: var(--yozora__admonition-caution-color-border, #e6a700);
   background-color: var(--yozora__admonition-caution-bg, #fff8e6);
 }
 .yozora-admonition.yozora-admonition--danger {
+  --yozora__admonition-variant-icon-color: var(--yozora__admonition-danger-color-icon, #dc2626);
   border-color: var(--yozora__admonition-danger-color-border, #e13238);
   background-color: var(--yozora__admonition-danger-bg, #ffebec);
 }

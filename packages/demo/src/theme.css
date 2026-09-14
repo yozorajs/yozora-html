@@ -54,6 +54,11 @@
   --yozora__table-bg-row-even: var(--yozora__color-bg-secondary);
   --yozora__table-color-border: var(--yozora__color-border-primary);
   --yozora__admonition-note-bg: var(--yozora__color-bg-secondary);
+  --yozora__admonition-note-color-icon: var(--color-slate-400, #94a3b8);
+  --yozora__admonition-info-color-icon: var(--color-sky-400, #38bdf8);
+  --yozora__admonition-tip-color-icon: var(--color-green-400, #4ade80);
+  --yozora__admonition-caution-color-icon: var(--color-amber-400, #fbbf24);
+  --yozora__admonition-danger-color-icon: var(--color-red-400, #f87171);
   --yozora__admonition-info-bg: var(--color-sky-950, #082f49);
   --yozora__admonition-tip-bg: var(--color-green-950, #052e16);
   --yozora__admonition-caution-bg: var(--color-amber-950, #451a03);

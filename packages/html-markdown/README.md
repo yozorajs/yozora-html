@@ -163,6 +163,9 @@ on `.yozora-markdown`; setting variables only on an ancestor does not override d
 declared on the section itself. Syntax highlighting colors require a separate Prism theme.
 Admonition headings inherit the block's text color independently of the border color.
 Override `--yozora__admonition-heading-color` to customize their foreground color.
+Icons use separate semantic colors. Override `--yozora__admonition-icon-color` to set all
+icons to one color, or the per-variant tokens such as `--yozora__admonition-info-color-icon`.
+Neither setting changes the heading or body text color.
 
 ### Tailwind CSS v4
 
@@ -224,6 +227,11 @@ imports to use an ancestor or root `.dark` class and your Tailwind palette:
       --yozora__admonition-tip-bg: var(--color-green-950);
       --yozora__admonition-caution-bg: var(--color-amber-950);
       --yozora__admonition-danger-bg: var(--color-red-950);
+      --yozora__admonition-note-color-icon: var(--color-slate-400);
+      --yozora__admonition-info-color-icon: var(--color-sky-400);
+      --yozora__admonition-tip-color-icon: var(--color-green-400);
+      --yozora__admonition-caution-color-icon: var(--color-amber-400);
+      --yozora__admonition-danger-color-icon: var(--color-red-400);
     }
   }
 }
