@@ -1,10 +1,7 @@
 import type { FootnoteDefinition, Text } from '@yozora/ast'
 import { describe, expect, it } from 'vitest'
 import { createNodesRendererContext } from '../../src'
-import {
-  renderFootnoteDefinitions,
-  renderFootnoteReference,
-} from '../../src/renderer/footnote/render'
+import { renderFootnoteDefinitions, renderFootnoteReference } from '../../src/renderer/footnote'
 
 describe('footnotes', () => {
   it('places the default definition inside a list item', () => {

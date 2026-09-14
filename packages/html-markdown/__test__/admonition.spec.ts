@@ -1,7 +1,8 @@
 import type { Admonition as IAdmonition } from '@yozora/ast'
 import { describe, expect, it } from 'vitest'
 import { context } from 'vitest.setup'
-import renderAdmonition from '../src'
+import { defaultRendererMap, renderAdmonition } from '../src'
+import { text } from './helper'
 
 it.each([
   ['default', 'note', 'NOTE'],
@@ -23,6 +24,22 @@ it.each([
 })
 
 describe('renderAdmonition', () => {
+  it('accepts a minimal context and shares the default map renderer', () => {
+    const node: IAdmonition = {
+      type: 'admonition',
+      keyword: 'note',
+      title: [],
+      children: [text('A < B & C')],
+    }
+    const html = renderAdmonition(node, {
+      sanitize: context.sanitize,
+      renderChildren: context.renderChildren,
+    })
+    expect(html).toContain('<span class="yozora-text">A &lt; B &amp; C</span>')
+    expect(defaultRendererMap.admonition).toBe(renderAdmonition)
+    expect(context.renderChildren([node])).toBe(html)
+  })
+
   it('uses a rendered custom title instead of the keyword default', () => {
     const title = { type: 'strong', children: [{ type: 'text', value: 'Custom' }] }
     const node: IAdmonition = {

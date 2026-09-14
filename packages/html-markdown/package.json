@@ -46,7 +46,6 @@
     "@yozora/ast": "^2.0.0"
   },
   "dependencies": {
-    "@yozora/html-admonition": "workspace:^",
     "prismjs": "1.30.0",
     "sanitize-html": "2.17.7"
   },

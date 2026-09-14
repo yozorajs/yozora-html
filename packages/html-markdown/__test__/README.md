@@ -5,6 +5,7 @@
 | File | Focus |
 | --- | --- |
 | [context.spec.ts](context.spec.ts) | Factory alias compatibility, complete default map, context isolation, definition lookup, custom dispatch and warnings |
+| [admonition.spec.ts](admonition.spec.ts) | Public renderer and minimal context compatibility, keyword aliases, icons, default/custom titles and child rendering |
 | [text.spec.ts](text.spec.ts) | Text, container nodes, headings and breaks |
 | [code.spec.ts](code.spec.ts) | Prism highlighting, unsupported languages and inline code |
 | [resource.spec.ts](resource.spec.ts) | Links, images, definitions and title fallback |
@@ -19,7 +20,9 @@
 
 The [basic AST fixture](fixtures/basic.json) and
 [HTML snapshot](__snapshots__/markdown.spec.ts.snap) remain beside the specs. Workspace
-aliases resolve to source so integration tests exercise the current package implementations.
+aliases resolve to source so integration tests exercise the current renderer implementation.
+The [admonition snapshot](__snapshots__/admonition.spec.ts.snap) retains the former standalone
+package's basic HTML fixture.
 
 ## Run
 

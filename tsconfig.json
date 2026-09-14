@@ -3,7 +3,6 @@
   "compilerOptions": {
     "outDir": "lib",
     "paths": {
-      "@yozora/html-admonition": ["./packages/html-admonition/src"],
       "@yozora/html-markdown": ["./packages/html-markdown/src"],
       "vitest.setup": ["./vitest.setup.ts"]
     }

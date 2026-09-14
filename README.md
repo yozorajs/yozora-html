@@ -80,7 +80,7 @@ Run `pnpm format` to apply Biome formatting, import organization, and safe lint 
 hook applies Biome to staged JavaScript, TypeScript, and JSON files. Markdown, YAML, CSS,
 fixtures, and generated output are outside the formatting scope.
 
-tsdown builds each renderer package in dependency order; Vite then builds the private demo.
+tsdown builds `@yozora/html-markdown`; Vite then builds the private demo.
 ESM, CJS and bundled TypeScript
 declarations retain their existing `lib/` entrypoints. `pnpm build:production` omits source
 maps; verify those outputs with `pnpm test:build --no-sourcemap`. Each build removes
@@ -88,19 +88,18 @@ the previous `lib/` output. Dependencies and peer dependencies remain external.
 Type checking uses TypeScript 7; tsdown generates declarations with its `tsgo` backend.
 Tests use Vitest; run `pnpm test:update` to update snapshots intentionally.
 
-Library tests live in each package's `__test__/` directory, split into module-focused `*.spec.ts`
-files. Fixtures and snapshots stay alongside the tests. `pnpm test:coverage` runs both library
-packages and enforces 100% statements, branches, functions and lines coverage per package.
+Library tests live in `packages/html-markdown/__test__/`, split into module-focused `*.spec.ts`
+files. Fixtures and snapshots stay alongside the tests. `pnpm test:coverage` enforces 100%
+statements, branches, functions and lines coverage for the renderer, including admonitions.
 It also runs the demo's CSS integration tests against the built public entrypoints.
 
-Test guides: [admonitions](packages/html-admonition/__test__/README.md),
-[Markdown](packages/html-markdown/__test__/README.md).
+See the [Markdown test guide](packages/html-markdown/__test__/README.md).
 
 ### Releases
 
-Packages retain independent versions. Update each changed package's `version` and
-`CHANGELOG.md` before release; internal `workspace:^` dependencies are resolved by pnpm
-when packing. For example, bump one package without creating a Git commit or tag:
+`@yozora/html-markdown` is the only published workspace package; the demo is private.
+Update the renderer's `version` and `CHANGELOG.md` before release. For example, bump its
+version without creating a Git commit or tag:
 
 ```bash
 pnpm --filter @yozora/html-markdown exec npm version 2.0.0-alpha.13 --no-git-tag-version
@@ -134,7 +133,6 @@ pnpm run :publish:verify
 [react-live]: https://github.com/FormidableLabs/react-live
 
 <!-- yozora component links -->
-[@yozora/html-admonition]: https://github.com/yozorajs/yozora-html/tree/main/packages/html-admonition#readme
 [@yozora/html-markdown]: https://github.com/yozorajs/yozora-html/tree/main/packages/html-markdown#readme
 
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast

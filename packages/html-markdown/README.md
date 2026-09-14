@@ -91,7 +91,7 @@ renderers with custom classes.
 
 ### Rendering individual nodes
 
-This package also exports the standard node renderers, `escapeHtml`, `escapeAttribute`,
+This package also exports the standard node renderers, `renderAdmonition`, `escapeHtml`, `escapeAttribute`,
 `INodeRenderer`, `INodeRendererContext`, `INodeRendererProps` and the complete `INodeRendererMap`.
 Use `createNodeRendererContext(definitionMap, footnoteDefinitionMap, rendererMap?)` to render
 children independently of the document wrapper:
@@ -125,6 +125,26 @@ There is one `defaultRendererMap` and one `INodeRendererMap`, covering standard 
 Markdown nodes. When migrating a custom base map, spread the complete `defaultRendererMap`
 and override the desired entries. Previously unsupported extension nodes now have the Markdown
 defaults. Existing `@yozora/html-markdown` calls and HTML output retain their behavior.
+
+### Migration from `@yozora/html-admonition`
+
+The admonition renderer, icons and tests are now included in this package. Replace the old
+dependency and change both default and named imports to the named `renderAdmonition` export:
+
+```typescript
+import { createNodeRendererContext, renderAdmonition } from '@yozora/html-markdown'
+
+const html = renderAdmonition(
+  { type: 'admonition', keyword: 'note', title: [], children: [] },
+  createNodeRendererContext({}, {}),
+)
+```
+
+Existing custom contexts still need only `sanitize` and `renderChildren`; a complete
+`INodeRendererContext` is optional. The default export of `@yozora/html-markdown` remains
+`renderMarkdown`. Admonition markup, icons and keyword aliases are unchanged, and the old
+package is no longer part of this workspace. Use the CSS entries below and a `.yozora-markdown`
+wrapper when displaying standalone admonitions with the default styles.
 
 ### Styles
 
@@ -250,7 +270,7 @@ also manage the affected reference/definition links, or receive an AST normalize
 its output. Pure wrappers delegating to the default renderers need no special handling.
 
 Implementation is grouped under `src/renderer/footnote/`: `context.ts` owns IDs, per-context reference
-state and reference precomputation; `render.ts` renders references, definitions and the footer.
+state and reference precomputation; `index.ts` renders references, definitions and the footer.
 The corresponding tests live under `__test__/footnotes/`.
 
 ## Related

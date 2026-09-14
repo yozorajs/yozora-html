@@ -117,6 +117,21 @@ for (const entry of fs.readdirSync(path.join(workspaceRoot, 'packages'), { withF
           '<span class="yozora-text">&lt;x&gt;</span>',
         )
         assert.equal(api.escapeAttribute('"&'), '&quot;&amp;')
+        const admonition = {
+          type: 'admonition',
+          keyword: 'note',
+          title: [{ type: 'text', value: '<title>' }],
+          children: [],
+        }
+        const admonitionHtml = api.renderAdmonition(admonition, {
+          sanitize: context.sanitize,
+          renderChildren: context.renderChildren,
+        })
+        assert.equal(api.defaultRendererMap.admonition, api.renderAdmonition)
+        assert.equal(context.renderChildren([admonition]), admonitionHtml)
+        assert.ok(admonitionHtml.includes('yozora-admonition--note'))
+        assert.ok(admonitionHtml.includes('<span class="yozora-text">&lt;title&gt;</span>'))
+        assert.ok(admonitionHtml.includes('<svg '))
       }
       const options = { className: 'mx-auto [&_h2]:text-sm' }
       const customized = esm.renderMarkdown(root, {}, {}, undefined, options)

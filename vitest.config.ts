@@ -8,7 +8,6 @@ export default defineConfig({
   resolve: {
     alias: {
       'vitest.setup': path.join(workspaceRoot, 'vitest.setup.ts'),
-      '@yozora/html-admonition': path.join(workspaceRoot, 'packages/html-admonition/src/index.ts'),
       '@yozora/html-markdown': path.join(workspaceRoot, 'packages/html-markdown/src/index.ts'),
     },
   },
