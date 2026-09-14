@@ -56,7 +56,9 @@
   },
   "devDependencies": {
     "@types/prismjs": "1.26.6",
-    "@types/sanitize-html": "2.16.1"
+    "@types/sanitize-html": "2.16.1",
+    "@yozora/ast": "^2.4.0",
+    "@yozora/ast-util": "^2.4.0"
   },
   "engines": {
     "node": "^22.13.0 || >=24"

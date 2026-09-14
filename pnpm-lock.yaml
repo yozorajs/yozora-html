@@ -17,21 +17,9 @@ importers:
       '@types/node':
         specifier: 24.13.4
         version: 24.13.4
-      '@types/prismjs':
-        specifier: 1.26.6
-        version: 1.26.6
-      '@types/sanitize-html':
-        specifier: 2.16.1
-        version: 2.16.1
       '@vitest/coverage-v8':
         specifier: 5.0.0
         version: 5.0.0(vitest@5.0.0)
-      '@yozora/ast':
-        specifier: ^2.4.0
-        version: 2.4.0
-      '@yozora/ast-util':
-        specifier: ^2.4.0
-        version: 2.4.0
       '@yozora/html-markdown':
         specifier: workspace:*
         version: link:packages/html-markdown
@@ -41,12 +29,6 @@ importers:
       lint-staged:
         specifier: 17.5.1
         version: 17.5.1
-      prismjs:
-        specifier: 1.30.0
-        version: 1.30.0
-      sanitize-html:
-        specifier: 2.17.7
-        version: 2.17.7
       tsdown:
         specifier: 0.23.0
         version: 0.23.0(typescript@7.0.2)
@@ -78,9 +60,6 @@ importers:
 
   packages/html-markdown:
     dependencies:
-      '@yozora/ast':
-        specifier: ^2.0.0
-        version: 2.4.0
       prismjs:
         specifier: 1.30.0
         version: 1.30.0
@@ -94,6 +73,12 @@ importers:
       '@types/sanitize-html':
         specifier: 2.16.1
         version: 2.16.1
+      '@yozora/ast':
+        specifier: ^2.4.0
+        version: 2.4.0
+      '@yozora/ast-util':
+        specifier: ^2.4.0
+        version: 2.4.0
 
 packages:
 
