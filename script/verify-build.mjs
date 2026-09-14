@@ -4,46 +4,91 @@ import fs from 'node:fs'
 import { createRequire } from 'node:module'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { parseArgs } from 'node:util'
 
 const workspaceRoot = fileURLToPath(new URL('../', import.meta.url))
 const require = createRequire(import.meta.url)
-const declarations = []
+const { values } = parseArgs({
+  options: { sourcemap: { type: 'boolean' } },
+  allowNegative: true,
+})
 
 for (const entry of fs.readdirSync(path.join(workspaceRoot, 'packages'))) {
   const directory = path.join(workspaceRoot, 'packages', entry)
   const manifest = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8'))
-  const esm = await import(pathToFileURL(path.join(directory, manifest.exports.import)).href)
-  const cjs = require(path.join(directory, manifest.exports.require))
-  assert.deepEqual(Object.keys(esm).sort(), Object.keys(cjs).sort(), manifest.name)
-  assert.ok(fs.statSync(path.join(directory, manifest.exports.types)).size > 0, manifest.name)
-  declarations.push(path.join(directory, manifest.exports.types))
+  const outputDirectory = path.join(directory, 'lib')
 
-  if (manifest.name === '@yozora/html-markdown') {
-    const root = {
-      type: 'root',
-      children: [{ type: 'paragraph', children: [{ type: 'text', value: 'Build verification' }] }],
+  if (values.sourcemap !== undefined) {
+    const expectedFiles = Object.values(manifest.exports).map(file =>
+      path.relative(outputDirectory, path.join(directory, file)),
+    )
+    for (const file of [manifest.exports.import, manifest.exports.require]) {
+      const filename = path.join(directory, file)
+      const content = fs.readFileSync(filename, 'utf8')
+      assert.equal(content.includes('sourceMappingURL='), values.sourcemap, filename)
+      if (values.sourcemap) {
+        expectedFiles.push(path.relative(outputDirectory, `${filename}.map`))
+        const map = JSON.parse(fs.readFileSync(`${filename}.map`, 'utf8'))
+        assert.equal(map.version, 3, filename)
+        assert.ok(map.sources.length > 0 && map.mappings.length > 0, filename)
+      }
     }
-    const html = esm.renderMarkdown(root, {}, {})
-    assert.equal(cjs.renderMarkdown(root, {}, {}), html)
-    assert.ok(html.includes('<span class="yozora-text">Build verification</span>'))
-    assert.equal(esm.default, esm.renderMarkdown)
-    assert.equal(cjs.default, cjs.renderMarkdown)
+    const outputFiles = fs
+      .readdirSync(outputDirectory, { recursive: true })
+      .filter(file => fs.statSync(path.join(outputDirectory, file)).isFile())
+    assert.deepEqual(outputFiles.sort(), expectedFiles.sort(), `${manifest.name}: output files`)
   }
-  console.log(`Verified ESM, CJS and declarations: ${manifest.name}`)
-}
 
-execFileSync(
-  process.execPath,
-  [
-    require.resolve('typescript/bin/tsc'),
-    '--ignoreConfig',
-    '--noEmit',
-    '--strict',
-    '--module',
-    'nodenext',
-    '--target',
-    'esnext',
-    ...declarations,
-  ],
-  { cwd: workspaceRoot, stdio: 'inherit' },
-)
+  const consumerDirectory = fs.mkdtempSync(path.join(outputDirectory, '.consumer-'))
+  try {
+    const runtimeConsumer = path.join(consumerDirectory, 'index.mjs')
+    fs.writeFileSync(
+      runtimeConsumer,
+      `import * as api from '${manifest.name}'\nexport default api\n`,
+    )
+    const { default: esm } = await import(pathToFileURL(runtimeConsumer).href)
+    const cjs = createRequire(path.join(directory, 'package.json'))(manifest.name)
+    const exportedNames = Object.keys(esm).sort()
+    assert.ok(exportedNames.length > 0, `${manifest.name}: missing exports`)
+    assert.deepEqual(exportedNames, Object.keys(cjs).sort(), manifest.name)
+    assert.ok(fs.statSync(path.join(directory, manifest.exports.types)).size > 0, manifest.name)
+
+    const consumers = ['mts', 'cts'].map(extension => {
+      const filename = path.join(consumerDirectory, `index.${extension}`)
+      fs.writeFileSync(filename, `export { ${exportedNames.join(', ')} } from '${manifest.name}'\n`)
+      return filename
+    })
+    execFileSync(
+      process.execPath,
+      [
+        require.resolve('typescript/bin/tsc'),
+        '--ignoreConfig',
+        '--noEmit',
+        '--strict',
+        '--module',
+        'nodenext',
+        '--target',
+        'esnext',
+        ...consumers,
+      ],
+      { cwd: workspaceRoot, stdio: 'inherit' },
+    )
+
+    if (manifest.name === '@yozora/html-markdown') {
+      const root = {
+        type: 'root',
+        children: [
+          { type: 'paragraph', children: [{ type: 'text', value: 'Build verification' }] },
+        ],
+      }
+      const html = esm.renderMarkdown(root, {}, {})
+      assert.equal(cjs.renderMarkdown(root, {}, {}), html)
+      assert.ok(html.includes('<span class="yozora-text">Build verification</span>'))
+      assert.equal(esm.default, esm.renderMarkdown)
+      assert.equal(cjs.default, cjs.renderMarkdown)
+    }
+    console.log(`Verified ESM, CJS and declarations: ${manifest.name}`)
+  } finally {
+    fs.rmSync(consumerDirectory, { recursive: true, force: true })
+  }
+}

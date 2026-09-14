@@ -55,14 +55,14 @@ Use [@yozora/html-markdown][] to render the [Root][yozora/ast__root] of Yozora a
 
 ## Development
 
-Use the pnpm version pinned in `package.json` with Node.js 22.22.1+, 24.x or 26.x.
+Use the pnpm version pinned in `package.json` with Node.js 22.22.1+, 24.11.0+ or 26.x.
 
 ```bash
 pnpm install --frozen-lockfile
 pnpm typecheck
 pnpm lint
 pnpm build
-pnpm test:build
+pnpm test:build --sourcemap
 pnpm test:coverage
 ```
 
@@ -71,9 +71,11 @@ Run `pnpm format` to apply Biome formatting, import organization, and safe lint 
 hook applies Biome to staged JavaScript, TypeScript, and JSON files. Markdown, YAML, CSS,
 fixtures, and generated output are outside the formatting scope.
 
-Vite builds each workspace package in dependency order. ESM, CJS and bundled TypeScript
+tsdown builds each workspace package in dependency order. ESM, CJS and bundled TypeScript
 declarations retain their existing `lib/` entrypoints. `pnpm build:production` omits source
-maps. Tests use Vitest; run `pnpm test:update` to update snapshots intentionally.
+maps; verify those outputs with `pnpm test:build --no-sourcemap`. Each build removes
+the previous `lib/` output. Dependencies and peer dependencies remain external.
+Tests use Vitest; run `pnpm test:update` to update snapshots intentionally.
 
 Tests live in each package's `__test__/` directory, split into module-focused `*.spec.ts`
 files. Fixtures and snapshots stay alongside the tests. `pnpm test:coverage` runs all three

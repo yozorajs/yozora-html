@@ -14,7 +14,7 @@
   "homepage": "https://github.com/yozorajs/yozora-html/#readme",
   "license": "MIT",
   "engines": {
-    "node": "^22.22.1 || ^24.0.0 || ^26.0.0"
+    "node": "^22.22.1 || ^24.11.0 || ^26.0.0"
   },
   "type": "module",
   "scripts": {
@@ -34,7 +34,7 @@
     "typecheck": "tsc -p tsconfig.test.json --noEmit",
     "test:build": "node script/verify-build.mjs",
     ":publish:prepare": "pnpm clean && pnpm typecheck && pnpm build:production",
-    ":publish:verify": "pnpm test:build && pnpm test:coverage",
+    ":publish:verify": "pnpm test:build --no-sourcemap && pnpm test:coverage",
     ":publish:execute": "pnpm -r publish --publish-branch main",
     "docs:links": "ghc-doc-link-rewrite --username=yozorajs --repository=yozora-html"
   },
@@ -51,11 +51,9 @@
     "husky": "9.1.7",
     "lint-staged": "17.5.1",
     "prismjs": "1.30.0",
-    "rollup": "4.63.1",
-    "rollup-plugin-dts": "6.5.1",
     "sanitize-html": "2.17.7",
+    "tsdown": "0.23.0",
     "typescript": "6.0.3",
-    "vite": "8.3.0",
     "vitest": "5.0.0"
   },
   "lint-staged": {

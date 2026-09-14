@@ -50,8 +50,8 @@
     "@types/sanitize-html": "2.16.1"
   },
   "scripts": {
-    "build": "vite build --config ../../vite.config.ts --mode development",
-    "build:production": "vite build --config ../../vite.config.ts",
+    "build": "tsdown --config ../../tsdown.config.mjs --sourcemap",
+    "build:production": "tsdown --config ../../tsdown.config.mjs --no-sourcemap",
     "clean": "node ../../script/clean.mjs",
     "test": "vitest run --config ../../vitest.config.ts",
     "test:coverage": "vitest run --config ../../vitest.config.ts --coverage",

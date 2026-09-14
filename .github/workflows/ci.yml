@@ -40,6 +40,6 @@ jobs:
       - name: Build
         run: pnpm build:production
       - name: Test package entrypoints
-        run: pnpm test:build
+        run: pnpm test:build --no-sourcemap
       - name: Test
         run: pnpm test:coverage
