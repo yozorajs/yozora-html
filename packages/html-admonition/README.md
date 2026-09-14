@@ -71,11 +71,14 @@ This component has been built into [@yozora/html-markdown][], you can use it dir
 
 ## Usage
 
+The example uses the context factory from `@yozora/html-markdown`; install that package
+alongside this one, or provide your own context with `sanitize` and `renderChildren` methods.
+
 * Basic:
 
   ```typescript
   import type { Admonition, Node } from '@yozora/ast'
-  import { createNodeRendererContext } from '@yozora/core-html-renderer'
+  import { createNodeRendererContext } from '@yozora/html-markdown'
   import renderAdmonition from '@yozora/html-admonition'
 
   const context = createNodeRendererContext(

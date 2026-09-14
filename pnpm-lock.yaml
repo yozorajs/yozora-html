@@ -57,25 +57,6 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(@types/node@24.13.4)(@vitest/coverage-v8@5.0.0)(vite@8.3.0(@types/node@24.13.4)(jiti@2.7.0)(yaml@2.9.1))
 
-  packages/core-html-renderer:
-    dependencies:
-      '@yozora/ast':
-        specifier: ^2.0.0
-        version: 2.4.0
-      prismjs:
-        specifier: 1.30.0
-        version: 1.30.0
-      sanitize-html:
-        specifier: 2.17.7
-        version: 2.17.7
-    devDependencies:
-      '@types/prismjs':
-        specifier: 1.26.6
-        version: 1.26.6
-      '@types/sanitize-html':
-        specifier: 2.16.1
-        version: 2.16.1
-
   packages/demo:
     dependencies:
       '@yozora/ast':
@@ -106,12 +87,22 @@ importers:
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.0
-      '@yozora/core-html-renderer':
-        specifier: workspace:^
-        version: link:../core-html-renderer
       '@yozora/html-admonition':
         specifier: workspace:^
         version: link:../html-admonition
+      prismjs:
+        specifier: 1.30.0
+        version: 1.30.0
+      sanitize-html:
+        specifier: 2.17.7
+        version: 2.17.7
+    devDependencies:
+      '@types/prismjs':
+        specifier: 1.26.6
+        version: 1.26.6
+      '@types/sanitize-html':
+        specifier: 2.16.1
+        version: 2.16.1
 
 packages:
 

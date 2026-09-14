@@ -4,6 +4,13 @@
 
 | File | Focus |
 | --- | --- |
+| [context.spec.ts](context.spec.ts) | Factory alias compatibility, complete default map, context isolation, definition lookup, custom dispatch and warnings |
+| [text.spec.ts](text.spec.ts) | Text, container nodes, headings and breaks |
+| [code.spec.ts](code.spec.ts) | Prism highlighting, unsupported languages and inline code |
+| [resource.spec.ts](resource.spec.ts) | Links, images, definitions and title fallback |
+| [escaping.spec.ts](escaping.spec.ts) | Attribute quoting, URL protocols and inline code structure |
+| [list.spec.ts](list.spec.ts) | Ordered and unordered lists, task status |
+| [table.spec.ts](table.spec.ts) | Header/body output and column alignment |
 | [markdown.spec.ts](markdown.spec.ts) | Complete AST rendering, extension integration and the existing HTML snapshot |
 | [renderMarkdown.spec.ts](renderMarkdown.spec.ts) | Root classes and attribute escaping, empty documents, custom renderers, references and context integration |
 | [footnotes/render.spec.ts](footnotes/render.spec.ts) | Reference identifier encoding, labels and definition output |
@@ -25,8 +32,8 @@ pnpm --filter @yozora/html-markdown test:coverage
 ```
 
 The shared configuration enforces 100% statements, branches, functions and lines coverage
-for this package. Core renderer behavior is tested separately in
-[core-html-renderer](../../core-html-renderer/__test__/README.md).
+for this package, including the standard-node renderers and context implementation.
+`helper.ts` creates text fixtures and fresh rendering contexts for node-focused tests.
 
 Add module-specific assertions for observable rendering behavior and input preservation.
 Use different identifiers, labels and body text in reference fixtures. When checking ordering,

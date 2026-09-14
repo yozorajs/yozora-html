@@ -1,6 +1,6 @@
 import type { Admonition } from '@yozora/ast'
-import type { INodeRenderer } from '@yozora/core-html-renderer'
 import { renderAdmonition as baseRenderAdmonition } from '@yozora/html-admonition'
+import type { INodeRenderer } from '../types'
 
 /**
  * Render Yozora Markdown AST node `Admonition` into HTML string.

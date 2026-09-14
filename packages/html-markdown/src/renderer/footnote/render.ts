@@ -1,6 +1,6 @@
 import type { FootnoteDefinition, FootnoteReference } from '@yozora/ast'
-import type { INodeRenderer, INodeRendererContext } from '@yozora/core-html-renderer'
-import { escapeAttribute, escapeHtml } from '@yozora/core-html-renderer'
+import { escapeAttribute, escapeHtml } from '../../escapeHtml'
+import type { INodeRenderer, INodeRendererContext } from '../../types'
 import { definitionId, footnoteContext } from './context'
 
 export const renderFootnoteReference: INodeRenderer<FootnoteReference> = (node, context) => {

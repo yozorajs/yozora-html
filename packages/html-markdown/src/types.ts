@@ -1,4 +1,6 @@
 import type {
+  Admonition,
+  AdmonitionType,
   Blockquote,
   BlockquoteType,
   Break,
@@ -9,9 +11,14 @@ import type {
   DefinitionType,
   Delete,
   DeleteType,
+  EcmaImport,
+  EcmaImportType,
   Emphasis,
   EmphasisType,
   FootnoteDefinition,
+  FootnoteDefinitionType,
+  FootnoteReference,
+  FootnoteReferenceType,
   Heading,
   HeadingType,
   Html,
@@ -22,6 +29,8 @@ import type {
   ImageType,
   InlineCode,
   InlineCodeType,
+  InlineMath,
+  InlineMathType,
   Link,
   LinkReference,
   LinkReferenceType,
@@ -30,6 +39,8 @@ import type {
   ListItem,
   ListItemType,
   ListType,
+  Math as MathNode,
+  MathType,
   Node,
   Paragraph,
   ParagraphType,
@@ -72,21 +83,27 @@ export type INodeRenderer<T extends Node = Node> = (
 ) => string
 
 export interface INodeRendererMap {
+  [AdmonitionType]: INodeRenderer<Admonition>
   [BlockquoteType]: INodeRenderer<Blockquote>
   [BreakType]: INodeRenderer<Break>
   [CodeType]: INodeRenderer<Code>
   [DefinitionType]: INodeRenderer<Definition>
   [DeleteType]: INodeRenderer<Delete>
+  [EcmaImportType]: INodeRenderer<EcmaImport>
   [EmphasisType]: INodeRenderer<Emphasis>
+  [FootnoteDefinitionType]: INodeRenderer<FootnoteDefinition>
+  [FootnoteReferenceType]: INodeRenderer<FootnoteReference>
   [HeadingType]: INodeRenderer<Heading>
   [HtmlType]: INodeRenderer<Html>
   [ImageType]: INodeRenderer<Image>
   [ImageReferenceType]: INodeRenderer<ImageReference>
   [InlineCodeType]: INodeRenderer<InlineCode>
+  [InlineMathType]: INodeRenderer<InlineMath>
   [LinkType]: INodeRenderer<Link>
   [LinkReferenceType]: INodeRenderer<LinkReference>
   [ListType]: INodeRenderer<List>
   [ListItemType]: INodeRenderer<ListItem>
+  [MathType]: INodeRenderer<MathNode>
   [ParagraphType]: INodeRenderer<Paragraph>
   [StrongType]: INodeRenderer<Strong>
   [TableType]: INodeRenderer<Table>

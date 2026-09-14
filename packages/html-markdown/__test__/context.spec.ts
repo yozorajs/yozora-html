@@ -1,11 +1,20 @@
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { createNodeRendererContext, defaultRendererMap } from '../src'
+import { createNodeRendererContext, createNodesRendererContext, defaultRendererMap } from '../src'
 import { text } from './helper'
 
 afterEach(() => vi.restoreAllMocks())
 
 describe('createNodeRendererContext', () => {
+  it('shares one factory and includes Markdown extensions by default', () => {
+    expect(createNodesRendererContext).toBe(createNodeRendererContext)
+    const context = createNodeRendererContext({}, {})
+    const math = { type: 'inlineMath', value: '<x>' }
+    expect(context.renderChildren([text('before'), math])).toBe(
+      '<span class="yozora-text">before</span><span class="yozora-inline-math">&lt;x&gt;</span>',
+    )
+  })
+
   it.each(['__proto__', 'constructor', 'toString'])(
     'ignores inherited map entries named %s',
     identifier => {

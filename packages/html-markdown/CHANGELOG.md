@@ -5,6 +5,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## Unreleased
 
+* Merge the former `@yozora/core-html-renderer` implementation and public exports into this package; migrate core imports to `@yozora/html-markdown`.
+* Use one complete renderer map and context factory, retaining `createNodesRendererContext` as an alias of `createNodeRendererContext`.
+* Move standard-node and escaping tests alongside Markdown integration tests.
+
 * Export standalone CSS and a Tailwind CSS v4 entry with component layers and host theme tokens.
 * Support additional, HTML-escaped root classes through optional render options.
 * Preserve list markers under Preflight, style rendered code blocks and match success/warning admonitions.

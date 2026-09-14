@@ -6,7 +6,7 @@ import type {
   Node,
   Parent,
 } from '@yozora/ast'
-import type { INodeRendererContext } from '@yozora/core-html-renderer'
+import type { INodeRendererContext } from '../../types'
 
 const containers = new Set([
   'blockquote',

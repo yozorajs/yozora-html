@@ -89,6 +89,43 @@ The optional fourth argument is a renderer map. The optional fifth argument acce
 preserving `yozora-markdown`. Pass `undefined` for the fourth argument to use the default
 renderers with custom classes.
 
+### Rendering individual nodes
+
+This package also exports the standard node renderers, `escapeHtml`, `escapeAttribute`,
+`INodeRenderer`, `INodeRendererContext`, `INodeRendererProps` and the complete `INodeRendererMap`.
+Use `createNodeRendererContext(definitionMap, footnoteDefinitionMap, rendererMap?)` to render
+children independently of the document wrapper:
+
+```typescript
+import type { Text } from '@yozora/ast'
+import { createNodeRendererContext } from '@yozora/html-markdown'
+
+const context = createNodeRendererContext({}, {})
+const node: Text = { type: 'text', value: 'Hello, world!' }
+context.renderChildren([node])
+// <span class="yozora-text">Hello, world!</span>
+```
+
+The context provides `renderChildren`, `sanitize`, `getDefinition` and `getFootnoteDefinition`.
+`createNodesRendererContext` remains an alias of the same factory. Both names use the complete
+Markdown renderer map, including admonitions, math and footnotes. For document-level footnote
+preparation and the footer, use `renderMarkdown`.
+
+Literal text and code are HTML-escaped. Attribute values use separate escaping; link and image
+URLs accept relative addresses and the `http`, `https`, `mailto`, `tel` and `ftp` protocols.
+Custom renderers can use the escaping helpers; `context.sanitize` is for HTML fragments.
+
+### Migration from `@yozora/core-html-renderer`
+
+The core package's implementation and tests have been merged into this package. Change imports
+of its renderers, helpers, context factory and types to `@yozora/html-markdown`, and replace the
+old dependency. The old package is no longer part of this workspace.
+
+There is one `defaultRendererMap` and one `INodeRendererMap`, covering standard and extended
+Markdown nodes. When migrating a custom base map, spread the complete `defaultRendererMap`
+and override the desired entries. Previously unsupported extension nodes now have the Markdown
+defaults. Existing `@yozora/html-markdown` calls and HTML output retain their behavior.
+
 ### Styles
 
 JavaScript imports do not load CSS. Choose one stylesheet in your application:

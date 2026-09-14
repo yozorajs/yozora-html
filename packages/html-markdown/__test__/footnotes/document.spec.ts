@@ -1,6 +1,6 @@
 import type { FootnoteDefinition, FootnoteReference, Root, Text } from '@yozora/ast'
-import type { INodeRendererContext } from '@yozora/core-html-renderer'
 import { describe, expect, it } from 'vitest'
+import type { INodeRendererContext } from '../../src'
 import { defaultRendererMap, renderMarkdown } from '../../src'
 
 const reference = (identifier: string): FootnoteReference => ({

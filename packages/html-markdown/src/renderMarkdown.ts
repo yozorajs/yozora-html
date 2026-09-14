@@ -1,10 +1,11 @@
 import type { Definition, FootnoteDefinition, Root } from '@yozora/ast'
 import { FootnoteDefinitionType } from '@yozora/ast'
-import { escapeAttribute } from '@yozora/core-html-renderer'
+import { createNodeRendererContext } from './context'
+import { escapeAttribute } from './escapeHtml'
 import { footnoteContext } from './renderer/footnote/context'
 import { renderFootnoteDefinitions } from './renderer/footnote/render'
-import type { INodeRendererMap } from './rendererMap'
-import { createNodesRendererContext, defaultRendererMap } from './rendererMap'
+import { defaultRendererMap } from './rendererMap'
+import type { INodeRendererMap } from './types'
 
 export interface IRenderMarkdownOptions {
   /** Additional classes for the root section; preserves the yozora-markdown class. */
@@ -18,7 +19,7 @@ export function renderMarkdown(
   rendererMap: INodeRendererMap = defaultRendererMap,
   options: IRenderMarkdownOptions = {},
 ): string {
-  const context = createNodesRendererContext(definitionMap, footnoteDefinitionMap, rendererMap)
+  const context = createNodeRendererContext(definitionMap, footnoteDefinitionMap, rendererMap)
   const renderChildren = context.renderChildren
   // Definitions are rendered only by the footer, including those nested in other nodes.
   context.renderChildren = nodes =>

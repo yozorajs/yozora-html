@@ -16,9 +16,12 @@ const { values } = parseArgs({
   allowNegative: true,
 })
 
-for (const entry of fs.readdirSync(path.join(workspaceRoot, 'packages'))) {
-  const directory = path.join(workspaceRoot, 'packages', entry)
-  const manifest = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8'))
+for (const entry of fs.readdirSync(path.join(workspaceRoot, 'packages'), { withFileTypes: true })) {
+  if (!entry.isDirectory()) continue
+  const directory = path.join(workspaceRoot, 'packages', entry.name)
+  const manifestPath = path.join(directory, 'package.json')
+  if (!fs.statSync(manifestPath, { throwIfNoEntry: false })) continue
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
   if (manifest.private) continue
   const outputDirectory = path.join(directory, 'lib')
   const entrypoints = manifest.exports['.'] ?? manifest.exports
@@ -102,6 +105,19 @@ for (const entry of fs.readdirSync(path.join(workspaceRoot, 'packages'))) {
       assert.ok(html.includes('<span class="yozora-text">Build verification</span>'))
       assert.equal(esm.default, esm.renderMarkdown)
       assert.equal(cjs.default, cjs.renderMarkdown)
+      for (const api of [esm, cjs]) {
+        assert.equal(api.createNodesRendererContext, api.createNodeRendererContext)
+        const context = api.createNodeRendererContext({}, {})
+        assert.equal(
+          context.renderChildren([{ type: 'inlineMath', value: '<x>' }]),
+          '<span class="yozora-inline-math">&lt;x&gt;</span>',
+        )
+        assert.equal(
+          api.renderText({ type: 'text', value: '<x>' }, context),
+          '<span class="yozora-text">&lt;x&gt;</span>',
+        )
+        assert.equal(api.escapeAttribute('"&'), '&quot;&amp;')
+      }
       const options = { className: 'mx-auto [&_h2]:text-sm' }
       const customized = esm.renderMarkdown(root, {}, {}, undefined, options)
       assert.equal(cjs.renderMarkdown(root, {}, {}, undefined, options), customized)

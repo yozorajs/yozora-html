@@ -1,6 +1,6 @@
 import type { InlineMath } from '@yozora/ast'
-import type { INodeRenderer } from '@yozora/core-html-renderer'
-import { escapeHtml } from '@yozora/core-html-renderer'
+import { escapeHtml } from '../escapeHtml'
+import type { INodeRenderer } from '../types'
 
 /**
  * Render Yozora Markdown AST node `InlineMath` into HTML string.
