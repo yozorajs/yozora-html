@@ -6,6 +6,9 @@ name: Build
 
 on:
   push:
+    branches:
+      - main
+      - release-*
     tags:
       - v*
   pull_request:
@@ -14,32 +17,48 @@ on:
       - release-*
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     strategy:
       matrix:
-        node-version:
-          - 22.x
-          - 24.x
+        node:
+          - 22
+          - 24
+          - 26
     steps:
       - uses: actions/checkout@v7
       - name: Install pnpm
         uses: pnpm/action-setup@v6
-      - name: Use Node.js ${{ matrix.node-version }}
+        with:
+          version: 12.3.4
+      - name: Use Node.js 24 for build and test tools
         uses: actions/setup-node@v7
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 24
           cache: pnpm
-      - name: Installation
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Lint and format
+        run: pnpm lint
       - name: Typecheck
         run: pnpm typecheck
-      - name: Lint
-        run: pnpm lint
       - name: Build
+        run: pnpm build
+      - name: Test build output
+        run: pnpm test:build --sourcemap
+      - name: Production build
         run: pnpm build:production
-      - name: Test package entrypoints
-        run: pnpm test:build --no-sourcemap
       - name: Test
         run: pnpm test:coverage
+      - name: Use Node.js ${{ matrix.node }} for runtime checks
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Test production output
+        run: pnpm test:build --no-sourcemap

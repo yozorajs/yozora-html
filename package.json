@@ -58,6 +58,5 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,mts,cjs,cts,json,jsonc}": "biome check --write --no-errors-on-unmatched"
-  },
-  "packageManager": "pnpm@12.3.4"
+  }
 }

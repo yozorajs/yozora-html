@@ -55,7 +55,8 @@ Use [@yozora/html-markdown][] to render the [Root][yozora/ast__root] of Yozora a
 
 ## Development
 
-Use the pnpm version pinned in `package.json` with Node.js 22.22.1+, 24.11.0+ or 26.x.
+Use pnpm with Node.js 22.22.1+, 24.11.0+ or 26.x. CI selects pnpm 12.3.4 explicitly,
+builds and runs tests on Node.js 24, then checks production output on Node.js 22, 24 and 26.
 
 ```bash
 pnpm install --frozen-lockfile
