@@ -23,7 +23,11 @@
     --yozora__link-color-active: --theme(--color-blue-700, #1d4ed8);
     --yozora__blockquote-color-bg: var(--yozora__color-bg-secondary);
     --yozora__blockquote-color-border: var(--yozora__color-border-primary);
-    --yozora__code-bg-primary: var(--yozora__color-bg-tertiary);
+    --yozora__code-bg-primary: var(--yozora__color-bg-primary);
+    --yozora__code-bg-toolbar: var(--yozora__color-bg-secondary);
+    --yozora__code-color-text: var(--yozora__color-text-primary);
+    --yozora__code-color-border: var(--yozora__color-border-primary);
+    --yozora__code-color-title: var(--yozora__color-text-tertiary);
     --yozora__inline-code-bg: var(--yozora__color-bg-tertiary);
     --yozora__inline-code-color: --theme(--color-rose-600, #e11d48);
     --yozora__delete-color: var(--yozora__color-text-tertiary);

@@ -160,12 +160,34 @@ JavaScript imports do not load CSS. Choose one stylesheet in your application:
 Do not load both entries: the unlayered standalone styles would override normal layered
 utilities. Colors, fonts and spacing are customizable through `--yozora__*` CSS variables
 on `.yozora-markdown`; setting variables only on an ancestor does not override defaults
-declared on the section itself. Syntax highlighting colors require a separate Prism theme.
+declared on the section itself. Code blocks include scoped syntax highlighting colors.
 Admonition headings inherit the block's text color independently of the border color.
 Override `--yozora__admonition-heading-color` to customize their foreground color.
 Icons use separate semantic colors. Override `--yozora__admonition-icon-color` to set all
 icons to one color, or the per-variant tokens such as `--yozora__admonition-info-color-icon`.
 Neither setting changes the heading or body text color.
+
+### Code blocks
+
+Code blocks use a bordered `.yozora-code` container with a language label, decorative window
+dots and a line-number gutter. The source remains inside `.yozora-code__pre > code`; that area
+scrolls horizontally and can receive keyboard focus. Line numbers are outside the source,
+excluded from text selection and hidden from screen readers. When updating custom styles,
+target `.yozora-code__pre` for the `pre` element; `.yozora-code` now names the outer container.
+
+Prism's default grammars and TypeScript (`typescript` / `ts`) are available out of the box.
+Unknown languages remain escaped plain text. The toolbar displays the language; code metadata
+is not interpreted as a title or executable configuration.
+Highlighted HTML is sanitized before insertion: only `span` elements and their `class`
+attributes are retained. Custom Prism hooks that emit links, inline styles or other attributes
+will have that markup removed. Hooks themselves still execute as application code.
+
+The light/dark palettes are inspired by the React code renderer's VS Code themes. Customize
+`--yozora__code-bg-primary`, `--yozora__code-bg-toolbar`, `--yozora__code-color-border`,
+`--yozora__code-color-title`, `--yozora__code-color-text` and token colors such as
+`--yozora__code-color-keyword` and `--yozora__code-color-string` on `.yozora-markdown`.
+`--yozora__code-font-size` defaults to `14px`, `--yozora__code-line-height` to `1.6`.
+Set `--yozora__code-line-numbers-display: none` to hide the gutter.
 
 ### Tailwind CSS v4
 
@@ -223,6 +245,18 @@ imports to use an ancestor or root `.dark` class and your Tailwind palette:
       --yozora__link-color: var(--color-indigo-400);
       --yozora__link-color-hover: var(--color-indigo-300);
       --yozora__inline-code-color: var(--color-rose-400);
+      --yozora__code-bg-primary: #1e1e1e;
+      --yozora__code-bg-toolbar: #252526;
+      --yozora__code-color-border: #3f3f46;
+      --yozora__code-color-title: #9da2aa;
+      --yozora__code-color-text: #d4d4d4;
+      --yozora__code-color-comment: #6a9955;
+      --yozora__code-color-keyword: #569cd6;
+      --yozora__code-color-string: #ce9178;
+      --yozora__code-color-number: #b5cea8;
+      --yozora__code-color-function: #dcdcaa;
+      --yozora__code-color-type: #4ec9b0;
+      --yozora__code-color-punctuation: #d4d4d4;
       --yozora__admonition-info-bg: var(--color-sky-950);
       --yozora__admonition-tip-bg: var(--color-green-950);
       --yozora__admonition-caution-bg: var(--color-amber-950);

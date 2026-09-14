@@ -28,14 +28,23 @@
   --yozora__admonition-danger-bg: #ffebec;
   --yozora__blockquote-color-bg: #fafaf9;
   --yozora__blockquote-color-border: #dfe2e5;
-  --yozora__code-bg-primary: #f5f5f5;
+  --yozora__code-bg-primary: #fff;
+  --yozora__code-bg-toolbar: #f6f8fa;
+  --yozora__code-color-text: #24292e;
+  --yozora__code-color-comment: #6a737d;
+  --yozora__code-color-keyword: #005cc5;
+  --yozora__code-color-string: #a31515;
+  --yozora__code-color-number: #098658;
+  --yozora__code-color-function: #6f42c1;
+  --yozora__code-color-type: #267f99;
+  --yozora__code-color-punctuation: #586069;
   --yozora__code-bg-highlight: rgba(242,127,13,0.3);
   --yozora__code-bg-selection: rgba(156,186,201,0.3);
   --yozora__code-color-border: rgba(204,204,204,0.8);
   --yozora__code-color-caret: #ed6c60;
   --yozora__code-color-title: rgba(77,77,77,0.8);
   --yozora__code-font-family: Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif;
-  --yozora__code-font-size: 1rem;
+  --yozora__code-font-size: 14px;
   --yozora__code-live-previewer-bg: #fff;
   --yozora__common-copy-button-color-waiting: #737f8c;
   --yozora__common-copy-button-color-copying: #ccc;
@@ -90,13 +99,22 @@
   --yozora__blockquote-color-bg: #fafaf9;
   --yozora__blockquote-color-border: #dfe2e5;
   --yozora__code-bg-primary: #1e1e1e;
+  --yozora__code-bg-toolbar: #252526;
+  --yozora__code-color-text: #d4d4d4;
+  --yozora__code-color-comment: #6a9955;
+  --yozora__code-color-keyword: #569cd6;
+  --yozora__code-color-string: #ce9178;
+  --yozora__code-color-number: #b5cea8;
+  --yozora__code-color-function: #dcdcaa;
+  --yozora__code-color-type: #4ec9b0;
+  --yozora__code-color-punctuation: #d4d4d4;
   --yozora__code-bg-highlight: rgba(173,214,255,0.2);
   --yozora__code-bg-selection: rgba(156,186,201,0.3);
   --yozora__code-color-border: rgba(77,77,77,0.8);
   --yozora__code-color-caret: #aeafad;
   --yozora__code-color-title: rgba(230,230,230,0.8);
   --yozora__code-font-family: Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif;
-  --yozora__code-font-size: 1rem;
+  --yozora__code-font-size: 14px;
   --yozora__code-live-previewer-bg: #fff;
   --yozora__common-copy-button-color-waiting: #ccc;
   --yozora__common-copy-button-color-copying: #ccc;
@@ -207,17 +225,135 @@
           box-sizing: border-box;
 }
 .yozora-code {
-  overflow: auto;
-  padding: 1rem;
-  border-radius: 6px;
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid var(--yozora__code-color-border, #d1d5db);
+  border-radius: 10px;
   margin: var(--yozora__margin-block-node, 0 0 1.25em);
-  background: var(--yozora__code-bg-primary, #f5f5f5);
-  font-family: var(--yozora__code-font-family, Consolas);
-  font-size: var(--yozora__code-font-size, 1rem);
-  line-height: 1.6;
+  background: var(--yozora__code-bg-primary, #fff);
+  color: var(--yozora__code-color-text, #24292e);
+  box-shadow: 0 2px 6px rgba(15,23,42,0.04);
+  font-family: var(--yozora__code-font-family, ui-monospace, monospace);
+  font-size: var(--yozora__code-font-size, 14px);
+  line-height: var(--yozora__code-line-height, 1.6);
+  letter-spacing: normal;
+  text-align: left;
+  tab-size: 2;
 }
-.yozora-code > code {
+.yozora-code__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  min-height: 2.5rem;
+  padding: 0 0.875rem;
+  border-bottom: 1px solid var(--yozora__code-color-border, #d1d5db);
+  background: var(--yozora__code-bg-toolbar, #f6f8fa);
+  user-select: none;
+}
+.yozora-code__lights {
+  display: flex;
+  flex: none;
+  gap: 6px;
+}
+.yozora-code__lights > span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+.yozora-code__lights > span:nth-child(2) {
+  background: #febc2e;
+}
+.yozora-code__lights > span:nth-child(3) {
+  background: #28c840;
+}
+.yozora-code__language {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--yozora__code-color-title, #64748b);
+  font-size: 12px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.yozora-code__body {
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+}
+.yozora-code__line-numbers {
+  display: var(--yozora__code-line-numbers-display, block);
+  flex: none;
+  padding: 0.75rem 0.75rem;
+  border-right: 1px solid var(--yozora__code-color-border, #d1d5db);
+  color: var(--yozora__code-color-title, #64748b);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  user-select: none;
+}
+.yozora-code__line-numbers > span {
+  display: block;
+  min-width: 2ch;
+}
+.yozora-code__pre {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  padding: 0.75rem 1rem;
+  border: 0;
+  margin: 0;
+  background: none;
+  color: inherit;
   font: inherit;
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
+  overscroll-behavior-x: contain;
+}
+.yozora-code__pre:focus-visible {
+  outline: 2px solid var(--yozora__code-color-caret, #2563eb);
+  outline-offset: -2px;
+}
+.yozora-code__content {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+.yozora-code__pre ::selection {
+  background: var(--yozora__code-bg-selection, rgba(156,186,201,0.3));
+}
+.yozora-code :where(.token.comment, .token.prolog, .token.doctype, .token.cdata) {
+  color: var(--yozora__code-color-comment, #6a737d);
+}
+.yozora-code :where(.token.keyword, .token.atrule, .token.builtin, .token.tag, .token.selector) {
+  color: var(--yozora__code-color-keyword, #005cc5);
+}
+.yozora-code :where(.token.string, .token.char, .token.attr-value, .token.regex, .token.url, .token.deleted) {
+  color: var(--yozora__code-color-string, #a31515);
+}
+.yozora-code :where(.token.number, .token.boolean, .token.constant, .token.inserted) {
+  color: var(--yozora__code-color-number, #098658);
+}
+.yozora-code :where(.token.function, .token.function-variable) {
+  color: var(--yozora__code-color-function, #6f42c1);
+}
+.yozora-code :where(.token.class-name, .token.maybe-class-name, .token.namespace, .token.attr-name, .token.property) {
+  color: var(--yozora__code-color-type, #267f99);
+}
+.yozora-code :where(.token.operator, .token.punctuation) {
+  color: var(--yozora__code-color-punctuation, #586069);
+}
+.yozora-code :where(.token.bold) {
+  font-weight: 600;
+}
+.yozora-code :where(.token.italic) {
+  font-style: italic;
 }
 .yozora-delete {
   color: var(--yozora__delete-color, #acb2b9);

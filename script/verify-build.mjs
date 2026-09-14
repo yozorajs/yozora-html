@@ -117,6 +117,11 @@ for (const entry of fs.readdirSync(path.join(workspaceRoot, 'packages'), { withF
           '<span class="yozora-text">&lt;x&gt;</span>',
         )
         assert.equal(api.escapeAttribute('"&'), '&quot;&amp;')
+        const codeHtml = context.renderChildren([
+          { type: 'code', lang: 'ts', value: 'const count: number = 1;' },
+        ])
+        assert.ok(codeHtml.includes('<span class="token builtin">number</span>'))
+        assert.ok(codeHtml.includes('class="yozora-code__line-numbers" aria-hidden="true"'))
         const admonition = {
           type: 'admonition',
           keyword: 'note',

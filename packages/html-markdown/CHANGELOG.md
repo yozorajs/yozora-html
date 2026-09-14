@@ -5,6 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## Unreleased
 
+* Sanitize Prism output with a `span`/`class` allowlist before inserting highlighted code, including markup emitted by custom hooks and grammars.
+* Style code blocks as bordered cards with a language toolbar, decorative dots, line numbers and scoped syntax colors. The outer `.yozora-code` is now a `div`; use `.yozora-code__pre` to target the scrollable `pre`.
+* Register TypeScript/ts highlighting through the existing Prism dependency while preserving plain-text fallback and code whitespace.
 * Redesign admonition icons with consistent rounded strokes, distinct silhouettes and decorative SVG accessibility attributes.
 * Give admonition icons independent semantic colors with per-variant theme tokens and a shared override.
 * Merge `@yozora/html-admonition`, including its icons and tests, into this package. Replace old default/named imports with the named `renderAdmonition` export; custom contexts still need only `sanitize` and `renderChildren`.

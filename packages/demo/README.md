@@ -53,8 +53,9 @@ The sample includes headings, bilingual paragraphs, links, inline code, blockquo
 ordered/unordered/task lists, code blocks, aligned tables, all five admonition variants,
 a local image, math text, repeated footnote references and backlinks. Math text uses a serif
 font and the document text color; display formulas are centered with separate spacing.
-It remains plain text, without a LaTeX typesetting engine. Prism token colors are not added
-by this demo.
+It remains plain text, without a LaTeX typesetting engine. Code blocks include a language
+toolbar, a line-number gutter and TypeScript syntax highlighting. The demo host supplies
+the dark code palette through the renderer's CSS variables.
 
 ## Checking changes
 
@@ -70,6 +71,8 @@ Then inspect both pages in development and production preview:
 * Page switches, reloads and browser back/forward navigation preserve controls through URL parameters.
 * Admonition titles remain readable in both themes; footnote labels contain one set of brackets.
 * Images, tables and code stay within the page on a narrow viewport; footnote links resolve.
+* Code scrolls independently of its gutter, preserves copied source text and keeps syntax
+  colors readable in both themes. The code area is keyboard-focusable.
 
 The existing library tests continue to cover rendering contracts and attribute escaping.
 Demo files are included in the repository's type and lint checks.
