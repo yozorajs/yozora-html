@@ -75,6 +75,7 @@ tsdown builds each workspace package in dependency order. ESM, CJS and bundled T
 declarations retain their existing `lib/` entrypoints. `pnpm build:production` omits source
 maps; verify those outputs with `pnpm test:build --no-sourcemap`. Each build removes
 the previous `lib/` output. Dependencies and peer dependencies remain external.
+Type checking uses TypeScript 7; tsdown generates declarations with its `tsgo` backend.
 Tests use Vitest; run `pnpm test:update` to update snapshots intentionally.
 
 Tests live in each package's `__test__/` directory, split into module-focused `*.spec.ts`

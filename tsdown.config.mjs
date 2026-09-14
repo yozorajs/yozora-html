@@ -47,7 +47,7 @@ export default defineConfig([
     // Keep non-exported helper types private in bundled declarations.
     footer: { dts: 'export {};' },
     dts: {
-      generator: 'tsc',
+      generator: 'tsgo',
       emitDtsOnly: true,
       sourcemap: false,
       compilerOptions: { declarationMap: false },

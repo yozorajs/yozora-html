@@ -8,6 +8,9 @@ import { parseArgs } from 'node:util'
 
 const workspaceRoot = fileURLToPath(new URL('../', import.meta.url))
 const require = createRequire(import.meta.url)
+const typescriptManifestPath = require.resolve('typescript/package.json')
+const typescriptManifest = JSON.parse(fs.readFileSync(typescriptManifestPath, 'utf8'))
+const tsc = path.resolve(path.dirname(typescriptManifestPath), typescriptManifest.bin.tsc)
 const { values } = parseArgs({
   options: { sourcemap: { type: 'boolean' } },
   allowNegative: true,
@@ -61,7 +64,7 @@ for (const entry of fs.readdirSync(path.join(workspaceRoot, 'packages'))) {
     execFileSync(
       process.execPath,
       [
-        require.resolve('typescript/bin/tsc'),
+        tsc,
         '--ignoreConfig',
         '--noEmit',
         '--strict',
