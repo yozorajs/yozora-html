@@ -12,11 +12,8 @@
     "url": "https://github.com/yozorajs/yozora-html.git"
   },
   "homepage": "https://github.com/yozorajs/yozora-html/#readme",
-  "license": "MIT",
-  "engines": {
-    "node": "^22.22.1 || ^24.11.0 || ^26.0.0"
-  },
   "type": "module",
+  "license": "MIT",
   "scripts": {
     ":publish": "pnpm run :publish:prepare && pnpm run :publish:verify && pnpm run :publish:execute",
     ":publish-recover": "pnpm run :publish",
@@ -59,5 +56,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,mts,cjs,cts,json,jsonc}": "biome check --write --no-errors-on-unmatched"
+  },
+  "engines": {
+    "node": "^22.22.1 || ^24.11.0 || ^26.0.0"
   }
 }

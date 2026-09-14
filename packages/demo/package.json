@@ -4,6 +4,14 @@
   "private": true,
   "description": "Interactive previews for Yozora HTML styles.",
   "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "build:production": "vite build",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "dev": "vite",
+    "preview": "vite preview",
+    "test": "vitest run --config ../../vitest.config.ts"
+  },
   "dependencies": {
     "@yozora/ast": "^2.4.0",
     "@yozora/html-markdown": "workspace:*"
@@ -12,13 +20,5 @@
     "@tailwindcss/vite": "4.3.3",
     "tailwindcss": "4.3.3",
     "vite": "8.3.0"
-  },
-  "scripts": {
-    "build": "vite build",
-    "build:production": "vite build",
-    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
-    "dev": "vite",
-    "preview": "vite preview",
-    "test": "vitest run --config ../../vitest.config.ts"
   }
 }

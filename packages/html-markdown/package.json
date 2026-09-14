@@ -27,12 +27,17 @@
     "./lib/index.css": "./lib/index.css"
   },
   "source": "./src/index.ts",
-  "types": "./lib/types/index.d.ts",
   "main": "./lib/cjs/index.cjs",
   "module": "./lib/esm/index.mjs",
+  "types": "./lib/types/index.d.ts",
   "license": "MIT",
-  "engines": {
-    "node": "^22.13.0 || >=24"
+  "scripts": {
+    "build": "tsdown --config ../../tsdown.config.mjs --sourcemap",
+    "build:production": "tsdown --config ../../tsdown.config.mjs --no-sourcemap",
+    "clean": "node ../../script/clean.mjs",
+    "test": "vitest run --config ../../vitest.config.ts",
+    "test:coverage": "vitest run --config ../../vitest.config.ts --coverage",
+    "test:update": "vitest run --config ../../vitest.config.ts -u"
   },
   "files": [
     "lib/",
@@ -53,12 +58,7 @@
     "@types/prismjs": "1.26.6",
     "@types/sanitize-html": "2.16.1"
   },
-  "scripts": {
-    "build": "tsdown --config ../../tsdown.config.mjs --sourcemap",
-    "build:production": "tsdown --config ../../tsdown.config.mjs --no-sourcemap",
-    "clean": "node ../../script/clean.mjs",
-    "test": "vitest run --config ../../vitest.config.ts",
-    "test:coverage": "vitest run --config ../../vitest.config.ts --coverage",
-    "test:update": "vitest run --config ../../vitest.config.ts -u"
+  "engines": {
+    "node": "^22.13.0 || >=24"
   }
 }
