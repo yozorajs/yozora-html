@@ -15,7 +15,6 @@
       "!!**/__test__/fixtures",
       "!!**/__test__/cases",
       "!!**/coverage",
-      "!!**/demo",
       "!!**/dist",
       "!!**/doc",
       "!!**/example",

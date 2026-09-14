@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "declaration": true,
     "declarationMap": true,
     "noUnusedLocals": false,
@@ -9,5 +10,11 @@
     "types": ["node"],
     "skipLibCheck": true
   },
-  "include": ["packages/*/src", "packages/*/__test__", "vitest.config.ts", "vitest.setup.ts"]
+  "include": [
+    "packages/*/src",
+    "packages/*/__test__",
+    "packages/demo/vite.config.ts",
+    "vitest.config.ts",
+    "vitest.setup.ts"
+  ]
 }

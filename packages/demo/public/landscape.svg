@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-label="暖色天空与层叠山峦">
+  <rect width="960" height="360" fill="#f3e8d7"/>
+  <circle cx="728" cy="92" r="42" fill="#d88662"/>
+  <path d="M0 260 165 125 310 240 475 85 695 270 840 140 960 230V360H0Z" fill="#b4c1b5"/>
+  <path d="M0 310 230 220 400 300 590 180 810 315 960 250V360H0Z" fill="#6f8d82"/>
+  <path d="M0 345 140 300 350 355 630 270 900 340 960 320V360H0Z" fill="#385950"/>
+</svg>

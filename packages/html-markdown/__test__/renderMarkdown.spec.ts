@@ -3,6 +3,31 @@ import { describe, expect, it } from 'vitest'
 import renderMarkdown, { createNodesRendererContext, defaultRendererMap } from '../src'
 
 describe('renderMarkdown', () => {
+  it('adds root classes without changing the document body or input options', () => {
+    const text = { type: 'text', value: 'Content' }
+    const root: Root = { type: 'root', children: [text] }
+    const options = Object.freeze({ className: 'mx-auto [&_h2]:text-sm dark:text-slate-100' })
+    const defaultHtml = renderMarkdown(root, {}, {})
+    expect(renderMarkdown(root, {}, {}, undefined, options)).toBe(
+      defaultHtml.replace(
+        'class="yozora-markdown"',
+        'class="yozora-markdown mx-auto [&amp;_h2]:text-sm dark:text-slate-100"',
+      ),
+    )
+    expect(renderMarkdown(root, {}, {}, undefined, { className: '' })).toBe(defaultHtml)
+  })
+
+  it('escapes root classes so they cannot inject attributes or elements', () => {
+    const root: Root = { type: 'root', children: [] }
+    const html = renderMarkdown(root, {}, {}, undefined, {
+      className: 'custom" onclick="alert(1)"><script>&',
+    })
+    expect(html).toContain(
+      '<section class="yozora-markdown custom&quot; onclick=&quot;alert(1)&quot;&gt;&lt;script&gt;&amp;">',
+    )
+    expect(html).not.toContain('<script>')
+  })
+
   it('renders an empty document with its main and footer containers', () => {
     const root: Root = { type: 'root', children: [] }
     expect(renderMarkdown(root, {}, {})).toBe(

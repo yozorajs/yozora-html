@@ -1,0 +1,48 @@
+/* Match Tailwind v4's layer order even when this entry is imported first. */
+@layer theme, base, components, utilities;
+@import './index.css' layer(components);
+
+/* Tailwind resolves host theme tokens and prefixes; the host owns dark-mode selection. */
+@layer components {
+  .yozora-markdown {
+    --yozora__font-family: --theme(--font-sans, ui-sans-serif, system-ui, sans-serif);
+    --yozora__heading-font-family: --theme(--font-sans, ui-sans-serif, system-ui, sans-serif);
+    --yozora__code-font-family: --theme(--font-mono, ui-monospace, monospace);
+    --yozora__margin-block-node: 0 0 calc(--theme(--spacing, 0.25rem) * 5);
+    --yozora__color-bg-primary: --theme(--color-white, #fff);
+    --yozora__color-bg-secondary: --theme(--color-slate-50, #f8fafc);
+    --yozora__color-bg-tertiary: --theme(--color-slate-100, #f1f5f9);
+    --yozora__color-text-primary: --theme(--color-slate-800, #1e293b);
+    --yozora__color-text-secondary: --theme(--color-slate-600, #475569);
+    --yozora__color-text-tertiary: --theme(--color-slate-500, #64748b);
+    --yozora__color-border-primary: --theme(--color-slate-200, #e2e8f0);
+    --yozora__color-border-secondary: --theme(--color-slate-200, #e2e8f0);
+    --yozora__color-border-tertiary: --theme(--color-slate-300, #cbd5e1);
+    --yozora__link-color: --theme(--color-blue-600, #2563eb);
+    --yozora__link-color-hover: --theme(--color-blue-500, #3b82f6);
+    --yozora__link-color-active: --theme(--color-blue-700, #1d4ed8);
+    --yozora__blockquote-color-bg: var(--yozora__color-bg-secondary);
+    --yozora__blockquote-color-border: var(--yozora__color-border-primary);
+    --yozora__code-bg-primary: var(--yozora__color-bg-tertiary);
+    --yozora__inline-code-bg: var(--yozora__color-bg-tertiary);
+    --yozora__inline-code-color: --theme(--color-rose-600, #e11d48);
+    --yozora__delete-color: var(--yozora__color-text-tertiary);
+    --yozora__image-color-border: var(--yozora__color-border-primary);
+    --yozora__image-color-title: var(--yozora__color-text-tertiary);
+    --yozora__math-color: var(--yozora__link-color);
+    --yozora__table-bg-thead: var(--yozora__color-bg-tertiary);
+    --yozora__table-bg-row-odd: var(--yozora__color-bg-primary);
+    --yozora__table-bg-row-even: var(--yozora__color-bg-secondary);
+    --yozora__table-color-border: var(--yozora__color-border-primary);
+    --yozora__admonition-note-color-border: --theme(--color-slate-400, #94a3b8);
+    --yozora__admonition-note-bg: var(--yozora__color-bg-secondary);
+    --yozora__admonition-info-color-border: --theme(--color-sky-500, #0ea5e9);
+    --yozora__admonition-info-bg: --theme(--color-sky-50, #f0f9ff);
+    --yozora__admonition-tip-color-border: --theme(--color-green-600, #16a34a);
+    --yozora__admonition-tip-bg: --theme(--color-green-50, #f0fdf4);
+    --yozora__admonition-caution-color-border: --theme(--color-amber-600, #d97706);
+    --yozora__admonition-caution-bg: --theme(--color-amber-50, #fffbeb);
+    --yozora__admonition-danger-color-border: --theme(--color-red-600, #dc2626);
+    --yozora__admonition-danger-bg: --theme(--color-red-50, #fef2f2);
+  }
+}

@@ -53,6 +53,14 @@ See https://yozora.guanghechen.com for details.
 
 Use [@yozora/html-markdown][] to render the [Root][yozora/ast__root] of Yozora ast.
 
+The Markdown package provides optional standalone CSS and a Tailwind CSS v4 integration.
+See its [styling and Tailwind guide](packages/html-markdown/README.md#styles) for CSS imports,
+root classes, theme variables and dark mode.
+
+Run `pnpm demo` to inspect both styles in the private [demo application](packages/demo/README.md).
+It includes light/dark themes, Tailwind utility overrides and a narrow-column preview using
+the same sample document. `pnpm build` also builds the demo for production.
+
 ## Development
 
 Use pnpm with Node.js 22.22.1+, 24.11.0+ or 26.x. CI selects pnpm 12.3.4 explicitly,
@@ -72,16 +80,18 @@ Run `pnpm format` to apply Biome formatting, import organization, and safe lint 
 hook applies Biome to staged JavaScript, TypeScript, and JSON files. Markdown, YAML, CSS,
 fixtures, and generated output are outside the formatting scope.
 
-tsdown builds each workspace package in dependency order. ESM, CJS and bundled TypeScript
+tsdown builds each renderer package in dependency order; Vite then builds the private demo.
+ESM, CJS and bundled TypeScript
 declarations retain their existing `lib/` entrypoints. `pnpm build:production` omits source
 maps; verify those outputs with `pnpm test:build --no-sourcemap`. Each build removes
 the previous `lib/` output. Dependencies and peer dependencies remain external.
 Type checking uses TypeScript 7; tsdown generates declarations with its `tsgo` backend.
 Tests use Vitest; run `pnpm test:update` to update snapshots intentionally.
 
-Tests live in each package's `__test__/` directory, split into module-focused `*.spec.ts`
+Library tests live in each package's `__test__/` directory, split into module-focused `*.spec.ts`
 files. Fixtures and snapshots stay alongside the tests. `pnpm test:coverage` runs all three
 packages and enforces 100% statements, branches, functions and lines coverage per package.
+It also runs the demo's CSS integration tests against the built public entrypoints.
 
 Test guides: [core renderer](packages/core-html-renderer/__test__/README.md),
 [admonitions](packages/html-admonition/__test__/README.md),

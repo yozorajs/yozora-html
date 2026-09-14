@@ -19,13 +19,17 @@ const { values } = parseArgs({
 for (const entry of fs.readdirSync(path.join(workspaceRoot, 'packages'))) {
   const directory = path.join(workspaceRoot, 'packages', entry)
   const manifest = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8'))
+  if (manifest.private) continue
   const outputDirectory = path.join(directory, 'lib')
+  const entrypoints = manifest.exports['.'] ?? manifest.exports
+  const stylesheets = Object.entries(manifest.exports).filter(([key]) => key.endsWith('.css'))
 
   if (values.sourcemap !== undefined) {
-    const expectedFiles = Object.values(manifest.exports).map(file =>
-      path.relative(outputDirectory, path.join(directory, file)),
+    const expectedFiles = Array.from(
+      new Set([...Object.values(entrypoints), ...stylesheets.map(([, file]) => file)]),
+      file => path.relative(outputDirectory, path.join(directory, file)),
     )
-    for (const file of [manifest.exports.import, manifest.exports.require]) {
+    for (const file of [entrypoints.import, entrypoints.require]) {
       const filename = path.join(directory, file)
       const content = fs.readFileSync(filename, 'utf8')
       assert.equal(content.includes('sourceMappingURL='), values.sourcemap, filename)
@@ -47,14 +51,23 @@ for (const entry of fs.readdirSync(path.join(workspaceRoot, 'packages'))) {
     const runtimeConsumer = path.join(consumerDirectory, 'index.mjs')
     fs.writeFileSync(
       runtimeConsumer,
-      `import * as api from '${manifest.name}'\nexport default api\n`,
+      `import * as api from '${manifest.name}'\nexport default api\n` +
+        'export const resolve = specifier => import.meta.resolve(specifier)\n',
     )
-    const { default: esm } = await import(pathToFileURL(runtimeConsumer).href)
-    const cjs = createRequire(path.join(directory, 'package.json'))(manifest.name)
+    const { default: esm, resolve } = await import(pathToFileURL(runtimeConsumer).href)
+    const consumerRequire = createRequire(path.join(directory, 'package.json'))
+    const cjs = consumerRequire(manifest.name)
     const exportedNames = Object.keys(esm).sort()
     assert.ok(exportedNames.length > 0, `${manifest.name}: missing exports`)
     assert.deepEqual(exportedNames, Object.keys(cjs).sort(), manifest.name)
-    assert.ok(fs.statSync(path.join(directory, manifest.exports.types)).size > 0, manifest.name)
+    assert.ok(fs.statSync(path.join(directory, entrypoints.types)).size > 0, manifest.name)
+    for (const [subpath, file] of stylesheets) {
+      const specifier = `${manifest.name}${subpath.slice(1)}`
+      const filename = path.join(directory, file)
+      assert.equal(consumerRequire.resolve(specifier), filename, specifier)
+      assert.equal(resolve(specifier), pathToFileURL(filename).href, specifier)
+      assert.ok(fs.statSync(filename).size > 0, specifier)
+    }
 
     const consumers = ['mts', 'cts'].map(extension => {
       const filename = path.join(consumerDirectory, `index.${extension}`)
@@ -89,8 +102,24 @@ for (const entry of fs.readdirSync(path.join(workspaceRoot, 'packages'))) {
       assert.ok(html.includes('<span class="yozora-text">Build verification</span>'))
       assert.equal(esm.default, esm.renderMarkdown)
       assert.equal(cjs.default, cjs.renderMarkdown)
+      const options = { className: 'mx-auto [&_h2]:text-sm' }
+      const customized = esm.renderMarkdown(root, {}, {}, undefined, options)
+      assert.equal(cjs.renderMarkdown(root, {}, {}, undefined, options), customized)
+      assert.ok(
+        customized.startsWith('<section class="yozora-markdown mx-auto [&amp;_h2]:text-sm">'),
+      )
+      for (const [source, output] of [
+        ['style.css', 'index.css'],
+        ['tailwind.css', 'tailwind.css'],
+      ]) {
+        assert.equal(
+          fs.readFileSync(path.join(outputDirectory, output), 'utf8'),
+          fs.readFileSync(path.join(directory, 'src', source), 'utf8'),
+          `${manifest.name}: ${output}`,
+        )
+      }
     }
-    console.log(`Verified ESM, CJS and declarations: ${manifest.name}`)
+    console.log(`Verified ESM, CJS, declarations and CSS exports: ${manifest.name}`)
   } finally {
     fs.rmSync(consumerDirectory, { recursive: true, force: true })
   }

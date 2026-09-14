@@ -69,35 +69,117 @@ produced by [@yozora/parser][] into HTML string.
 
 ## Usage
 
-* Basic:
+```typescript
+import type { Root } from '@yozora/ast'
+import { renderMarkdown } from '@yozora/html-markdown'
+import '@yozora/html-markdown/style.css'
 
-  ```typescript
-  import type { Root } from '@yozora/ast'
-  import { renderMarkdown, defaultRendererMap } from '@yozora/html-markdown'
-  import '@yozora/html-markdown/lib/index.css'  // load preset styles.
+const paragraph = {
+  type: 'paragraph',
+  children: [{ type: 'text', value: 'yozora is cool!' }],
+}
+const root: Root = { type: 'root', children: [paragraph] }
 
-  const root = {
-    "type": "root",
-    "children": [
-      {
-        "type": "markdown",
-        "children": [
-          {
-            "type": "text",
-            "value": "yozora is cool!"
-          }
-        ]
-      }
-    ]
+const html = renderMarkdown(root, {}, {})
+```
+
+The output is a `section.yozora-markdown` containing `main` and `footer` elements.
+The optional fourth argument is a renderer map. The optional fifth argument accepts
+`IRenderMarkdownOptions`: `className` adds HTML-escaped classes to the root section,
+preserving `yozora-markdown`. Pass `undefined` for the fourth argument to use the default
+renderers with custom classes.
+
+### Styles
+
+JavaScript imports do not load CSS. Choose one stylesheet in your application:
+
+* `@yozora/html-markdown/style.css`: standalone default styles, with no Tailwind dependency.
+  The previously documented `@yozora/html-markdown/lib/index.css` is an alias for this file.
+* `@yozora/html-markdown/tailwind.css`: default styles in Tailwind v4's `components` layer,
+  followed by mappings to the host's theme variables. Process this entry with Tailwind v4;
+  its `--theme(...)` references are resolved at build time. It adds no JavaScript or Tailwind
+  runtime dependency. Use `style.css` for direct browser loading without a Tailwind build.
+
+Do not load both entries: the unlayered standalone styles would override normal layered
+utilities. Colors, fonts and spacing are customizable through `--yozora__*` CSS variables
+on `.yozora-markdown`; setting variables only on an ancestor does not override defaults
+declared on the section itself. Syntax highlighting colors require a separate Prism theme.
+Admonition headings inherit the block's text color independently of the border color.
+Override `--yozora__admonition-heading-color` to customize their foreground color.
+
+### Tailwind CSS v4
+
+In an application that already builds Tailwind v4, add these imports to its CSS entry:
+
+```css
+@import 'tailwindcss';
+@import '@yozora/html-markdown/tailwind.css';
+```
+
+The integration declares the order `theme, base, components, utilities`. Preflight runs
+before the component styles; lists explicitly retain their markers, and utilities can
+override component declarations regardless of their selector specificity. The adapter maps
+Tailwind's `--font-sans`, `--font-mono`, `--spacing` and palette variables to Yozora tokens,
+with fallback values for missing tokens. It does not include Preflight or utilities itself.
+Theme references also follow a configured prefix, such as `@import 'tailwindcss' prefix(tw)`;
+compiled mappings retain `var(--tw-...)` references so host variables can still change at runtime.
+When writing additional host CSS, use its prefixed variable names (for example,
+`var(--tw-color-indigo-600)`) and prefix utility classes according to the Tailwind configuration.
+
+Pass complete, statically discoverable class names from your application source:
+
+```typescript
+const html = renderMarkdown(root, {}, {}, undefined, {
+  className: 'mx-auto max-w-3xl px-4 [&_h2]:text-xl [&_a]:underline',
+})
+```
+
+Tailwind must scan the file containing these strings. It does not discover classes from
+runtime-generated HTML or expressions such as `text-${size}`. Use complete literal class
+maps; when the source is outside Tailwind's detected paths, register it with `@source` in
+the application CSS. The package's semantic `yozora-*` classes need no source registration.
+
+The host controls its theme and dark-mode trigger. For example, place these rules after the
+imports to use an ancestor or root `.dark` class and your Tailwind palette:
+
+```css
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  .yozora-markdown {
+    --yozora__link-color: var(--color-indigo-600);
+    --yozora__link-color-hover: var(--color-indigo-500);
+
+    @variant dark {
+      --yozora__color-bg-primary: var(--color-slate-950);
+      --yozora__color-bg-secondary: var(--color-slate-900);
+      --yozora__color-bg-tertiary: var(--color-slate-800);
+      --yozora__color-text-primary: var(--color-slate-200);
+      --yozora__color-text-secondary: var(--color-slate-300);
+      --yozora__color-text-tertiary: var(--color-slate-400);
+      --yozora__color-border-primary: var(--color-slate-700);
+      --yozora__color-border-secondary: var(--color-slate-700);
+      --yozora__color-border-tertiary: var(--color-slate-600);
+      --yozora__link-color: var(--color-indigo-400);
+      --yozora__link-color-hover: var(--color-indigo-300);
+      --yozora__inline-code-color: var(--color-rose-400);
+      --yozora__admonition-info-bg: var(--color-sky-950);
+      --yozora__admonition-tip-bg: var(--color-green-950);
+      --yozora__admonition-caution-bg: var(--color-amber-950);
+      --yozora__admonition-danger-bg: var(--color-red-950);
+    }
   }
-  renderMarkdown(
-    markdown as Root,
-    {}, // definitionMap
-    {}, // footnoteDefinitionMap
-    defaultRendererMap 
-  )
-  // => <markdown class="yozora-markdown"><span class="yozora-text">yozora is cool!</span></markdown>
-  ```
+}
+```
+
+The host supplies the page background. Blockquotes, code blocks and tables follow the
+shared background tokens. This example uses the application's `dark` variant; the adapter
+does not select a dark-mode strategy or require the legacy `yozora-markdown--darken` class.
+
+If your application uses `@tailwindcss/typography`, you can instead omit both Yozora stylesheets
+and set `className: 'prose dark:prose-invert'`. Typography handles standard Markdown elements;
+provide your own styles for Yozora's admonitions, math and footnote layout. Avoid combining
+both full typography presets unless you explicitly manage their overlapping rules.
 
 ## Footnotes
 

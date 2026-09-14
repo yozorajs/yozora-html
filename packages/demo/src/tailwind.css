@@ -1,0 +1,9 @@
+@import 'tailwindcss' source(none);
+@import '@yozora/html-markdown/tailwind.css';
+@import './theme.css' layer(components);
+@source './main.ts';
+
+@theme {
+  --font-sans: system-ui, -apple-system, 'PingFang SC', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+}

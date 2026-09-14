@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## Unreleased
+
+* Export standalone CSS and a Tailwind CSS v4 entry with component layers and host theme tokens.
+* Support additional, HTML-escaped root classes through optional render options.
+* Preserve list markers under Preflight, style rendered code blocks and match success/warning admonitions.
+* Resolve prefixed Tailwind theme tokens, separate admonition heading colors from borders, and avoid duplicate footnote punctuation.
+
 ## 2.0.0-alpha.13 (2026-09-11)
 
 * Render mapped footnote definitions once in the footer with unique reference IDs and complete backlinks.

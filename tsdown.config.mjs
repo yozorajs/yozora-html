@@ -52,5 +52,12 @@ export default defineConfig([
       sourcemap: false,
       compilerOptions: { declarationMap: false },
     },
+    copy:
+      manifest.name === '@yozora/html-markdown'
+        ? [
+            { from: 'src/style.css', to: 'lib', rename: 'index.css' },
+            { from: 'src/tailwind.css', to: 'lib' },
+          ]
+        : [],
   },
 ])

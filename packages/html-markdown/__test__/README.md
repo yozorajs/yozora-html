@@ -5,7 +5,7 @@
 | File | Focus |
 | --- | --- |
 | [markdown.spec.ts](markdown.spec.ts) | Complete AST rendering, extension integration and the existing HTML snapshot |
-| [renderMarkdown.spec.ts](renderMarkdown.spec.ts) | Empty documents, custom renderers, references and context integration |
+| [renderMarkdown.spec.ts](renderMarkdown.spec.ts) | Root classes and attribute escaping, empty documents, custom renderers, references and context integration |
 | [footnotes/render.spec.ts](footnotes/render.spec.ts) | Reference identifier encoding, labels and definition output |
 | [footnotes/document.spec.ts](footnotes/document.spec.ts) | Reference precomputation, cross-footnote links, delegated renderers, HTML post-processing and failure isolation |
 | [math.spec.ts](math.spec.ts) | Block/inline math and empty values |

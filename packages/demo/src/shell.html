@@ -1,0 +1,52 @@
+<header class="demo-topbar">
+  <a class="demo-brand" href="./index.html"><span class="demo-mark" aria-hidden="true">y.</span> Yozora HTML</a>
+  <span class="demo-caption">Markdown rendering / Live preview</span>
+  <a class="demo-source" href="https://github.com/yozorajs/yozora-html">GitHub ↗</a>
+</header>
+
+<div class="demo-intro">
+  <p class="demo-eyebrow">THE READING ROOM</p>
+  <h1 class="demo-title">内容相同，风格由你。</h1>
+  <p class="demo-description">在真实内容中检查排版、主题和样式覆盖。每一次调整，都有看得见的结果。</p>
+</div>
+
+<div class="demo-toolbar" aria-label="预览设置">
+  <nav class="demo-tabs" aria-label="样式方案">
+    <a href="./index.html" data-mode-link="tailwind">Tailwind CSS</a>
+    <a href="./standalone.html" data-mode-link="standalone">Standalone CSS</a>
+  </nav>
+  <div class="demo-controls">
+    <button type="button" id="utilities-toggle" aria-pressed="false" data-tailwind-only>Utilities 覆盖</button>
+    <button type="button" id="theme-toggle" aria-pressed="false">深色主题</button>
+    <button type="button" id="width-toggle" aria-pressed="false">窄栏预览</button>
+  </div>
+</div>
+
+<div class="demo-workspace">
+  <aside class="demo-sidebar" aria-label="示例说明">
+    <p class="demo-eyebrow">PREVIEW NOTES</p>
+    <h2 class="demo-side-title">一份完整的阅读样本</h2>
+    <p>标题、正文、列表、代码、表格、五种提示块，以及图片、公式和重复脚注。</p>
+    <div class="demo-rule"></div>
+    <p class="demo-side-label">当前样式</p>
+    <strong id="mode-label">Tailwind CSS</strong>
+    <p id="mode-description">启用 Preflight，组件样式位于 components layer。</p>
+    <div data-tailwind-only>
+      <p class="demo-side-label">试着打开 Utilities 覆盖</p>
+      <p>观察二级标题变小、链接出现下划线、引用边框消失。</p>
+    </div>
+    <details class="demo-details">
+      <summary>根元素 class</summary>
+      <code id="root-classes"></code>
+    </details>
+    <p class="demo-side-note">窄栏只调整内容宽度。检查响应式断点时，请同时缩小浏览器窗口。</p>
+  </aside>
+  <div class="demo-stage">
+    <div class="demo-paper">
+      <div class="demo-paper-meta"><span>YOZORA / FIELD NOTES</span><span>中文 · English</span></div>
+      <!--demo-document-->
+    </div>
+  </div>
+</div>
+
+<footer class="demo-bottom">Yozora HTML <span>以真实内容，校准每一处细节。</span></footer>

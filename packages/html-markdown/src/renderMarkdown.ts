@@ -1,15 +1,22 @@
 import type { Definition, FootnoteDefinition, Root } from '@yozora/ast'
 import { FootnoteDefinitionType } from '@yozora/ast'
+import { escapeAttribute } from '@yozora/core-html-renderer'
 import { footnoteContext } from './renderer/footnote/context'
 import { renderFootnoteDefinitions } from './renderer/footnote/render'
 import type { INodeRendererMap } from './rendererMap'
 import { createNodesRendererContext, defaultRendererMap } from './rendererMap'
+
+export interface IRenderMarkdownOptions {
+  /** Additional classes for the root section; preserves the yozora-markdown class. */
+  readonly className?: string
+}
 
 export function renderMarkdown(
   ast: Root,
   definitionMap: Record<string, Definition>,
   footnoteDefinitionMap: Record<string, FootnoteDefinition>,
   rendererMap: INodeRendererMap = defaultRendererMap,
+  options: IRenderMarkdownOptions = {},
 ): string {
   const context = createNodesRendererContext(definitionMap, footnoteDefinitionMap, rendererMap)
   const renderChildren = context.renderChildren
@@ -20,5 +27,8 @@ export function renderMarkdown(
   footnoteContext(context).prepareDocument(ast.children, definitions)
   const children = context.renderChildren(ast.children)
   const footnotes = renderFootnoteDefinitions(definitions, context, node => renderChildren([node]))
-  return `<section class="yozora-markdown"><main>${children}</main><footer>${footnotes}</footer></section>`
+  const className = options.className
+    ? `yozora-markdown ${escapeAttribute(options.className)}`
+    : 'yozora-markdown'
+  return `<section class="${className}"><main>${children}</main><footer>${footnotes}</footer></section>`
 }

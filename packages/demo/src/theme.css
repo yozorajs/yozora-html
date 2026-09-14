@@ -1,0 +1,61 @@
+/* The demo host owns dark-mode selection and the colors of its content surfaces. */
+.yozora-markdown {
+  --yozora__math-color: var(--yozora__color-text-primary);
+}
+
+.yozora-markdown .yozora-inline-math,
+.yozora-markdown .yozora-math {
+  font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.yozora-markdown .yozora-inline-math {
+  font-size: 1.1em;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.yozora-markdown .yozora-image + .yozora-paragraph {
+  margin-top: 1.25rem;
+}
+
+.yozora-markdown .yozora-math,
+.yozora-markdown .yozora-paragraph + .yozora-math {
+  padding: 1rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.dark .yozora-markdown {
+  --yozora__color-bg-primary: var(--color-slate-950, #020617);
+  --yozora__color-bg-secondary: var(--color-slate-900, #0f172a);
+  --yozora__color-bg-tertiary: var(--color-slate-800, #1e293b);
+  --yozora__color-text-primary: var(--color-slate-200, #e2e8f0);
+  --yozora__color-text-secondary: var(--color-slate-300, #cbd5e1);
+  --yozora__color-text-tertiary: var(--color-slate-400, #94a3b8);
+  --yozora__color-border-primary: var(--color-slate-700, #334155);
+  --yozora__color-border-secondary: var(--color-slate-700, #334155);
+  --yozora__color-border-tertiary: var(--color-slate-600, #475569);
+  --yozora__link-color: var(--color-indigo-400, #818cf8);
+  --yozora__link-color-hover: var(--color-indigo-300, #a5b4fc);
+  --yozora__blockquote-color-bg: var(--yozora__color-bg-secondary);
+  --yozora__blockquote-color-border: var(--yozora__color-border-primary);
+  --yozora__code-bg-primary: var(--yozora__color-bg-tertiary);
+  --yozora__inline-code-bg: var(--yozora__color-bg-tertiary);
+  --yozora__inline-code-color: var(--color-rose-400, #fb7185);
+  --yozora__image-color-border: var(--yozora__color-border-primary);
+  --yozora__image-color-title: var(--yozora__color-text-tertiary);
+  --yozora__math-color: var(--yozora__color-text-primary);
+  --yozora__table-bg-thead: var(--yozora__color-bg-tertiary);
+  --yozora__table-bg-row-odd: var(--yozora__color-bg-primary);
+  --yozora__table-bg-row-even: var(--yozora__color-bg-secondary);
+  --yozora__table-color-border: var(--yozora__color-border-primary);
+  --yozora__admonition-note-bg: var(--yozora__color-bg-secondary);
+  --yozora__admonition-info-bg: var(--color-sky-950, #082f49);
+  --yozora__admonition-tip-bg: var(--color-green-950, #052e16);
+  --yozora__admonition-caution-bg: var(--color-amber-950, #451a03);
+  --yozora__admonition-danger-bg: var(--color-red-950, #450a0a);
+}
