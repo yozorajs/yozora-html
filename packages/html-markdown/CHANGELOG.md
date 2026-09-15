@@ -5,6 +5,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## Unreleased
 
+* Restrict table alignment to left/right/center and ignore inherited alignment entries to prevent HTML attribute injection after prototype pollution.
+* Correct link and link-reference `rel` tokens so `noopener` and `noreferrer` are recognized by browsers.
 * Sanitize Prism output with a `span`/`class` allowlist before inserting highlighted code, including markup emitted by custom hooks and grammars.
 * Style code blocks as bordered cards with a language toolbar, decorative dots, line numbers and scoped syntax colors. The outer `.yozora-code` is now a `div`; use `.yozora-code__pre` to target the scrollable `pre`.
 * Register TypeScript/ts highlighting through the existing Prism dependency while preserving plain-text fallback and code whitespace.

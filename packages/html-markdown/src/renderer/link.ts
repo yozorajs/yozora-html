@@ -13,5 +13,5 @@ export const renderLink: INodeRenderer<Link> = (node, context) => {
   const url: string = escapeAttribute(sanitizeUrl(node.url))
   const title: string = escapeAttribute(node.title || node.url)
   const children: string = context.renderChildren(node.children)
-  return `<a class="yozora-link" href="${url}" title="${title}" target="_blank" rel="noopener,noreferrer">${children}</a>`
+  return `<a class="yozora-link" href="${url}" title="${title}" target="_blank" rel="noopener noreferrer">${children}</a>`
 }

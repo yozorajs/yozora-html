@@ -35,7 +35,7 @@ describe('attribute escaping', () => {
   it('escapes query separators once and protects URL attribute quotes', () => {
     const url = '/search?q="hello"&page=1'
     expect(render({ type: 'link', url, children: [] })).toBe(
-      '<a class="yozora-link" href="/search?q=&quot;hello&quot;&amp;page=1" title="/search?q=&quot;hello&quot;&amp;page=1" target="_blank" rel="noopener,noreferrer"></a>',
+      '<a class="yozora-link" href="/search?q=&quot;hello&quot;&amp;page=1" title="/search?q=&quot;hello&quot;&amp;page=1" target="_blank" rel="noopener noreferrer"></a>',
     )
   })
 })

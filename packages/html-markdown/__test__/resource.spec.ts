@@ -7,7 +7,7 @@ describe('link and image renderers', () => {
   it.each([undefined, '', '<b>Title</b>'])('renders links with title %j', title => {
     const expectedTitle = title ? '&lt;b&gt;Title&lt;/b&gt;' : '/target'
     expect(render({ type: 'link', url: '/target', title, children: [text('label')] })).toBe(
-      `<a class="yozora-link" href="/target" title="${expectedTitle}" target="_blank" rel="noopener,noreferrer"><span class="yozora-text">label</span></a>`,
+      `<a class="yozora-link" href="/target" title="${expectedTitle}" target="_blank" rel="noopener noreferrer"><span class="yozora-text">label</span></a>`,
     )
   })
 
@@ -56,7 +56,7 @@ describe('reference renderers', () => {
       alt: '<b>Accessible description</b>',
     }
     expect(context.renderChildren([link])).toBe(
-      `<a class="yozora-link" href="/target" title="${title ? '&lt;b&gt;Title&lt;/b&gt;' : '/target'}" target="_blank" rel="noopener,noreferrer"><span class="yozora-text">label</span></a>`,
+      `<a class="yozora-link" href="/target" title="${title ? '&lt;b&gt;Title&lt;/b&gt;' : '/target'}" target="_blank" rel="noopener noreferrer"><span class="yozora-text">label</span></a>`,
     )
     expect(context.renderChildren([image])).toBe(
       `<img class="yozora-image" alt="&lt;b&gt;Accessible description&lt;/b&gt;" src="/target" title="${title ? '&lt;b&gt;Title&lt;/b&gt;' : '&lt;b&gt;Accessible description&lt;/b&gt;'}" />`,
